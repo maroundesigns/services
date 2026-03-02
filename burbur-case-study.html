@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BUR BUR Case Study &mdash; Maroun Designs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #080808; --off-black: #111111; --cream: #F5F0EB; --gold: #C9A84C;
+      --muted: rgba(245,240,235,0.45); --border: rgba(245,240,235,0.1);
+      --brand: #1a0e06; --brand-accent: #c87941;
+      --font-display: 'Playfair Display', serif; --font-mono: 'DM Mono', monospace; --font-light: 'Cormorant Garamond', serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--cream); font-family: var(--font-mono); font-size: 14px; line-height: 1.6; cursor: none; overflow-x: hidden; }
+    ::selection { background: var(--gold); color: var(--black); }
+    #cursor { position: fixed; width: 10px; height: 10px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width .25s, height .25s; will-change: left,top; }
+    #cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(201,168,76,.5); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width .25s, height .25s, opacity .25s; will-change: left,top; }
+    body.ch #cursor { width: 20px; height: 20px; } body.ch #cursor-ring { width: 56px; height: 56px; opacity: .4; }
+    ::-webkit-scrollbar { width: 3px; } ::-webkit-scrollbar-track { background: var(--black); } ::-webkit-scrollbar-thumb { background: var(--gold); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; justify-content: space-between; align-items: center; padding: 28px 48px; transition: background .4s, border-bottom .4s; }
+    nav.scrolled { background: rgba(8,8,8,.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--cream); text-decoration: none; letter-spacing: .05em; }
+    .nav-back { color: var(--muted); text-decoration: none; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; transition: color .3s; display: flex; align-items: center; gap: 10px; }
+    .nav-back:hover { color: var(--gold); } .nav-back svg { transition: transform .3s; } .nav-back:hover svg { transform: translateX(-4px); }
+    .cs-hero { min-height: 80vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 48px 80px; position: relative; overflow: hidden; background: var(--brand); }
+    .cs-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 40% 40%, rgba(200,121,65,.08) 0%, transparent 60%); }
+    .cs-hero-label { font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; opacity: 0; animation: fadeUp .7s ease .2s forwards; }
+    .cs-hero-brand { font-family: var(--font-display); font-size: clamp(60px,10vw,140px); font-weight: 900; line-height: .85; letter-spacing: -.04em; color: rgba(245,240,235,.05); position: absolute; bottom: 60px; right: 48px; pointer-events: none; }
+    .cs-hero-title { font-family: var(--font-display); font-size: clamp(44px,6vw,80px); font-weight: 700; line-height: 1; letter-spacing: -.02em; max-width: 700px; opacity: 0; animation: fadeUp .9s ease .4s forwards; }
+    .cs-hero-title em { font-style: italic; font-weight: 400; color: var(--gold); }
+    .cs-hero-meta { display: flex; gap: 48px; margin-top: 40px; opacity: 0; animation: fadeUp .9s ease .6s forwards; flex-wrap: wrap; }
+    .cs-hero-meta-item label { display: block; font-size: 9px; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .cs-hero-meta-item span { font-family: var(--font-light); font-size: 16px; font-weight: 300; color: var(--muted); }
+    .cs-section { padding: 100px 48px; } .cs-section + .cs-section { border-top: 1px solid var(--border); } .cs-section.dark { background: var(--off-black); }
+    .cs-label { font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+    .cs-label::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--gold); opacity: .4; }
+    .cs-heading { font-family: var(--font-display); font-size: clamp(32px,4vw,56px); font-weight: 700; line-height: 1.05; letter-spacing: -.02em; margin-bottom: 32px; }
+    .cs-heading em { font-style: italic; color: var(--gold); }
+    .cs-body { font-family: var(--font-light); font-size: 20px; font-weight: 300; color: var(--muted); line-height: 1.8; max-width: 680px; }
+    .cs-body p + p { margin-top: 20px; }
+    .cs-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .cs-two-col.flip { direction: rtl; } .cs-two-col.flip > * { direction: ltr; }
+    .cs-media { position: relative; background: var(--brand); overflow: hidden; }
+    .cs-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .cs-media-label { position: absolute; bottom: 16px; left: 16px; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); background: rgba(8,8,8,.7); padding: 6px 12px; backdrop-filter: blur(4px); border: 1px solid rgba(245,240,235,.1); }
+    .cs-pieces { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin-top: 64px; }
+    .cs-piece { background: var(--brand); } .cs-piece-info { padding: 20px; border-top: 1px solid var(--border); }
+    .cs-piece-num { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .cs-piece-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; }
+    .cs-piece-desc { font-size: 11px; color: var(--muted); margin-top: 6px; line-height: 1.6; }
+    .cs-funnel { display: flex; align-items: stretch; gap: 0; margin-top: 48px; }
+    .cs-funnel-step { flex: 1; padding: 32px 28px; border: 1px solid var(--border); position: relative; }
+    .cs-funnel-step + .cs-funnel-step { border-left: none; }
+    .cs-funnel-step::after { content: ''; position: absolute; right: -18px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-left: 10px solid var(--border); z-index: 1; }
+    .cs-funnel-step:last-child::after { display: none; }
+    .cs-funnel-num { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .cs-funnel-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .cs-funnel-desc { font-size: 12px; color: var(--muted); line-height: 1.7; }
+    .cs-funnel-piece { font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); opacity: .7; }
+    .cs-specs { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+    .cs-spec { padding: 8px 16px; border: 1px solid var(--border); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+    .cs-table { width: 100%; border-collapse: collapse; margin-top: 32px; }
+    .cs-table td { padding: 20px 24px; border: 1px solid var(--border); font-size: 12px; vertical-align: top; }
+    .cs-table td:first-child { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); width: 30%; }
+    .cs-table td:last-child { font-family: var(--font-light); font-size: 16px; color: var(--muted); }
+    .cs-disclaimer { background: rgba(201,168,76,.06); border: 1px solid rgba(201,168,76,.2); padding: 20px 28px; display: flex; gap: 16px; align-items: flex-start; margin-top: 64px; }
+    .cs-disclaimer-icon { color: var(--gold); font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+    .cs-disclaimer-text { font-size: 12px; color: var(--muted); line-height: 1.7; }
+    .cs-cta-section { background: var(--off-black); border-top: 1px solid var(--border); padding: 100px 48px; text-align: center; }
+    .cs-cta-title { font-family: var(--font-display); font-size: clamp(36px,5vw,64px); font-weight: 700; line-height: 1; letter-spacing: -.02em; margin-bottom: 24px; }
+    .cs-cta-title em { font-style: italic; color: var(--gold); }
+    .cs-cta-sub { font-family: var(--font-light); font-size: 18px; color: var(--muted); margin-bottom: 48px; }
+    .cs-cta-btns { display: flex; flex-direction: column; align-items: center; }
+    .cs-cta-btn { display: inline-flex; align-items: center; gap: 14px; background: var(--gold); color: var(--black); text-decoration: none; padding: 20px 48px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; font-weight: 500; position: relative; overflow: hidden; cursor: none; }
+    .cs-cta-btn::after { content: ''; position: absolute; inset: 0; background: var(--cream); transform: translateY(101%); transition: transform .3s; }
+    .cs-cta-btn:hover::after { transform: translateY(0); } .cs-cta-btn > * { position: relative; z-index: 1; }
+    .cs-cta-btn-secondary { display: inline-flex; align-items: center; gap: 14px; background: none; color: var(--gold); text-decoration: none; padding: 18px 48px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; font-weight: 500; border: 1px solid var(--gold); margin-top: 16px; position: relative; overflow: hidden; cursor: none; transition: color .3s; }
+    .cs-cta-btn-secondary::after { content: ''; position: absolute; inset: 0; background: var(--gold); transform: translateY(101%); transition: transform .3s; z-index: 0; }
+    .cs-cta-btn-secondary:hover { color: var(--black); } .cs-cta-btn-secondary:hover::after { transform: translateY(0); } .cs-cta-btn-secondary > * { position: relative; z-index: 1; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: .1s; } .reveal-delay-2 { transition-delay: .2s; } .reveal-delay-3 { transition-delay: .3s; }
+    footer { background: var(--black); border-top: 1px solid var(--border); padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-logo { font-family: var(--font-display); font-size: 16px; font-weight: 700; } .footer-copy { font-size: 11px; color: var(--muted); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+    @media (max-width: 900px) {
+      nav { padding: 24px; } .cs-hero { padding: 0 24px 60px; } .cs-section { padding: 72px 24px; }
+      .cs-two-col { grid-template-columns: 1fr; gap: 40px; } .cs-two-col.flip { direction: ltr; }
+      .cs-pieces { grid-template-columns: 1fr; } .cs-funnel { flex-direction: column; }
+      .cs-funnel-step::after { display: none; } footer { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div id="cursor"></div><div id="cursor-ring"></div>
+  <nav id="main-nav">
+    <a href="index.html" class="nav-logo">MD.</a>
+    <a href="index.html#work" class="nav-back"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M11 7H3M3 7L7 3M3 7L7 11" stroke="currentColor" stroke-width="1.2"/></svg>Back to Portfolio</a>
+  </nav>
+
+  <div class="cs-hero">
+    <div class="cs-hero-bg"></div>
+    <div class="cs-hero-brand" aria-hidden="true">BUR BUR</div>
+    <p class="cs-hero-label">Case Study &mdash; Spec Work</p>
+    <h1 class="cs-hero-title">A bold brand with<br>its own <em>visual language.</em></h1>
+    <div class="cs-hero-meta">
+      <div class="cs-hero-meta-item"><label>Brand</label><span>BUR BUR</span></div>
+      <div class="cs-hero-meta-item"><label>Deliverables</label><span>2 pieces &mdash; 2 static</span></div>
+      <div class="cs-hero-meta-item"><label>Placement</label><span>Meta &mdash; Feed &amp; Stories</span></div>
+      <div class="cs-hero-meta-item"><label>Type</label><span>Spec / Self-initiated</span></div>
+    </div>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-two-col">
+      <div>
+        <p class="cs-label reveal">The Brief</p>
+        <h2 class="cs-heading reveal reveal-delay-1">Bold enough to<br>be <em>remembered.</em></h2>
+        <div class="cs-body reveal reveal-delay-2">
+          <p>BUR BUR is a brand that doesn&rsquo;t fit neatly into a category &mdash; and that&rsquo;s entirely the point. In a sea of clean minimal DTC brands, BUR BUR needed to stand out through personality and confidence, not polish.</p>
+          <p>The brief: create campaign creative with a visual language so distinct that you&rsquo;d recognize the brand before you read the name. Warm, bold, unmistakably BUR BUR.</p>
+        </div>
+        <div class="cs-specs reveal reveal-delay-3">
+          <span class="cs-spec">Bold Brand</span><span class="cs-spec">DTC</span><span class="cs-spec">Meta Paid Social</span><span class="cs-spec">Brand Awareness</span><span class="cs-spec">Personality-led</span>
+        </div>
+      </div>
+      <div class="cs-media reveal reveal-delay-2" style="aspect-ratio:4/5;">
+        <img src="images/BurBur/BurBur_Ad_Poster.png" alt="BUR BUR Ad Poster" loading="lazy">
+        <span class="cs-media-label">Ad Poster &mdash; Static</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-section dark">
+    <p class="cs-label reveal">The Strategy</p>
+    <h2 class="cs-heading reveal reveal-delay-1">Two statics.<br><em>One unmistakable voice.</em></h2>
+    <div class="cs-body reveal reveal-delay-2">
+      <p>Unlike brands that need motion to create energy, BUR BUR&rsquo;s personality is strong enough to carry two static pieces. The ad poster announces. The aesthetic campaign deepens. Together they establish a visual world consistent enough to build brand recall from static alone.</p>
+    </div>
+    <div class="cs-funnel reveal reveal-delay-2">
+      <div class="cs-funnel-step">
+        <p class="cs-funnel-num">Stage 01</p>
+        <h3 class="cs-funnel-title">Announce</h3>
+        <p class="cs-funnel-desc">The ad poster runs cold traffic. Bold composition, warm tones, confident layout. Designed to stop the scroll through sheer visual presence rather than clever copy or motion.</p>
+        <p class="cs-funnel-piece">Ad Poster &mdash; Feed Static</p>
+      </div>
+      <div class="cs-funnel-step">
+        <p class="cs-funnel-num">Stage 02</p>
+        <h3 class="cs-funnel-title">Deepen</h3>
+        <p class="cs-funnel-desc">The aesthetic campaign piece retargets warm audiences. Same palette, more atmosphere. By the second touchpoint the brand world is fully established and the viewer already knows what BUR BUR feels like.</p>
+        <p class="cs-funnel-piece">Aesthetic Campaign &mdash; Feed Static</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-section">
+    <p class="cs-label reveal">The Work</p>
+    <h2 class="cs-heading reveal reveal-delay-1">Warm, confident,<br><em>BUR BUR.</em></h2>
+    <div class="cs-pieces">
+      <div class="cs-piece reveal">
+        <div style="aspect-ratio:4/5;overflow:hidden;">
+          <img src="images/BurBur/BurBur_Ad_Poster.png" alt="BUR BUR Ad Poster" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="cs-piece-info">
+          <p class="cs-piece-num">01 &mdash; Static</p>
+          <h3 class="cs-piece-title">Ad Poster</h3>
+          <p class="cs-piece-desc">Feed static for Meta cold traffic. Rich warm tones, confident typographic layout. Designed to communicate brand personality in a single frame. Brand awareness objective. 1080x1350.</p>
+        </div>
+      </div>
+      <div class="cs-piece reveal reveal-delay-1">
+        <div style="aspect-ratio:4/5;overflow:hidden;">
+          <img src="images/BurBur/BurBur_Aesthetic.png" alt="BUR BUR Aesthetic Campaign" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="cs-piece-info">
+          <p class="cs-piece-num">02 &mdash; Static</p>
+          <h3 class="cs-piece-title">Aesthetic Campaign</h3>
+          <p class="cs-piece-desc">Retargeting static for warm audiences. Consistent palette and visual language from piece 01, with a more atmospheric composition. Builds brand recall and deepens identity. 1080x1350.</p>
+        </div>
+      </div>
+    </div>
+    <div class="cs-disclaimer reveal">
+      <span class="cs-disclaimer-icon">&#9432;</span>
+      <p class="cs-disclaimer-text"><strong style="color:var(--cream);">This is spec work</strong> &mdash; BUR BUR is a self-initiated brand created to demonstrate creative strategy for a personality-led DTC brand. All briefs and targeting rationale were developed independently.</p>
+    </div>
+  </div>
+
+  <div class="cs-section dark">
+    <div class="cs-two-col flip">
+      <div>
+        <p class="cs-label reveal">Creative Decisions</p>
+        <h2 class="cs-heading reveal reveal-delay-1">When personality<br><em>is the strategy.</em></h2>
+        <div class="cs-body reveal reveal-delay-2">
+          <p>Most brand guidelines exist to create consistency. BUR BUR&rsquo;s visual language exists to create recognition. There&rsquo;s a difference — recognition means someone sees the palette and knows who it is before reading the name.</p>
+          <p>Warm amber and terracotta tones were chosen because they feel human and unpolished in the best possible way. This isn&rsquo;t a brand that wants to look like a tech startup. It wants to look like something made by people who care about what they make.</p>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <table class="cs-table">
+          <tr><td>Platform</td><td>Meta &mdash; Facebook &amp; Instagram</td></tr>
+          <tr><td>Primary Audience</td><td>Adults 20&ndash;40, Independent brands, Personality-led shopping</td></tr>
+          <tr><td>Funnel Stage</td><td>Top &amp; Mid Funnel &mdash; Awareness + Retargeting</td></tr>
+          <tr><td>Objective</td><td>Brand recognition &rarr; Traffic &rarr; First purchase</td></tr>
+          <tr><td>Formats</td><td>Feed 4:5 &middot; Stories 9:16</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-cta-section">
+    <h2 class="cs-cta-title reveal">Want this for<br>your <em>brand?</em></h2>
+    <p class="cs-cta-sub reveal reveal-delay-1">I take on a limited number of retainer clients each month.</p>
+    <div class="cs-cta-btns reveal reveal-delay-2">
+      <a href="https://mail.google.com/mail/?view=cm&amp;to=maroundesigns@gmail.com" target="_blank" rel="noopener" class="cs-cta-btn"><span>Start a Conversation</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.2"/></svg></a>
+      <a href="https://calendly.com/maroundesigns/new-meeting" target="_blank" rel="noopener" class="cs-cta-btn-secondary"><span>Book a Discovery Call</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.2"/></svg></a>
+    </div>
+  </div>
+
+  <footer><div class="footer-logo">MD.</div><p class="footer-copy">&copy; 2026 Maroun Designs. All rights reserved.</p><div style="display:flex;gap:24px;"><a href="https://www.linkedin.com/in/benoit-hayek-946b71387/" target="_blank" rel="noopener" style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,240,235,0.45);text-decoration:none;">LinkedIn</a><a href="https://www.instagram.com/maroundesigns?igsh=MWo4czlkb2l5Mnl6Mw%3D%3D&utm_source=qr" target="_blank" rel="noopener" style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,240,235,0.45);text-decoration:none;">Instagram</a></div></footer>
+
+  <script>
+    var cursor=document.getElementById('cursor'),ring=document.getElementById('cursor-ring'),mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';},{passive:true});
+    (function lerpRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(lerpRing);})();
+    document.querySelectorAll('a,button').forEach(function(el){el.addEventListener('mouseenter',function(){document.body.classList.add('ch');},{passive:true});el.addEventListener('mouseleave',function(){document.body.classList.remove('ch');},{passive:true});});
+    window.addEventListener('scroll',function(){document.getElementById('main-nav').classList.toggle('scrolled',scrollY>60);},{passive:true});
+    var revObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revObs.unobserve(e.target);}});},{threshold:0.08});
+    document.querySelectorAll('.reveal').forEach(function(el){revObs.observe(el);});
+  </script>
+</body>
+</html>

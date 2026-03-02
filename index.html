@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Benoit Maroun &mdash; Motion &amp; Brand Creative</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:        #080808;
+      --off-black:    #111111;
+      --cream:        #F5F0EB;
+      --gold:         #C9A84C;
+      --muted:        rgba(245,240,235,0.45);
+      --border:       rgba(245,240,235,0.1);
+      --font-display: 'Playfair Display', serif;
+      --font-mono:    'DM Mono', monospace;
+      --font-light:   'Cormorant Garamond', serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--cream); font-family: var(--font-mono); font-size: 14px; line-height: 1.6; cursor: none; overflow-x: hidden; }
+    ::selection { background: var(--gold); color: var(--black); }
+    #cursor { position: fixed; width: 10px; height: 10px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width .25s, height .25s; will-change: left,top; }
+    #cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(201,168,76,.5); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width .25s, height .25s, opacity .25s; will-change: left,top; }
+    body.ch #cursor { width: 20px; height: 20px; }
+    body.ch #cursor-ring { width: 56px; height: 56px; opacity: .4; }
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; justify-content: space-between; align-items: center; padding: 28px 48px; transition: background .4s, border-bottom .4s; }
+    nav.scrolled { background: rgba(8,8,8,.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--cream); text-decoration: none; letter-spacing: .05em; }
+    .nav-links { display: flex; gap: 40px; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; transition: color .3s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta { background: var(--gold) !important; color: var(--black) !important; padding: 10px 20px; }
+    .nav-cta:hover { background: var(--cream) !important; }
+    #hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 48px 80px; position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(201,168,76,.06) 0%, transparent 60%), radial-gradient(ellipse 50% 80% at 10% 80%, rgba(201,168,76,.04) 0%, transparent 50%); }
+    .hero-counter { position: absolute; top: 50%; right: 48px; transform: translateY(-50%); font-family: var(--font-display); font-size: 240px; font-weight: 900; color: rgba(245,240,235,.025); line-height: 1; letter-spacing: -.05em; pointer-events: none; user-select: none; }
+    .hero-tag { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; opacity: 0; animation: fadeUp .8s ease .3s forwards; }
+    .hero-title { font-family: var(--font-display); font-size: clamp(56px,8vw,110px); font-weight: 900; line-height: .92; letter-spacing: -.02em; max-width: 900px; opacity: 0; animation: fadeUp .9s ease .5s forwards; }
+    .hero-title em { font-style: italic; font-weight: 400; color: var(--gold); }
+    .hero-bottom { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 60px; opacity: 0; animation: fadeUp .9s ease .8s forwards; }
+    .hero-desc { font-family: var(--font-light); font-size: 18px; font-weight: 300; color: var(--muted); max-width: 400px; line-height: 1.7; }
+    .btn-outline { display: inline-flex; align-items: center; gap: 14px; color: var(--cream); text-decoration: none; font-family: var(--font-mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; border: 1px solid var(--border); padding: 18px 32px; position: relative; overflow: hidden; transition: color .4s, border-color .4s; cursor: none; }
+    .btn-outline::before { content: ''; position: absolute; inset: 0; background: var(--gold); transform: translateX(-101%); transition: transform .4s ease; z-index: 0; }
+    .btn-outline:hover { color: var(--black); border-color: var(--gold); }
+    .btn-outline:hover::before { transform: translateX(0); }
+    .btn-outline > * { position: relative; z-index: 1; }
+    .btn-outline svg { transition: transform .3s; }
+    .btn-outline:hover svg { transform: translateX(4px); }
+    .marquee-section { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 18px 0; overflow: hidden; white-space: nowrap; background: var(--off-black); }
+    .marquee-track { display: inline-flex; animation: marquee 24s linear infinite; }
+    .marquee-item { display: inline-flex; align-items: center; gap: 28px; padding: 0 28px; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
+    .marquee-dot { width: 4px; height: 4px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    section { padding: 120px 48px; }
+    .section-label { display: flex; align-items: center; gap: 16px; font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); margin-bottom: 64px; }
+    .section-label::after { content: ''; flex: 1; max-width: 80px; height: 1px; background: var(--gold); opacity: .4; }
+    .section-title { font-family: var(--font-display); font-size: clamp(40px,5vw,72px); font-weight: 700; line-height: 1.05; letter-spacing: -.02em; }
+    #work { background: var(--black); }
+    .work-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
+    .work-filter { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
+    .filter-btn { padding: 8px 18px; border: 1px solid var(--border); background: none; color: var(--muted); font-family: var(--font-mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; cursor: none; transition: border-color .25s, color .25s, background .25s; }
+    .filter-btn:hover, .filter-btn.active { border-color: var(--gold); color: var(--gold); }
+    .filter-btn.active { background: rgba(201,168,76,.08); }
+    .work-grid { display: grid; grid-template-columns: repeat(12,1fr); gap: 16px; }
+    .work-item { position: relative; overflow: hidden; background: var(--off-black); cursor: none; transition: transform .4s ease; contain: layout; will-change: transform; }
+    .work-item:hover { transform: scale(1.02); }
+    .work-item[data-hidden="true"] { display: none; }
+    .work-item:nth-child(1)  { grid-column: span 7; aspect-ratio: 16/10; }
+    .work-item:nth-child(2)  { grid-column: span 5; aspect-ratio: 4/5; }
+    .work-item:nth-child(3)  { grid-column: span 5; aspect-ratio: 4/5; }
+    .work-item:nth-child(4)  { grid-column: span 7; aspect-ratio: 16/10; }
+    .work-item:nth-child(5)  { grid-column: span 6; aspect-ratio: 4/3; }
+    .work-item:nth-child(6)  { grid-column: span 6; aspect-ratio: 4/3; }
+    .work-item:nth-child(7)  { grid-column: span 4; aspect-ratio: 4/5; }
+    .work-item:nth-child(8)  { grid-column: span 4; aspect-ratio: 4/5; }
+    .work-item:nth-child(9)  { grid-column: span 4; aspect-ratio: 4/5; }
+    .work-item:nth-child(10) { grid-column: span 6; aspect-ratio: 4/3; }
+    .work-item:nth-child(11) { grid-column: span 6; aspect-ratio: 4/3; }
+    .work-item.vault  .work-item-bg { background: linear-gradient(135deg,#0D0D0D,#1c1c1c); }
+    .work-item.halo   .work-item-bg { background: linear-gradient(135deg,#0B0F2E,#18104a); }
+    .work-item.grove  .work-item-bg { background: linear-gradient(135deg,#1a2e1b,#0f1a10); }
+    .work-item.veil   .work-item-bg { background: linear-gradient(135deg,#1a1420,#0e0b14); }
+    .work-item.burbur .work-item-bg { background: linear-gradient(135deg,#2a1a0e,#1a0f08); }
+    .work-item-bg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 72px; font-weight: 900; color: rgba(245,240,235,.04); letter-spacing: -.04em; }
+    .work-item-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; will-change: transform; }
+    .work-item:hover .work-item-img { transform: scale(1.04); }
+    .work-item-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; will-change: transform; }
+    .work-item:hover .work-item-video { transform: scale(1.04); }
+    .play-badge { position: absolute; top: 20px; left: 20px; display: flex; align-items: center; gap: 8px; background: rgba(8,8,8,.7); border: 1px solid rgba(245,240,235,.2); padding: 6px 12px; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); backdrop-filter: blur(4px); }
+    .work-item-inner { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 28px; background: linear-gradient(to top, rgba(8,8,8,.9) 0%, transparent 55%); opacity: 0; transition: opacity .35s; }
+    .work-item:hover .work-item-inner { opacity: 1; }
+    .work-item-brand { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .work-item-title { font-family: var(--font-display); font-size: 22px; font-weight: 700; line-height: 1.2; }
+    .work-item-type { font-size: 10px; letter-spacing: .15em; color: var(--muted); margin-top: 4px; text-transform: uppercase; }
+    .work-item-cs-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,.4); padding-bottom: 2px; }
+    .work-item-corner { position: absolute; top: 20px; right: 20px; width: 36px; height: 36px; border: 1px solid rgba(245,240,235,.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(.7); transition: opacity .3s, transform .3s; }
+    .work-item:hover .work-item-corner { opacity: 1; transform: scale(1); }
+    #modal-overlay { position: fixed; inset: 0; background: rgba(8,8,8,.92); backdrop-filter: blur(14px); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .35s; cursor: none; }
+    #modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal { background: var(--off-black); border: 1px solid var(--border); max-width: 860px; width: 92%; max-height: 92vh; overflow-y: auto; position: relative; transform: translateY(20px) scale(.98); transition: transform .35s ease; }
+    #modal-overlay.open .modal { transform: none; }
+    .modal-close { position: absolute; top: 16px; right: 16px; width: 40px; height: 40px; border: 1px solid var(--border); background: none; color: var(--cream); font-size: 16px; display: flex; align-items: center; justify-content: center; cursor: none; transition: border-color .3s, color .3s; z-index: 10; }
+    .modal-close:hover { border-color: var(--gold); color: var(--gold); }
+    .modal-media { width: 100%; background: var(--black); display: flex; align-items: center; justify-content: center; overflow: hidden; min-height: 280px; }
+    .modal-media img { width: 100%; object-fit: contain; max-height: 560px; display: block; }
+    .modal-media video { width: 100%; max-height: 560px; display: block; background: #000; }
+    .modal-placeholder-text { font-family: var(--font-display); font-size: 72px; font-weight: 900; color: rgba(245,240,235,.06); letter-spacing: -.04em; }
+    .modal-body { padding: 40px; }
+    .modal-brand { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .modal-title { font-family: var(--font-display); font-size: 36px; font-weight: 700; line-height: 1.1; margin-bottom: 12px; }
+    .modal-type { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    .modal-desc { font-family: var(--font-light); font-size: 17px; font-weight: 300; color: var(--muted); line-height: 1.8; }
+    .modal-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+    .modal-tag { padding: 6px 14px; border: 1px solid var(--border); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+    #services { background: var(--off-black); border-top: 1px solid var(--border); }
+    .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); margin-top: 72px; }
+    .service-card { background: var(--off-black); padding: 48px 40px; position: relative; overflow: hidden; transition: background .35s; }
+    .service-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .35s; }
+    .service-card:hover { background: #161616; }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-num { font-size: 11px; letter-spacing: .2em; color: var(--gold); margin-bottom: 32px; opacity: .7; }
+    .service-title { font-family: var(--font-display); font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+    .service-desc { font-family: var(--font-light); font-size: 16px; font-weight: 300; color: var(--muted); line-height: 1.7; margin-bottom: 36px; }
+    .service-price { display: flex; align-items: baseline; gap: 6px; margin-bottom: 28px; }
+    .service-price-amount { font-family: var(--font-display); font-size: 36px; font-weight: 700; color: var(--gold); }
+    .service-price-period { font-size: 11px; color: var(--muted); letter-spacing: .1em; }
+    .service-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .service-features li { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 10px; }
+    .service-features li::before { content: ''; width: 16px; height: 1px; background: var(--gold); opacity: .5; flex-shrink: 0; }
+    .service-cta { display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; color: var(--gold); text-decoration: none; font-family: var(--font-mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; border-bottom: 1px solid rgba(201,168,76,.3); padding-bottom: 4px; transition: border-color .3s; cursor: none; }
+    .service-cta:hover { border-color: var(--gold); }
+    .stats-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); border-top: 1px solid var(--border); }
+    .stat { background: var(--off-black); padding: 52px 40px; text-align: center; }
+    .stat-num { font-family: var(--font-display); font-size: 56px; font-weight: 900; color: var(--gold); line-height: 1; letter-spacing: -.03em; }
+    .stat-label { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin-top: 10px; }
+    #about { background: var(--black); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-title { font-family: var(--font-display); font-size: clamp(36px,4vw,58px); font-weight: 700; line-height: 1.1; margin-bottom: 32px; }
+    .about-title em { font-style: italic; color: var(--gold); }
+    .about-text { font-family: var(--font-light); font-size: 18px; font-weight: 300; color: var(--muted); line-height: 1.8; margin-bottom: 20px; }
+    .about-tools { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 40px; }
+    .tool-tag { padding: 8px 16px; border: 1px solid var(--border); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); transition: border-color .3s, color .3s; }
+    .tool-tag:hover { border-color: var(--gold); color: var(--gold); }
+    .about-visual { aspect-ratio: 4/5; background: var(--off-black); position: relative; overflow: hidden; }
+    .about-visual-border { position: absolute; inset: 20px; border: 1px solid var(--border); pointer-events: none; z-index: 1; }
+    .about-right { position: relative; }
+    #contact { background: var(--off-black); border-top: 1px solid var(--border); text-align: center; padding: 140px 48px; }
+    .contact-label { font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); margin-bottom: 32px; }
+    .contact-title { font-family: var(--font-display); font-size: clamp(44px,7vw,96px); font-weight: 900; line-height: .95; letter-spacing: -.03em; margin-bottom: 48px; }
+    .contact-title em { font-style: italic; font-weight: 400; color: var(--gold); }
+    .contact-subtitle { font-family: var(--font-light); font-size: 20px; font-weight: 300; color: var(--muted); margin: 0 auto 64px; max-width: 500px; line-height: 1.7; }
+    .contact-btns { display: flex; flex-direction: column; align-items: center; gap: 0; }
+    .contact-btn { display: inline-flex; align-items: center; gap: 14px; background: var(--gold); color: var(--black); text-decoration: none; padding: 22px 52px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; font-weight: 500; position: relative; overflow: hidden; cursor: none; }
+    .contact-btn::after { content: ''; position: absolute; inset: 0; background: var(--cream); transform: translateY(101%); transition: transform .3s; }
+    .contact-btn:hover::after { transform: translateY(0); }
+    .contact-btn > * { position: relative; z-index: 1; }
+    .contact-btn-secondary { display: inline-flex; align-items: center; gap: 14px; background: none; color: var(--gold); text-decoration: none; padding: 20px 52px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; font-weight: 500; border: 1px solid var(--gold); margin-top: 16px; position: relative; overflow: hidden; cursor: none; transition: color .3s; }
+    .contact-btn-secondary::after { content: ''; position: absolute; inset: 0; background: var(--gold); transform: translateY(101%); transition: transform .3s; z-index: 0; }
+    .contact-btn-secondary:hover { color: var(--black); }
+    .contact-btn-secondary:hover::after { transform: translateY(0); }
+    .contact-btn-secondary > * { position: relative; z-index: 1; }
+
+    footer { background: var(--black); border-top: 1px solid var(--border); padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-logo { font-family: var(--font-display); font-size: 16px; font-weight: 700; }
+    .footer-copy { font-size: 11px; color: var(--muted); letter-spacing: .1em; }
+    .footer-socials { display: flex; gap: 24px; }
+    .footer-socials a { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .3s; cursor: none; }
+    .footer-socials a:hover { color: var(--gold); }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+    .reveal-delay-4 { transition-delay: .4s; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+    @media (max-width: 900px) {
+      nav { padding: 24px; }
+      .nav-links { display: none; }
+      section { padding: 80px 24px; }
+      #hero { padding: 0 24px 60px; }
+      .hero-title { font-size: clamp(44px,10vw,70px); }
+      .hero-bottom { flex-direction: column; align-items: flex-start; gap: 28px; }
+      .work-grid { grid-template-columns: 1fr 1fr; }
+      .work-item:nth-child(n) { grid-column: span 1; aspect-ratio: 4/3; }
+      .services-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: repeat(2,1fr); }
+      #about { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 20px; text-align: center; }
+    }
+    @media (max-width: 520px) { .work-grid { grid-template-columns: 1fr; } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+      .marquee-track { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <div id="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal">
+      <button class="modal-close" id="modal-close" aria-label="Close">&#x2715;</button>
+      <div class="modal-media" id="modal-media">
+        <span class="modal-placeholder-text" id="modal-placeholder"></span>
+      </div>
+      <div class="modal-body">
+        <p class="modal-brand" id="modal-brand"></p>
+        <h2 class="modal-title" id="modal-title"></h2>
+        <p class="modal-type" id="modal-type"></p>
+        <p class="modal-desc" id="modal-desc"></p>
+        <div class="modal-tags" id="modal-tags"></div>
+      </div>
+    </div>
+  </div>
+
+  <nav id="main-nav">
+    <a href="#hero" class="nav-logo">MD.</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+    </ul>
+  </nav>
+
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-counter" aria-hidden="true">11</div>
+    <p class="hero-tag">Motion &amp; Brand Creative &mdash; Available for Retainers</p>
+    <h1 class="hero-title">Ad creatives<br>that <em>convert.</em><br>Motion that<br><em>stops the scroll.</em></h1>
+    <div class="hero-bottom">
+      <p class="hero-desc">I help e-commerce brands and content creators stand out with premium ad creatives, motion graphics, and brand visuals &mdash; delivered on retainer.</p>
+      <a href="#work" class="btn-outline">
+        <span>View Selected Work</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.2"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <div class="marquee-section" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item"><span class="marquee-dot"></span>Ad Creatives</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Motion Graphics</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Brand Identity</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>After Effects</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Social Media Content</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Logo Animation</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>E-Commerce Brands</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Retainer Packages</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Ad Creatives</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Motion Graphics</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Brand Identity</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>After Effects</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Social Media Content</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Logo Animation</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>E-Commerce Brands</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Retainer Packages</span>
+    </div>
+  </div>
+
+  <section id="work">
+    <div class="work-header">
+      <div>
+        <div class="section-label reveal">Selected Work</div>
+        <h2 class="section-title reveal reveal-delay-1">The Portfolio</h2>
+      </div>
+      <p class="reveal reveal-delay-2" style="font-size:12px;color:var(--muted);max-width:280px;text-align:right;line-height:1.7;">Five brands. Five aesthetics.<br>One consistent standard of quality.</p>
+    </div>
+    <div class="work-filter reveal">
+      <button class="filter-btn active" data-filter="all">All Work</button>
+      <button class="filter-btn" data-filter="vault">VAULT</button>
+      <button class="filter-btn" data-filter="halo">HALO</button>
+      <button class="filter-btn" data-filter="grove">GROVE</button>
+      <button class="filter-btn" data-filter="veil">VEIL</button>
+      <button class="filter-btn" data-filter="burbur">BUR BUR</button>
+      <button class="filter-btn" data-filter="motion">Motion Only</button>
+      <button class="filter-btn" data-filter="static">Static Only</button>
+    </div>
+    <div class="work-grid">
+
+      <div class="work-item vault reveal" data-brand="vault" data-type="static" data-media="images/VAULT/VAULT_DROP001_Ad.png" data-media-type="image" data-modal-brand="VAULT" data-modal-title="Drop 001 - Campaign Ad" data-modal-type="Static Ad Creative - Instagram Feed - 1080x1350" data-modal-desc="A luxury product launch ad for VAULT debut streetwear drop. Off-black palette with brushed gold accents, designed to feel like a high fashion editorial rather than a typical DTC ad." data-modal-tags="Photoshop,Ad Creative,Streetwear,Luxury">
+        <div class="work-item-bg">VAULT</div>
+        <img class="work-item-img" src="images/VAULT/VAULT_DROP001_Ad.png" alt="VAULT Drop 001" loading="lazy">
+        <div class="work-item-inner"><p class="work-item-brand">VAULT</p><h3 class="work-item-title">Drop 001 &mdash; Campaign Ad</h3><p class="work-item-type">Static Ad Creative</p><a href="vault-case-study.html" class="work-item-cs-link" onclick="event.stopPropagation();">View Case Study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5H8M8 5L5 2M8 5L5 8" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
+        <div class="work-item-corner"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="var(--cream)" stroke-width="1.2"/></svg></div>
+      </div>
+
+      <div class="work-item vault reveal reveal-delay-1" data-brand="vault" data-type="motion" data-media="images/VAULT/VAULT_Logo_Animation.mp4" data-media-type="video" data-modal-brand="VAULT" data-modal-title="Logo Reveal Animation" data-modal-type="After Effects - Motion Graphics - 5s - 1080x1080" data-modal-desc="A cold minimal logo reveal for VAULT. Each letter assembles on screen with a staggered entry, then a single gold line draws left to right underneath." data-modal-tags="After Effects,Motion Graphics,Logo Animation,Luxury">
+        <div class="work-item-bg">VAULT</div>
+        <video class="work-item-video" data-src="images/VAULT/VAULT_Logo_Animation.mp4" muted loop playsinline preload="none"></video>
+        <div class="play-badge"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 1.5L8 5L2 8.5V1.5Z" fill="var(--gold)"/></svg>Motion</div>
+        <div class="work-item-inner"><p class="work-item-brand">VAULT</p><h3 class="work-item-title">Logo Reveal Animation</h3><p class="work-item-type">After Effects &middot; Motion</p><a href="vault-case-study.html" class="work-item-cs-link" onclick="event.stopPropagation();">View Case Study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5H8M8 5L5 2M8 5L5 8" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
+        <div class="work-item-corner"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="var(--cream)" stroke-width="1.2"/></svg></div>
+      </div>
+
+      <div class="work-item halo reveal reveal-delay-2" data-brand="halo" data-type="static" data-media="images/HALO/HALO_Ad.png" data-media-type="image" data-modal-brand="HALO" data-modal-title="Sleep Deeper - App Ad" data-modal-type="Static Ad Creative - Instagram Feed - 1080x1350" data-modal-desc="A cinematic lifestyle ad for HALO, a premium sleep and wellness app. An aurora particle overlay blended over a bedroom scene creates a dreamy aspirational mood." data-modal-tags="Photoshop,Ad Creative,App Marketing,Wellness">
+        <div class="work-item-bg">HALO</div>
+        <img class="work-item-img" src="images/HALO/HALO_Ad.png" alt="HALO Sleep Deeper" loading="lazy">
+        <div class="work-item-inner"><p class="work-item-brand">HALO</p><h3 class="work-item-title">Sleep Deeper &mdash; App Ad</h3><p class="work-item-type">Static Ad Creative</p><a href="halo-case-study.html" class="work-item-cs-link" onclick="event.stopPropagation();">View Case Study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5H8M8 5L5 2M8 5L5 8" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
+        <div class="work-item-corner"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="var(--cream)" stroke-width="1.2"/></svg></div>
+      </div>
+
+      <div class="work-item halo reveal reveal-delay-1" data-brand="halo" data-type="motion" data-media="images/HALO/HALO_Social_Ad_1.mp4" data-media-type="video" data-modal-brand="HALO" data-modal-title="Social Ad - Animated" data-modal-type="After Effects - Instagram Stories and Reels - 8s - 1080x1920" data-modal-desc="A full animated social ad for HALO. The bedroom fades in from black, aurora particles drift across the background, and the headline reveals itself line by line." data-modal-tags="After Effects,Motion Graphics,Social Ad,App Marketing">
+        <div class="work-item-bg">HALO</div>
+        <video class="work-item-video" data-src="images/HALO/HALO_Social_Ad_1.mp4" muted loop playsinline preload="none"></video>
+        <div class="play-badge"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 1.5L8 5L2 8.5V1.5Z" fill="var(--gold)"/></svg>Motion</div>
+        <div class="work-item-inner"><p class="work-item-brand">HALO</p><h3 class="work-item-title">Social Ad &mdash; Animated</h3><p class="work-item-type">After Effects &middot; Stories</p><a href="halo-case-study.html" class="work-item-cs-link" onclick="event.stopPropagation();">View Case Study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5H8M8 5L5 2M8 5L5 8" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
+        <div class="work-item-corner"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="var(--cream)" stroke-width="1.2"/></svg></div>
+      </div>
+
+      <div class="work-item grove reveal" data-brand="grove" data-type="static" data-media="images/GROVE/Grove_Ad.png" data-media-type="image" data-modal-brand="GROVE" data-modal-title="Just Grove - Brand Ad" data-modal-type="Static Ad Creative - Instagram Feed - 1080x1350" data-modal-desc="An earthy premium ad for GROVE organic food brand. Warm forest green gradients over real ingredient photography." data-modal-tags="Photoshop,Ad Creative,Food Brand,Organic,DTC">
+        <div class="work-item-bg">GROVE</div>
+        <img class="work-item-img" src="images/GROVE/Grove_Ad.png" alt="GROVE Just Grove" loading="lazy">
+        <div class="work-item-inner"><p class="work-item-brand">GROVE</p><h3 class="work-item-title">Just Grove &mdash; Brand Ad</h3><p class="work-item-type">Static Ad Creative</p><a href="grove-case-study.html" class="work-item-cs-link" onclick="event.stopPropagation();">View Case Study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5H8M8 5L5 2M8 5L5 8" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
+        <div class="work-item-corner"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="var(--cream)" stroke-width="1.2"/></svg></div>
+      </div>
+
+      <div class="work-item grove reveal reveal-delay-1" data-brand="grove" data-type="motion" data-media="images/GROVE/Grove_Ingredient_Reveal.mp4" data-media-type="video" data-modal-brand="GROVE" data-modal-title="Ingredient Reveal" data-modal-type="After Effects - Brand Film - 8s - 1080x1080" data-modal-desc="A slow confident brand film for GROVE. Single words appear and dissolve over earthy ingredient close-ups, ending with Just Grove in terracotta." data-modal-tags="After Effects,Motion Graphics,Brand Film,Food Brand">
+        <div class="work-item-bg">GROVE</div>
+        <video class="work-item-video" data-src="images/GROVE/Grove_Ingredient_Reveal.mp4" muted loop playsinline preload="none"></video>
+        <div class="play-badge"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 1.5L8 5L2 8.5V1.5Z" fill="var(--gold)"/></svg>Motion</div>
+        <div class="work-item-inner"><p class="work-item-brand">GROVE</p><h3 class="work-item-title">Ingredient Reveal</h3><p class="work-item-type">After Effects &middot; Brand Film</p><a href="grove-case-study.html" class="work-item-cs-link" onclick="event.stopPropagation();">View Case Study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5H8M8 5L5 2M8 5L5 8" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
+        <div class="work-item-corner"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="var(--cream)" stroke-width="1.2"/></svg></div>
+      </div>
+
+      <div class="work-item veil reveal" data-brand="veil" data-type="static" data-media="images/Veil/Veil_Magazine_Cover.png" data-media-type="image" data-modal-brand="VEIL" data-modal-title="Magazine Cover" data-modal-type="Static Ad Creative" data-modal-desc="A static editorial piece for VEIL. Deep plum and shadow tones build an atmosphere of intrigue and exclusivity." data-modal-tags="Photoshop,Ad Creative,Dark Aesthetic,Editorial,Premium">
+        <div class="work-item-bg">VEIL</div>
+        <img class="work-item-img" src="images/Veil/Veil_Magazine_Cover.png" alt="VEIL Magazine Cover" loading="lazy">
+        <div class="work-item-inner"><p class="work-item-brand">VEIL</p><h3 class="work-item-title">Magazine Cover</h3><p class="work-item-type">Static Ad Creative</p><a href="veil-case-study.html" class="work-item-cs-link" onclick="event.stopPropagation();">View Case Study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5H8M8 5L5 2M8 5L5 8" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
+        <div class="work-item-corner"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="var(--cream)" stroke-width="1.2"/></svg></div>
+      </div>
+
+      <div class="work-item veil reveal reveal-delay-1" data-brand="veil" data-type="static" data-media="images/Veil/Veil_Spring_Launch.png" data-media-type="image" data-modal-brand="VEIL" data-modal-title="Spring Launch Campaign" data-modal-type="Static Ad Creative" data-modal-desc="VEIL Spring Launch campaign creative. Consistent dark palette with refined typographic hierarchy." data-modal-tags="Photoshop,Ad Creative,Dark Aesthetic,Campaign,Premium">
+        <div class="work-item-bg">VEIL</div>
+        <img class="work-item-img" src="images/Veil/Veil_Spring_Launch.png" alt="VEIL Spring Launch" loading="lazy">
+        <div class="work-item-inner"><p class="work-item-brand">VEIL</p><h3 class="work-item-title">Spring Launch Campaign</h3><p class="work-item-type">Static Ad Creative</p><a href="veil-case-study.html" class="work-item-cs-link" onclick="event.stopPropagation();">View Case Study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5H8M8 5L5 2M8 5L5 8" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
+        <div class="work-item-corner"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="var(--cream)" stroke-width="1.2"/></svg></div>
+      </div>
+
+      <div class="work-item veil reveal reveal-delay-2" data-brand="veil" data-type="motion" data-media="images/Veil/Veil_Typographic_Animation.mp4" data-media-type="video" data-modal-brand="VEIL" data-modal-title="Typographic Animation" data-modal-type="After Effects - Motion Graphics" data-modal-desc="An atmospheric typographic motion piece for VEIL. Dark, deliberate, and slow, built to communicate the brand mysterious premium positioning." data-modal-tags="After Effects,Motion Graphics,Typography,Dark Aesthetic,Premium">
+        <div class="work-item-bg">VEIL</div>
+        <video class="work-item-video" data-src="images/Veil/Veil_Typographic_Animation.mp4" muted loop playsinline preload="none"></video>
+        <div class="play-badge"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 1.5L8 5L2 8.5V1.5Z" fill="var(--gold)"/></svg>Motion</div>
+        <div class="work-item-inner"><p class="work-item-brand">VEIL</p><h3 class="work-item-title">Typographic Animation</h3><p class="work-item-type">After Effects &middot; Motion</p><a href="veil-case-study.html" class="work-item-cs-link" onclick="event.stopPropagation();">View Case Study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5H8M8 5L5 2M8 5L5 8" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
+        <div class="work-item-corner"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="var(--cream)" stroke-width="1.2"/></svg></div>
+      </div>
+
+      <div class="work-item burbur reveal" data-brand="burbur" data-type="static" data-media="images/BurBur/BurBur_Ad_Poster.png" data-media-type="image" data-modal-brand="BUR BUR" data-modal-title="Ad Poster" data-modal-type="Static Ad Creative" data-modal-desc="A bold warm ad poster for BUR BUR. Rich tones and confident layout communicate energy and personality." data-modal-tags="Photoshop,Ad Creative,Bold Brand,DTC">
+        <div class="work-item-bg">BUR BUR</div>
+        <img class="work-item-img" src="images/BurBur/BurBur_Ad_Poster.png" alt="BUR BUR Ad Poster" loading="lazy">
+        <div class="work-item-inner"><p class="work-item-brand">BUR BUR</p><h3 class="work-item-title">Ad Poster</h3><p class="work-item-type">Static Ad Creative</p><a href="burbur-case-study.html" class="work-item-cs-link" onclick="event.stopPropagation();">View Case Study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5H8M8 5L5 2M8 5L5 8" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
+        <div class="work-item-corner"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="var(--cream)" stroke-width="1.2"/></svg></div>
+      </div>
+
+      <div class="work-item burbur reveal reveal-delay-1" data-brand="burbur" data-type="static" data-media="images/BurBur/BurBur_Aesthetic.png" data-media-type="image" data-modal-brand="BUR BUR" data-modal-title="Aesthetic Campaign" data-modal-type="Static Ad Creative" data-modal-desc="BUR BUR aesthetic campaign piece, warm confident and unmistakably unique. A brand with its own visual language." data-modal-tags="Photoshop,Ad Creative,Bold Brand,DTC">
+        <div class="work-item-bg">BUR BUR</div>
+        <img class="work-item-img" src="images/BurBur/BurBur_Aesthetic.png" alt="BUR BUR Aesthetic" loading="lazy">
+        <div class="work-item-inner"><p class="work-item-brand">BUR BUR</p><h3 class="work-item-title">Aesthetic Campaign</h3><p class="work-item-type">Static Ad Creative</p><a href="burbur-case-study.html" class="work-item-cs-link" onclick="event.stopPropagation();">View Case Study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5H8M8 5L5 2M8 5L5 8" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
+        <div class="work-item-corner"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="var(--cream)" stroke-width="1.2"/></svg></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="section-label reveal">What I Offer</div>
+    <h2 class="section-title reveal reveal-delay-1">Services &amp;<br><em style="font-style:italic;color:var(--gold);">Pricing</em></h2>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <p class="service-num">01</p>
+        <h3 class="service-title">Ad Creative Retainer</h3>
+        <p class="service-desc">Monthly batch of high-converting static and animated ad creatives for Facebook, Instagram, and TikTok. Fresh content every month so your ads never fatigue.</p>
+        <div class="service-price"><span class="service-price-amount">$2,500</span><span class="service-price-period">/ month</span></div>
+        <ul class="service-features">
+          <li>8&ndash;12 static ad creatives</li>
+          <li>2&ndash;4 animated variants</li>
+          <li>Multiple format sizes</li>
+          <li>Unlimited revisions</li>
+          <li>7 day turnaround</li>
+        </ul>
+        <a href="#contact" class="service-cta">Get Started <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6H10M10 6L7 3M10 6L7 9" stroke="currentColor" stroke-width="1.2"/></svg></a>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <p class="service-num">02</p>
+        <h3 class="service-title">Motion Graphics Retainer</h3>
+        <p class="service-desc">Ongoing motion content for social &mdash; logo animations, product reveals, brand story reels, and cinematic ad creatives that command attention every month.</p>
+        <div class="service-price"><span class="service-price-amount">$1,500</span><span class="service-price-period">/ month</span></div>
+        <ul class="service-features">
+          <li>4&ndash;6 motion pieces</li>
+          <li>Stories &amp; Reels formats</li>
+          <li>After Effects master files</li>
+          <li>Brand-matched style</li>
+          <li>10 day turnaround</li>
+        </ul>
+        <a href="#contact" class="service-cta">Get Started <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6H10M10 6L7 3M10 6L7 9" stroke="currentColor" stroke-width="1.2"/></svg></a>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <p class="service-num">03</p>
+        <h3 class="service-title">Brand Identity Package</h3>
+        <p class="service-desc">A complete visual identity for brands ready to level up &mdash; logo, color system, typography, brand guidelines, and an animated logo reveal for launch.</p>
+        <div class="service-price"><span class="service-price-amount">$3,500</span><span class="service-price-period">one-time</span></div>
+        <ul class="service-features">
+          <li>Logo + variations</li>
+          <li>Full color &amp; type system</li>
+          <li>Brand guidelines PDF</li>
+          <li>Logo animation (AE)</li>
+          <li>3 launch ad creatives</li>
+        </ul>
+        <a href="#contact" class="service-cta">Get Started <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6H10M10 6L7 3M10 6L7 9" stroke="currentColor" stroke-width="1.2"/></svg></a>
+      </div>
+    </div>
+    <div class="stats-row">
+      <div class="stat reveal"><div class="stat-num">11</div><div class="stat-label">Portfolio Pieces</div></div>
+      <div class="stat reveal reveal-delay-1"><div class="stat-num">5</div><div class="stat-label">Brand Aesthetics</div></div>
+      <div class="stat reveal reveal-delay-2"><div class="stat-num">48h</div><div class="stat-label">Avg First Delivery</div></div>
+      <div class="stat reveal reveal-delay-3"><div class="stat-num">&#8734;</div><div class="stat-label">Revisions Included</div></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="about-left">
+      <div class="section-label reveal">The Creative</div>
+      <h2 class="about-title reveal reveal-delay-1">Obsessed with<br>work that <em>earns</em><br>its place on screen.</h2>
+      <p class="about-text reveal reveal-delay-2">I am a motion graphics designer and ad creative specialist working with e-commerce brands and content creators. With deep roots in Photoshop, Illustrator, and After Effects, I bring the full picture &mdash; from static ads to cinematic brand films.</p>
+      <p class="about-text reveal reveal-delay-3">I work with brands directly and as a subcontractor for agencies. Every project gets a retainer-first approach &mdash; because great creative work is not a one-time event.</p>
+      <div class="about-tools reveal reveal-delay-4">
+        <span class="tool-tag">After Effects</span>
+        <span class="tool-tag">Photoshop</span>
+        <span class="tool-tag">Illustrator</span>
+        <span class="tool-tag">Adobe Firefly</span>
+        <span class="tool-tag">HTML / CSS</span>
+        <span class="tool-tag">Motion Design</span>
+        <span class="tool-tag">Brand Strategy</span>
+      </div>
+    </div>
+    <div class="about-right reveal reveal-delay-2">
+      <div class="about-visual">
+        <img src="images/benoit_portfolio.jpg" alt="Benoit Maroun" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="about-visual-border"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <p class="contact-label reveal">Let's Work Together</p>
+    <h2 class="contact-title reveal reveal-delay-1">Ready to make<br>your brand <em>unforgettable?</em></h2>
+    <p class="contact-subtitle reveal reveal-delay-2">I take on a limited number of retainer clients each month. If you are serious about your creative, let's talk.</p>
+    <div class="contact-btns reveal reveal-delay-3">
+      <a href="https://mail.google.com/mail/?view=cm&amp;to=maroundesigns@gmail.com" target="_blank" rel="noopener" class="contact-btn">
+        <span>Start a Conversation</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.2"/></svg>
+      </a>
+      <a href="https://calendly.com/maroundesigns/new-meeting" target="_blank" rel="noopener" class="contact-btn-secondary">
+        <span>Book a Discovery Call</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.2"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">MD.</div>
+    <p class="footer-copy">&copy; 2026 Maroun Designs. All rights reserved.</p>
+    <div class="footer-socials">
+      <a href="https://www.linkedin.com/in/benoit-hayek-946b71387/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/maroundesigns?igsh=MWo4czlkb2l5Mnl6Mw%3D%3D&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    var cursor = document.getElementById('cursor');
+    var ring   = document.getElementById('cursor-ring');
+    var mx=0, my=0, rx=0, ry=0;
+    document.addEventListener('mousemove', function(e){ mx=e.clientX; my=e.clientY; cursor.style.left=mx+'px'; cursor.style.top=my+'px'; }, {passive:true});
+    (function lerpRing(){ rx+=(mx-rx)*.12; ry+=(my-ry)*.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(lerpRing); })();
+    document.querySelectorAll('a,button,.work-item').forEach(function(el){
+      el.addEventListener('mouseenter', function(){ document.body.classList.add('ch'); }, {passive:true});
+      el.addEventListener('mouseleave', function(){ document.body.classList.remove('ch'); }, {passive:true});
+    });
+    var nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', scrollY>60); }, {passive:true});
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        var t = document.querySelector(a.getAttribute('href'));
+        if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
+      });
+    });
+    var revObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); revObs.unobserve(e.target); } });
+    }, {threshold:0.08});
+    document.querySelectorAll('.reveal').forEach(function(el){ revObs.observe(el); });
+    var vidObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        var vid = e.target.querySelector('video[data-src]');
+        if(!vid) return;
+        if(e.isIntersecting){
+          if(!vid.src){ vid.src = vid.dataset.src; }
+          vid.play().catch(function(){});
+        } else {
+          vid.pause();
+        }
+      });
+    }, {threshold:0.2});
+    document.querySelectorAll('.work-item').forEach(function(item){ vidObs.observe(item); });
+    document.querySelectorAll('.filter-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        var f = btn.dataset.filter;
+        document.querySelectorAll('.work-item').forEach(function(item){
+          var b = item.dataset.brand, t = item.dataset.type;
+          var show = f==='all' ? true : f==='motion' ? t==='motion' : f==='static' ? t==='static' : b===f;
+          item.setAttribute('data-hidden', String(!show));
+        });
+      });
+    });
+    var overlay      = document.getElementById('modal-overlay');
+    var modalMediaEl = document.getElementById('modal-media');
+    var modalPH      = document.getElementById('modal-placeholder');
+    var activeVid    = null;
+    function openModal(item){
+      document.getElementById('modal-brand').textContent = item.dataset.modalBrand || '';
+      document.getElementById('modal-title').textContent = item.dataset.modalTitle || '';
+      document.getElementById('modal-type').textContent  = item.dataset.modalType  || '';
+      document.getElementById('modal-desc').textContent  = item.dataset.modalDesc  || '';
+      var tagsEl = document.getElementById('modal-tags');
+      tagsEl.innerHTML = '';
+      (item.dataset.modalTags || '').split(',').filter(Boolean).forEach(function(tag){
+        var s = document.createElement('span');
+        s.className = 'modal-tag';
+        s.textContent = tag.trim();
+        tagsEl.appendChild(s);
+      });
+      modalMediaEl.querySelectorAll('img.mi,video.mv').forEach(function(el){ el.remove(); });
+      if(activeVid){ activeVid.pause(); activeVid = null; }
+      var src = item.dataset.media, type = item.dataset.mediaType;
+      if(src && type==='image'){
+        modalPH.style.display = 'none';
+        var img = document.createElement('img');
+        img.className = 'mi'; img.src = src; img.alt = item.dataset.modalTitle || '';
+        modalMediaEl.appendChild(img);
+      } else if(src && type==='video'){
+        modalPH.style.display = 'none';
+        var vid = document.createElement('video');
+        vid.className = 'mv'; vid.src = src;
+        vid.controls = true; vid.autoplay = true; vid.muted = false;
+        modalMediaEl.appendChild(vid);
+        activeVid = vid;
+      } else {
+        modalPH.style.display = '';
+        modalPH.textContent = item.dataset.modalBrand || '';
+      }
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(){
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      if(activeVid){ activeVid.pause(); activeVid = null; }
+    }
+    document.querySelectorAll('.work-item').forEach(function(item){
+      item.addEventListener('click', function(){ openModal(item); });
+    });
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    overlay.addEventListener('click', function(e){ if(e.target===overlay) closeModal(); });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
+  </script>
+</body>
+</html>
