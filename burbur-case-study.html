@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="Maroun_Designs_Logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BUR BUR Case Study &mdash; Maroun Designs</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,6 +28,13 @@
     .nav-logo { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--cream); text-decoration: none; letter-spacing: .05em; }
     .nav-back { color: var(--muted); text-decoration: none; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; transition: color .3s; display: flex; align-items: center; gap: 10px; }
     .nav-back:hover { color: var(--gold); } .nav-back svg { transition: transform .3s; } .nav-back:hover svg { transform: translateX(-4px); }
+    .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; transition: color .3s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta { background: var(--gold) !important; color: var(--black) !important; padding: 10px 20px; }
+    .nav-cta:hover { background: var(--cream) !important; }
+    .nav-right { display: flex; align-items: center; gap: 48px; }
+    @media (max-width: 768px) { .nav-links { display: none; } }
     .cs-hero { min-height: 80vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 48px 80px; position: relative; overflow: hidden; background: var(--brand); }
     .cs-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 40% 40%, rgba(200,121,65,.08) 0%, transparent 60%); }
     .cs-hero-label { font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; opacity: 0; animation: fadeUp .7s ease .2s forwards; }
@@ -100,7 +108,14 @@
   <div id="cursor"></div><div id="cursor-ring"></div>
   <nav id="main-nav">
     <a href="index.html" class="nav-logo">MD.</a>
-    <a href="index.html#work" class="nav-back"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M11 7H3M3 7L7 3M3 7L7 11" stroke="currentColor" stroke-width="1.2"/></svg>Back to Portfolio</a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Hire Me</a></li>
+      </ul>
+      <a href="index.html#work" class="nav-back"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M11 7H3M3 7L7 3M3 7L7 11" stroke="currentColor" stroke-width="1.2"/></svg>Back</a>
+    </div>
   </nav>
 
   <div class="cs-hero">

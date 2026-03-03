@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="Maroun_Designs_Logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VAULT Case Study &mdash; Maroun Designs</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -108,6 +109,14 @@
       .cs-funnel-step::after { display: none; } .cs-hero-meta { flex-direction: column; gap: 20px; }
       footer { flex-direction: column; gap: 16px; text-align: center; }
     }
+
+    .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; transition: color .3s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta { background: var(--gold) !important; color: var(--black) !important; padding: 10px 20px; }
+    .nav-cta:hover { background: var(--cream) !important; }
+    .nav-right { display: flex; align-items: center; gap: 48px; }
+    @media (max-width: 768px) { .nav-links { display: none; } }
   </style>
 </head>
 <body>
@@ -115,10 +124,17 @@
   <div id="cursor-ring"></div>
   <nav id="main-nav">
     <a href="index.html" class="nav-logo">MD.</a>
-    <a href="index.html#work" class="nav-back">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M11 7H3M3 7L7 3M3 7L7 11" stroke="currentColor" stroke-width="1.2"/></svg>
-      Back to Portfolio
-    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Hire Me</a></li>
+      </ul>
+      <a href="index.html#work" class="nav-back">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M11 7H3M3 7L7 3M3 7L7 11" stroke="currentColor" stroke-width="1.2"/></svg>
+        Back
+      </a>
+    </div>
   </nav>
 
   <div class="cs-hero">

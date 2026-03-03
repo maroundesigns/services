@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="Maroun_Designs_Logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Maroun Designs &mdash; Motion &amp; Brand Creative</title>
   <meta property="og:title" content="Maroun Designs" />
@@ -39,7 +40,12 @@
     ::-webkit-scrollbar { width: 3px; }
     ::-webkit-scrollbar-track { background: var(--black); }
     ::-webkit-scrollbar-thumb { background: var(--gold); }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; justify-content: space-between; align-items: center; padding: 28px 48px; transition: background .4s, border-bottom .4s; }
+    .availability-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 600; background: var(--gold); padding: 9px 48px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+    .availability-bar-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--black); animation: pulse 2s ease-in-out infinite; flex-shrink: 0; }
+    .availability-bar-text { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--black); font-weight: 500; }
+    .availability-bar-cta { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--black); font-weight: 700; text-decoration: none; border-bottom: 1px solid rgba(8,8,8,.4); padding-bottom: 1px; cursor: none; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
+    nav { position: fixed; top: 36px; left: 0; right: 0; z-index: 500; display: flex; justify-content: space-between; align-items: center; padding: 28px 48px; transition: background .4s, border-bottom .4s; }
     nav.scrolled { background: rgba(8,8,8,.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
     .nav-logo { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--cream); text-decoration: none; letter-spacing: .05em; }
     .nav-links { display: flex; gap: 40px; list-style: none; }
@@ -201,7 +207,12 @@
     .reveal-delay-4 { transition-delay: .4s; }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
     @media (max-width: 900px) {
-      nav { padding: 24px; }
+      .availability-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 600; background: var(--gold); padding: 9px 48px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+    .availability-bar-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--black); animation: pulse 2s ease-in-out infinite; flex-shrink: 0; }
+    .availability-bar-text { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--black); font-weight: 500; }
+    .availability-bar-cta { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--black); font-weight: 700; text-decoration: none; border-bottom: 1px solid rgba(8,8,8,.4); padding-bottom: 1px; cursor: none; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
+    nav { padding: 24px; }
       .nav-links { display: none; }
       section { padding: 80px 24px; }
       #hero { padding: 0 24px 60px; }
@@ -234,6 +245,11 @@
   </style>
 </head>
 <body>
+  <div class="availability-bar">
+    <span class="availability-bar-dot"></span>
+    <span class="availability-bar-text">Now accepting 2 clients for April &mdash;</span>
+    <a href="#contact" class="availability-bar-cta">Get in touch</a>
+  </div>
   <div id="cursor"></div>
   <div id="cursor-ring"></div>
 
