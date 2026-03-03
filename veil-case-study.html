@@ -2,6 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="description" content="Maroun Designs — premium ad creatives, motion graphics, and brand visuals for e-commerce and DTC brands. Available for monthly retainers." />
+  <meta property="og:title" content="Maroun Designs" />
+  <meta property="og:description" content="Premium ad creatives, motion graphics, and brand visuals for e-commerce brands. Available for retainers." />
+  <meta property="og:image" content="https://maroundesigns.github.io/portfolio/Maroun_Designs_Logo.png" />
+  <meta property="og:image:width" content="936" />
+  <meta property="og:image:height" content="1139" />
+  <meta property="og:url" content="https://maroundesigns.github.io/portfolio/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://maroundesigns.github.io/portfolio/Maroun_Designs_Logo.png" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
@@ -118,6 +128,12 @@
     .cs-cta-btn::after { content: ""; position: absolute; inset: 0; background: var(--cream); transform: translateY(101%); transition: transform .3s; }
     .cs-cta-btn:hover::after { transform: translateY(0); }
     .cs-cta-btn > * { position: relative; z-index: 1; }
+    .cs-cta-btns { display: flex; flex-direction: column; align-items: center; gap: 0; }
+    .cs-cta-btn-secondary { display: inline-flex; align-items: center; gap: 14px; background: none; color: var(--gold); text-decoration: none; padding: 18px 48px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; font-weight: 500; border: 1px solid var(--gold); margin-top: 16px; position: relative; overflow: hidden; cursor: none; transition: color .3s; }
+    .cs-cta-btn-secondary::after { content: ''; position: absolute; inset: 0; background: var(--gold); transform: translateY(101%); transition: transform .3s; z-index: 0; }
+    .cs-cta-btn-secondary:hover { color: var(--black); }
+    .cs-cta-btn-secondary:hover::after { transform: translateY(0); }
+    .cs-cta-btn-secondary > * { position: relative; z-index: 1; }
 
     /* REVEAL */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
@@ -363,10 +379,16 @@
   <div class="cs-cta-section">
     <h2 class="cs-cta-title reveal">Want this for<br>your <em>brand?</em></h2>
     <p class="cs-cta-sub reveal reveal-delay-1">I take on a limited number of retainer clients each month.</p>
-    <a href="https://mail.google.com/mail/?view=cm&amp;to=benoitmarek@gmail.com" target="_blank" rel="noopener" class="cs-cta-btn reveal reveal-delay-2">
-      <span>Start a Conversation</span>
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.2"/></svg>
-    </a>
+    <div class="cs-cta-btns reveal reveal-delay-2">
+      <a href="https://mail.google.com/mail/?view=cm&amp;to=maroundesigns@gmail.com" target="_blank" rel="noopener" class="cs-cta-btn">
+        <span>Start a Conversation</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.2"/></svg>
+      </a>
+      <a href="https://calendly.com/maroundesigns/new-meeting" target="_blank" rel="noopener" class="cs-cta-btn-secondary">
+        <span>Book a Discovery Call</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.2"/></svg>
+      </a>
+    </div>
   </div>
 
   <footer>
