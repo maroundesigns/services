@@ -84,19 +84,18 @@
     .brand-index { border-top: 1px solid var(--border); }
     .brand-row {
       display: grid;
-      grid-template-columns: 160px 1fr auto;
+      grid-template-columns: 1fr auto;
       align-items: center;
-      gap: 40px;
-      padding: 36px 0;
+      gap: 48px;
+      padding: 40px 0;
       border-bottom: 1px solid var(--border);
       text-decoration: none;
       color: inherit;
       position: relative;
       overflow: hidden;
       cursor: none;
-      transition: padding-left .4s ease;
+      transition: padding-left .4s ease, background .3s;
     }
-    /* gold rule slides in from left on hover */
     .brand-row::before {
       content: '';
       position: absolute;
@@ -110,51 +109,55 @@
     .brand-row:hover { padding-left: 20px; }
     .brand-row:hover::before { transform: scaleY(1); }
 
-    .br-left { display: flex; align-items: baseline; gap: 20px; }
-    .br-num { font-size: 10px; letter-spacing: .2em; color: var(--muted); }
+    /* Left block: number + name stacked, category + pills below */
+    .br-left { display: flex; flex-direction: column; gap: 0; }
+    .br-top { display: flex; align-items: baseline; gap: 16px; }
+    .br-num { font-size: 10px; letter-spacing: .2em; color: var(--muted); line-height: 1; margin-bottom: 6px; }
     .br-name {
       font-family: var(--font-display);
-      font-size: clamp(32px, 4vw, 56px);
+      font-size: clamp(40px, 5.5vw, 72px);
       font-weight: 900;
-      letter-spacing: -.02em;
-      line-height: 1;
+      letter-spacing: -.025em;
+      line-height: .9;
       color: var(--cream);
       transition: color .3s;
+      display: block;
     }
     .brand-row:hover .br-name { color: var(--gold); }
-
-    .br-mid { display: flex; flex-direction: column; gap: 10px; }
+    .br-meta { display: flex; align-items: center; gap: 20px; margin-top: 14px; flex-wrap: wrap; }
     .br-cat { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
     .br-pills { display: flex; gap: 8px; flex-wrap: wrap; }
     .br-pill { padding: 4px 12px; border: 1px solid var(--border); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); transition: border-color .3s, color .3s; }
-    .brand-row:hover .br-pill { border-color: rgba(201,168,76,.3); color: rgba(201,168,76,.7); }
+    .brand-row:hover .br-pill { border-color: rgba(201,168,76,.3); color: rgba(201,168,76,.6); }
 
-    .br-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
-    .br-count { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
-    .br-arrow { font-size: 22px; color: var(--muted); transition: color .3s, transform .3s; }
-    .brand-row:hover .br-arrow { color: var(--gold); transform: translate(3px,-3px); }
-
-    /* thumbnail peeks in from right on hover */
+    /* Right block: count + arrow + thumb */
+    .br-right {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-shrink: 0;
+    }
     .br-thumb {
-      position: absolute;
-      right: 56px; top: 50%;
-      transform: translateY(-50%) translateX(24px);
-      opacity: 0;
-      width: 72px;
-      height: 90px;
+      width: 64px;
+      height: 80px;
       overflow: hidden;
-      pointer-events: none;
-      transition: opacity .35s, transform .35s;
       border: 1px solid var(--border);
+      opacity: 0;
+      transform: translateX(12px);
+      transition: opacity .35s, transform .35s;
+      flex-shrink: 0;
     }
     .br-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .brand-row:hover .br-thumb { opacity: 1; transform: translateY(-50%) translateX(0); }
+    .brand-row:hover .br-thumb { opacity: 1; transform: none; }
+    .br-meta-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+    .br-count { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+    .br-arrow { font-size: 24px; color: var(--muted); transition: color .3s, transform .3s; line-height: 1; }
+    .brand-row:hover .br-arrow { color: var(--gold); transform: translate(3px,-3px); }
 
     @media(max-width:700px){
-      .brand-row { grid-template-columns: 1fr auto; gap: 20px; }
-      .br-left { flex-direction: column; gap: 4px; }
-      .br-mid { display: none; }
-      .br-thumb { display: none; }
+      .brand-row { grid-template-columns: 1fr; }
+      .br-right { display: none; }
+      .br-meta { margin-top: 10px; }
     }
     
     #services { background: var(--off-black); border-top: 1px solid var(--border); }
@@ -317,101 +320,111 @@
 
     <div class="brand-index reveal">
 
-      <a href="rouge-case-study.html" class="brand-row" data-thumb="images/Rouge/Rouge_Hero_Ad.png">
+      <a href="rouge-case-study.html" class="brand-row">
         <div class="br-left">
           <span class="br-num">01</span>
           <span class="br-name">ROUGE</span>
-        </div>
-        <div class="br-mid">
-          <span class="br-cat">Luxury Fragrance</span>
-          <div class="br-pills">
-            <span class="br-pill">Editorial</span>
-            <span class="br-pill">Product Static</span>
-            <span class="br-pill">Motion</span>
+          <div class="br-meta">
+            <span class="br-cat">Luxury Fragrance</span>
+            <div class="br-pills">
+              <span class="br-pill">Editorial</span>
+              <span class="br-pill">Product Static</span>
+              <span class="br-pill">Motion</span>
+            </div>
           </div>
         </div>
         <div class="br-right">
-          <span class="br-count">3 pieces</span>
-          <span class="br-arrow">&#x2197;</span>
+          <div class="br-thumb"><img src="images/Rouge/Rouge_Hero_Ad.png" alt="ROUGE" /></div>
+          <div class="br-meta-right">
+            <span class="br-count">3 pieces</span>
+            <span class="br-arrow">&#x2197;</span>
+          </div>
         </div>
-        <div class="br-thumb"><img src="images/Rouge/Rouge_Hero_Ad.png" alt="ROUGE" /></div>
       </a>
 
-      <a href="veil-case-study.html" class="brand-row" data-thumb="images/Veil/Veil_Magazine_Cover.png">
+      <a href="veil-case-study.html" class="brand-row">
         <div class="br-left">
           <span class="br-num">02</span>
           <span class="br-name">VEIL</span>
-        </div>
-        <div class="br-mid">
-          <span class="br-cat">Premium Fashion</span>
-          <div class="br-pills">
-            <span class="br-pill">Editorial</span>
-            <span class="br-pill">Product Static</span>
-            <span class="br-pill">Motion</span>
+          <div class="br-meta">
+            <span class="br-cat">Premium Fashion</span>
+            <div class="br-pills">
+              <span class="br-pill">Editorial</span>
+              <span class="br-pill">Product Static</span>
+              <span class="br-pill">Motion</span>
+            </div>
           </div>
         </div>
         <div class="br-right">
-          <span class="br-count">3 pieces</span>
-          <span class="br-arrow">&#x2197;</span>
+          <div class="br-thumb"><img src="images/Veil/Veil_Magazine_Cover.png" alt="VEIL" /></div>
+          <div class="br-meta-right">
+            <span class="br-count">3 pieces</span>
+            <span class="br-arrow">&#x2197;</span>
+          </div>
         </div>
-        <div class="br-thumb"><img src="images/Veil/Veil_Magazine_Cover.png" alt="VEIL" /></div>
       </a>
 
-      <a href="vault-case-study.html" class="brand-row" data-thumb="images/VAULT/VAULT_DROP001_Ad.png">
+      <a href="vault-case-study.html" class="brand-row">
         <div class="br-left">
           <span class="br-num">03</span>
           <span class="br-name">VAULT</span>
-        </div>
-        <div class="br-mid">
-          <span class="br-cat">Luxury Streetwear</span>
-          <div class="br-pills">
-            <span class="br-pill">Editorial</span>
-            <span class="br-pill">Motion</span>
+          <div class="br-meta">
+            <span class="br-cat">Luxury Streetwear</span>
+            <div class="br-pills">
+              <span class="br-pill">Editorial</span>
+              <span class="br-pill">Motion</span>
+            </div>
           </div>
         </div>
         <div class="br-right">
-          <span class="br-count">2 pieces</span>
-          <span class="br-arrow">&#x2197;</span>
+          <div class="br-thumb"><img src="images/VAULT/VAULT_DROP001_Ad.png" alt="VAULT" /></div>
+          <div class="br-meta-right">
+            <span class="br-count">2 pieces</span>
+            <span class="br-arrow">&#x2197;</span>
+          </div>
         </div>
-        <div class="br-thumb"><img src="images/VAULT/VAULT_DROP001_Ad.png" alt="VAULT" /></div>
       </a>
 
-      <a href="grove-case-study.html" class="brand-row" data-thumb="images/GROVE/Grove_Ad.png">
+      <a href="grove-case-study.html" class="brand-row">
         <div class="br-left">
           <span class="br-num">04</span>
           <span class="br-name">GROVE</span>
-        </div>
-        <div class="br-mid">
-          <span class="br-cat">Organic Food</span>
-          <div class="br-pills">
-            <span class="br-pill">Editorial</span>
-            <span class="br-pill">Motion</span>
+          <div class="br-meta">
+            <span class="br-cat">Organic Food</span>
+            <div class="br-pills">
+              <span class="br-pill">Editorial</span>
+              <span class="br-pill">Motion</span>
+            </div>
           </div>
         </div>
         <div class="br-right">
-          <span class="br-count">2 pieces</span>
-          <span class="br-arrow">&#x2197;</span>
+          <div class="br-thumb"><img src="images/GROVE/Grove_Ad.png" alt="GROVE" /></div>
+          <div class="br-meta-right">
+            <span class="br-count">2 pieces</span>
+            <span class="br-arrow">&#x2197;</span>
+          </div>
         </div>
-        <div class="br-thumb"><img src="images/GROVE/Grove_Ad.png" alt="GROVE" /></div>
       </a>
 
-      <a href="halo-case-study.html" class="brand-row" data-thumb="images/HALO/HALO_Ad.png">
+      <a href="halo-case-study.html" class="brand-row">
         <div class="br-left">
           <span class="br-num">05</span>
           <span class="br-name">HALO</span>
-        </div>
-        <div class="br-mid">
-          <span class="br-cat">Wellness App</span>
-          <div class="br-pills">
-            <span class="br-pill">Editorial</span>
-            <span class="br-pill">Motion</span>
+          <div class="br-meta">
+            <span class="br-cat">Wellness App</span>
+            <div class="br-pills">
+              <span class="br-pill">Editorial</span>
+              <span class="br-pill">Motion</span>
+            </div>
           </div>
         </div>
         <div class="br-right">
-          <span class="br-count">2 pieces</span>
-          <span class="br-arrow">&#x2197;</span>
+          <div class="br-thumb"><img src="images/HALO/HALO_Ad.png" alt="HALO" /></div>
+          <div class="br-meta-right">
+            <span class="br-count">2 pieces</span>
+            <span class="br-arrow">&#x2197;</span>
+          </div>
         </div>
-        <div class="br-thumb"><img src="images/HALO/HALO_Ad.png" alt="HALO" /></div>
       </a>
 
     </div>
