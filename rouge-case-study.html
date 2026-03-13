@@ -32,8 +32,17 @@
     .nav-back{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--muted);font-size:11px;letter-spacing:.18em;text-transform:uppercase;transition:color .3s;cursor:none;}
     .nav-back:hover{color:var(--cream);}
     .nav-logo{font-family:var(--fd);font-size:18px;font-weight:700;color:var(--cream);text-decoration:none;letter-spacing:.05em;}
-    .nav-cta-link{background:var(--gold);color:var(--black);text-decoration:none;padding:10px 22px;font-family:var(--fm);font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;transition:background .3s;cursor:none;}
-    .nav-cta-link:hover{background:var(--cream);}
+    .nav-cases{position:relative;}
+    .nav-cases-btn{display:flex;align-items:center;gap:7px;background:none;border:none;color:var(--muted);font-family:var(--fm);font-size:10px;letter-spacing:.18em;text-transform:uppercase;cursor:none;transition:color .3s;padding:0;}
+    .nav-cases-btn:hover,.nav-cases.open .nav-cases-btn{color:var(--cream);}
+    .nav-cases-btn svg{transition:transform .3s;}
+    .nav-cases.open .nav-cases-btn svg{transform:rotate(180deg);}
+    .nav-dropdown{position:absolute;top:calc(100% + 16px);right:0;background:rgba(12,12,12,.97);backdrop-filter:blur(16px);border:1px solid var(--border);min-width:200px;opacity:0;pointer-events:none;transform:translateY(-8px);transition:opacity .25s,transform .25s;z-index:600;}
+    .nav-cases.open .nav-dropdown{opacity:1;pointer-events:all;transform:none;}
+    .nav-dropdown a{display:block;padding:13px 20px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--border);transition:color .2s,background .2s;cursor:none;}
+    .nav-dropdown a:last-child{border-bottom:none;}
+    .nav-dropdown a:hover{color:var(--cream);background:rgba(255,255,255,.03);}
+    .nav-dropdown a.current{color:var(--gold);pointer-events:none;}
 
     /* HERO */
     #hero{min-height:92vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 48px 72px;position:relative;overflow:hidden;background:var(--red-mid);}
@@ -143,7 +152,16 @@
   <nav id="main-nav">
     <a href="index.html" class="nav-back">&larr; All Work</a>
     <a href="index.html" class="nav-logo">MD.</a>
-    <a href="https://mail.google.com/mail/?view=cm&to=maroundesigns@gmail.com" target="_blank" rel="noopener" class="nav-cta-link">Hire Me</a>
+    <div class="nav-cases">
+      <button class="nav-cases-btn">Case Studies <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.2"/></svg></button>
+      <div class="nav-dropdown">
+        <a href="rouge-case-study.html" class="current">ROUGE</a>
+        <a href="veil-case-study.html">VEIL</a>
+        <a href="vault-case-study.html">VAULT</a>
+        <a href="grove-case-study.html">GROVE</a>
+        <a href="halo-case-study.html">HALO</a>
+      </div>
+    </div>
   </nav>
 
   <!-- HERO -->
@@ -284,6 +302,9 @@
     });
     var nav=document.getElementById('main-nav');
     window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>60);},{passive:true});
+    var dd=document.querySelector('.nav-cases');
+    document.querySelector('.nav-cases-btn').addEventListener('click',function(){dd.classList.toggle('open');});
+    document.addEventListener('click',function(e){if(!dd.contains(e.target))dd.classList.remove('open');});
     var revObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revObs.unobserve(e.target);}});},{threshold:0.08});
     document.querySelectorAll('.reveal').forEach(function(el){revObs.observe(el);});
   </script>

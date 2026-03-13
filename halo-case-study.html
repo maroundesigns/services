@@ -1,261 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="description" content="Maroun Designs — premium ad creatives, motion graphics, and brand visuals for e-commerce and DTC brands. Available for monthly retainers." />
-  <meta property="og:title" content="Maroun Designs" />
-  <meta property="og:description" content="Premium ad creatives, motion graphics, and brand visuals for e-commerce brands. Available for retainers." />
-  <meta property="og:image" content="https://maroundesigns.github.io/portfolio/Maroun_Designs_Logo.png" />
-  <meta property="og:image:width" content="936" />
-  <meta property="og:image:height" content="1139" />
-  <meta property="og:url" content="https://maroundesigns.github.io/portfolio/" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://maroundesigns.github.io/portfolio/Maroun_Designs_Logo.png" />
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HALO Case Study — Maroun Designs</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HALO Case Study &mdash; Maroun Designs</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Mono:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --black: #080808; --off-black: #111111; --cream: #F5F0EB; --gold: #C9A84C;
-      --muted: rgba(245,240,235,0.45); --border: rgba(245,240,235,0.1);
-      --brand: #0a0d1e; --brand-accent: #4a6fa5;
-      --font-display: 'Playfair Display', serif; --font-mono: 'DM Mono', monospace; --font-light: 'Cormorant Garamond', serif;
-    }
-    html { scroll-behavior: smooth; }
-    body { background: var(--black); color: var(--cream); font-family: var(--font-mono); font-size: 14px; line-height: 1.6; cursor: none; overflow-x: hidden; }
-    ::selection { background: var(--gold); color: var(--black); }
-    #cursor { position: fixed; width: 10px; height: 10px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width .25s, height .25s; will-change: left,top; }
-    #cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(201,168,76,.5); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width .25s, height .25s, opacity .25s; will-change: left,top; }
-    body.ch #cursor { width: 20px; height: 20px; } body.ch #cursor-ring { width: 56px; height: 56px; opacity: .4; }
-    ::-webkit-scrollbar { width: 3px; } ::-webkit-scrollbar-track { background: var(--black); } ::-webkit-scrollbar-thumb { background: var(--gold); }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; justify-content: space-between; align-items: center; padding: 28px 48px; transition: background .4s, border-bottom .4s; }
-    nav.scrolled { background: rgba(8,8,8,.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-    .nav-logo { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--cream); text-decoration: none; letter-spacing: .05em; }
-    .nav-back { color: var(--muted); text-decoration: none; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; transition: color .3s; display: flex; align-items: center; gap: 10px; }
-    .nav-back:hover { color: var(--gold); } .nav-back svg { transition: transform .3s; } .nav-back:hover svg { transform: translateX(-4px); }
-    .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; transition: color .3s; }
-    .nav-links a:hover { color: var(--gold); }
-    .nav-cta { background: var(--gold) !important; color: var(--black) !important; padding: 10px 20px; }
-    .nav-cta:hover { background: var(--cream) !important; }
-    .nav-right { display: flex; align-items: center; gap: 48px; }
-    @media (max-width: 768px) { .nav-links { display: none; } }
-    .cs-hero { min-height: 80vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 48px 80px; position: relative; overflow: hidden; background: var(--brand); }
-    .cs-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 30%, rgba(74,111,165,.12) 0%, transparent 60%); }
-    .cs-hero-label { font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; opacity: 0; animation: fadeUp .7s ease .2s forwards; }
-    .cs-hero-brand { font-family: var(--font-display); font-size: clamp(80px,14vw,180px); font-weight: 900; line-height: .85; letter-spacing: -.04em; color: rgba(245,240,235,.05); position: absolute; bottom: 60px; right: 48px; pointer-events: none; }
-    .cs-hero-title { font-family: var(--font-display); font-size: clamp(44px,6vw,80px); font-weight: 700; line-height: 1; letter-spacing: -.02em; max-width: 700px; opacity: 0; animation: fadeUp .9s ease .4s forwards; }
-    .cs-hero-title em { font-style: italic; font-weight: 400; color: var(--gold); }
-    .cs-hero-meta { display: flex; gap: 48px; margin-top: 40px; opacity: 0; animation: fadeUp .9s ease .6s forwards; flex-wrap: wrap; }
-    .cs-hero-meta-item label { display: block; font-size: 9px; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
-    .cs-hero-meta-item span { font-family: var(--font-light); font-size: 16px; font-weight: 300; color: var(--muted); }
-    .cs-section { padding: 100px 48px; } .cs-section + .cs-section { border-top: 1px solid var(--border); } .cs-section.dark { background: var(--off-black); }
-    .cs-label { font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
-    .cs-label::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--gold); opacity: .4; }
-    .cs-heading { font-family: var(--font-display); font-size: clamp(32px,4vw,56px); font-weight: 700; line-height: 1.05; letter-spacing: -.02em; margin-bottom: 32px; }
-    .cs-heading em { font-style: italic; color: var(--gold); }
-    .cs-body { font-family: var(--font-light); font-size: 20px; font-weight: 300; color: var(--muted); line-height: 1.8; max-width: 680px; }
-    .cs-body p + p { margin-top: 20px; }
-    .cs-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-    .cs-two-col.flip { direction: rtl; } .cs-two-col.flip > * { direction: ltr; }
-    .cs-media { position: relative; background: var(--brand); overflow: hidden; }
-    .cs-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .cs-media video { width: 100%; display: block; }
-    .cs-media-label { position: absolute; bottom: 16px; left: 16px; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); background: rgba(8,8,8,.7); padding: 6px 12px; backdrop-filter: blur(4px); border: 1px solid rgba(245,240,235,.1); }
-    .cs-pieces { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin-top: 64px; }
-    .cs-piece { background: var(--brand); } .cs-piece-info { padding: 20px; border-top: 1px solid var(--border); }
-    .cs-piece-num { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
-    .cs-piece-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; }
-    .cs-piece-desc { font-size: 11px; color: var(--muted); margin-top: 6px; line-height: 1.6; }
-    .cs-funnel { display: flex; align-items: stretch; gap: 0; margin-top: 48px; }
-    .cs-funnel-step { flex: 1; padding: 32px 28px; border: 1px solid var(--border); position: relative; }
-    .cs-funnel-step + .cs-funnel-step { border-left: none; }
-    .cs-funnel-step::after { content: ''; position: absolute; right: -18px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-left: 10px solid var(--border); z-index: 1; }
-    .cs-funnel-step:last-child::after { display: none; }
-    .cs-funnel-num { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
-    .cs-funnel-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; margin-bottom: 8px; }
-    .cs-funnel-desc { font-size: 12px; color: var(--muted); line-height: 1.7; }
-    .cs-funnel-piece { font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); opacity: .7; }
-    .cs-specs { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
-    .cs-spec { padding: 8px 16px; border: 1px solid var(--border); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
-    .cs-table { width: 100%; border-collapse: collapse; margin-top: 32px; }
-    .cs-table td { padding: 20px 24px; border: 1px solid var(--border); font-size: 12px; vertical-align: top; }
-    .cs-table td:first-child { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); width: 30%; }
-    .cs-table td:last-child { font-family: var(--font-light); font-size: 16px; color: var(--muted); }
-    .cs-disclaimer { background: rgba(201,168,76,.06); border: 1px solid rgba(201,168,76,.2); padding: 20px 28px; display: flex; gap: 16px; align-items: flex-start; margin-top: 64px; }
-    .cs-disclaimer-icon { color: var(--gold); font-size: 16px; flex-shrink: 0; margin-top: 2px; }
-    .cs-disclaimer-text { font-size: 12px; color: var(--muted); line-height: 1.7; }
-    .cs-cta-section { background: var(--off-black); border-top: 1px solid var(--border); padding: 100px 48px; text-align: center; }
-    .cs-cta-title { font-family: var(--font-display); font-size: clamp(36px,5vw,64px); font-weight: 700; line-height: 1; letter-spacing: -.02em; margin-bottom: 24px; }
-    .cs-cta-title em { font-style: italic; color: var(--gold); }
-    .cs-cta-sub { font-family: var(--font-light); font-size: 18px; color: var(--muted); margin-bottom: 48px; }
-    .cs-cta-btns { display: flex; flex-direction: column; align-items: center; }
-    .cs-cta-btn { display: inline-flex; align-items: center; gap: 14px; background: var(--gold); color: var(--black); text-decoration: none; padding: 20px 48px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; font-weight: 500; position: relative; overflow: hidden; cursor: none; }
-    .cs-cta-btn::after { content: ''; position: absolute; inset: 0; background: var(--cream); transform: translateY(101%); transition: transform .3s; }
-    .cs-cta-btn:hover::after { transform: translateY(0); } .cs-cta-btn > * { position: relative; z-index: 1; }
-    .cs-cta-btn-secondary { display: inline-flex; align-items: center; gap: 14px; background: none; color: var(--gold); text-decoration: none; padding: 18px 48px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; font-weight: 500; border: 1px solid var(--gold); margin-top: 16px; position: relative; overflow: hidden; cursor: none; transition: color .3s; }
-    .cs-cta-btn-secondary::after { content: ''; position: absolute; inset: 0; background: var(--gold); transform: translateY(101%); transition: transform .3s; z-index: 0; }
-    .cs-cta-btn-secondary:hover { color: var(--black); } .cs-cta-btn-secondary:hover::after { transform: translateY(0); } .cs-cta-btn-secondary > * { position: relative; z-index: 1; }
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-    .reveal-delay-1 { transition-delay: .1s; } .reveal-delay-2 { transition-delay: .2s; } .reveal-delay-3 { transition-delay: .3s; }
-    footer { background: var(--black); border-top: 1px solid var(--border); padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; }
-    .footer-logo { font-family: var(--font-display); font-size: 16px; font-weight: 700; } .footer-copy { font-size: 11px; color: var(--muted); }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
-    @media (max-width: 900px) {
-      nav { padding: 24px; } .cs-hero { padding: 0 24px 60px; } .cs-section { padding: 72px 24px; }
-      .cs-two-col { grid-template-columns: 1fr; gap: 40px; } .cs-two-col.flip { direction: ltr; }
-      .cs-pieces { grid-template-columns: 1fr; } .cs-funnel { flex-direction: column; }
-      .cs-funnel-step::after { display: none; } footer { flex-direction: column; gap: 16px; text-align: center; }
-    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--black:#080808;--off-black:#111111;--cream:#F5F0EB;--gold:#C9A84C;--ac:#8fa8d4;--muted:rgba(245,240,235,.45);--border:rgba(245,240,235,.08);--fd:'Playfair Display',serif;--fm:'DM Mono',monospace;--fl:'Cormorant Garamond',serif;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--black);color:var(--cream);font-family:var(--fm);font-size:13px;line-height:1.6;overflow-x:hidden;cursor:none;}
+    #cursor{position:fixed;width:10px;height:10px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .25s,height .25s;}
+    #cursor-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(201,168,76,.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);}
+    body.ch #cursor{width:20px;height:20px;}body.ch #cursor-ring{width:56px;height:56px;opacity:.4;}
+    ::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-thumb{background:var(--gold);}
+    nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:28px 48px;transition:background .4s;}
+    nav.scrolled{background:rgba(8,8,8,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+    .nav-back{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--muted);font-size:11px;letter-spacing:.18em;text-transform:uppercase;transition:color .3s;cursor:none;}
+    .nav-back:hover{color:var(--cream);}
+    .nav-logo{font-family:var(--fd);font-size:18px;font-weight:700;color:var(--cream);text-decoration:none;letter-spacing:.05em;}
+    .nav-cases{position:relative;}
+    .nav-cases-btn{display:flex;align-items:center;gap:7px;background:none;border:none;color:var(--muted);font-family:var(--fm);font-size:10px;letter-spacing:.18em;text-transform:uppercase;cursor:none;transition:color .3s;padding:0;}
+    .nav-cases-btn:hover,.nav-cases.open .nav-cases-btn{color:var(--cream);}
+    .nav-cases-btn svg{transition:transform .3s;}
+    .nav-cases.open .nav-cases-btn svg{transform:rotate(180deg);}
+    .nav-dropdown{position:absolute;top:calc(100% + 16px);right:0;background:rgba(12,12,12,.97);backdrop-filter:blur(16px);border:1px solid var(--border);min-width:200px;opacity:0;pointer-events:none;transform:translateY(-8px);transition:opacity .25s,transform .25s;z-index:600;}
+    .nav-cases.open .nav-dropdown{opacity:1;pointer-events:all;transform:none;}
+    .nav-dropdown a{display:block;padding:13px 20px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--border);transition:color .2s,background .2s;cursor:none;}
+    .nav-dropdown a:last-child{border-bottom:none;}
+    .nav-dropdown a:hover{color:var(--cream);background:rgba(255,255,255,.03);}
+    .nav-dropdown a.current{color:var(--gold);pointer-events:none;}
+    #hero{min-height:92vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 48px 72px;position:relative;overflow:hidden;}
+    .hero-grad{position:absolute;inset:0;background:linear-gradient(135deg,#0B0F2E 0%,#080c1e 50%,#080808 100%);}
+    .hero-content{position:relative;z-index:1;}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ac);margin-bottom:28px;opacity:0;animation:fadeUp .7s ease .3s forwards;}
+    .hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--ac);}
+    .hero-brand{font-family:var(--fd);font-size:clamp(72px,11vw,148px);font-weight:900;line-height:.82;letter-spacing:-.025em;opacity:0;animation:fadeUp .9s ease .5s forwards;}
+    .hero-tagline{font-family:var(--fl);font-size:clamp(18px,2.2vw,28px);font-weight:300;color:var(--muted);margin-top:24px;opacity:0;animation:fadeUp .7s ease .75s forwards;font-style:italic;}
+    .hero-foot{display:flex;align-items:center;gap:48px;margin-top:52px;padding-top:28px;border-top:1px solid rgba(245,240,235,.08);opacity:0;animation:fadeUp .6s ease 1s forwards;}
+    .hf-item{display:flex;flex-direction:column;gap:5px;}
+    .hf-label{font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--ac);}
+    .hf-val{font-family:var(--fl);font-size:16px;font-weight:300;color:var(--muted);}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+    .brief-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);}
+    .brief-item{background:#0b1028;padding:32px 36px;}
+    .bi-label{font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--ac);margin-bottom:10px;}
+    .bi-val{font-family:var(--fl);font-size:17px;font-weight:300;color:var(--cream);line-height:1.5;}
+    #work{padding:100px 48px;}
+    .sec-label{display:flex;align-items:center;gap:14px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:60px;}
+    .sec-label::after{content:'';width:48px;height:1px;background:var(--gold);opacity:.4;}
+    .piece{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:100px;}
+    .piece:last-child{margin-bottom:0;}
+    .piece.flip{direction:rtl;}.piece.flip>*{direction:ltr;}
+    .piece-media{overflow:hidden;background:#0b1028;}
+    .piece-media.r4x5{aspect-ratio:4/5;}
+    .piece-media.r9x16{aspect-ratio:9/16;}
+    .piece-media img,.piece-media video{width:100%;height:100%;object-fit:contain;display:block;}
+    .piece-media video{background:#000;}
+    .piece-num{font-size:80px;font-family:var(--fd);font-weight:900;color:rgba(143,168,212,.07);line-height:1;letter-spacing:-.04em;margin-bottom:4px;}
+    .piece-tag{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--ac);margin-bottom:16px;}
+    .piece-title{font-family:var(--fd);font-size:clamp(28px,3vw,44px);font-weight:700;line-height:1.05;margin-bottom:20px;}
+    .piece-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;}
+    .piece-pill{padding:5px 13px;border:1px solid rgba(143,168,212,.2);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
+    .piece-desc{font-family:var(--fl);font-size:17px;font-weight:300;color:var(--muted);line-height:1.85;}
+    #identity{padding:80px 48px;background:var(--off-black);border-top:1px solid var(--border);}
+    .id-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:52px;}
+    .id-card{padding:36px;border:1px solid var(--border);position:relative;overflow:hidden;}
+    .id-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--ac);transform:scaleX(0);transform-origin:left;transition:transform .4s;}
+    .id-card:hover::before{transform:scaleX(1);}
+    .id-label{font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--ac);margin-bottom:14px;}
+    .id-body{font-family:var(--fl);font-size:16px;font-weight:300;color:var(--muted);line-height:1.8;}
+    #cta{padding:120px 48px;text-align:center;background:var(--black);border-top:1px solid var(--border);}
+    .cta-label{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;}
+    .cta-title{font-family:var(--fd);font-size:clamp(40px,6vw,80px);font-weight:900;line-height:.95;letter-spacing:-.025em;margin-bottom:20px;}
+    .cta-title em{font-style:italic;font-weight:400;color:var(--gold);}
+    .cta-sub{font-family:var(--fl);font-size:19px;font-weight:300;color:var(--muted);max-width:460px;margin:0 auto 52px;line-height:1.7;}
+    .cta-btns{display:flex;justify-content:center;flex-direction:column;align-items:center;}
+    .btn-primary{display:inline-flex;align-items:center;gap:14px;background:var(--gold);color:var(--black);text-decoration:none;padding:22px 52px;font-family:var(--fm);font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;position:relative;overflow:hidden;cursor:none;}
+    .btn-primary::after{content:'';position:absolute;inset:0;background:var(--cream);transform:translateY(101%);transition:transform .3s;}
+    .btn-primary:hover::after{transform:translateY(0);}
+    .btn-primary>*{position:relative;z-index:1;}
+    .btn-secondary{display:inline-flex;align-items:center;gap:14px;background:none;color:var(--gold);text-decoration:none;padding:20px 52px;font-family:var(--fm);font-size:11px;letter-spacing:.22em;text-transform:uppercase;border:1px solid var(--gold);margin-top:16px;position:relative;overflow:hidden;cursor:none;transition:color .3s;}
+    .btn-secondary::after{content:'';position:absolute;inset:0;background:var(--gold);transform:translateY(101%);transition:transform .3s;z-index:0;}
+    .btn-secondary:hover{color:var(--black);}
+    .btn-secondary:hover::after{transform:translateY(0);}
+    .btn-secondary>*{position:relative;z-index:1;}
+    footer{background:var(--off-black);border-top:1px solid var(--border);padding:32px 48px;display:flex;justify-content:space-between;align-items:center;}
+    .footer-logo{font-family:var(--fd);font-size:16px;font-weight:700;}
+    .footer-copy{font-size:11px;color:var(--muted);letter-spacing:.1em;}
+    .footer-back{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .3s;cursor:none;}
+    .footer-back:hover{color:var(--gold);}
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s;}
+    .reveal.visible{opacity:1;transform:none;}
+    .rd1{transition-delay:.1s;}.rd2{transition-delay:.22s;}.rd3{transition-delay:.34s;}
+    @media(max-width:900px){nav,#work,#identity,#cta,footer{padding-left:24px;padding-right:24px;}#hero{padding:0 24px 52px;}.brief-strip{grid-template-columns:1fr 1fr;}.piece,.piece.flip{grid-template-columns:1fr;direction:ltr;}.id-grid{grid-template-columns:1fr;}.hero-foot{flex-wrap:wrap;gap:24px;}footer{flex-direction:column;gap:16px;text-align:center;}}
   </style>
 </head>
 <body>
   <div id="cursor"></div><div id="cursor-ring"></div>
   <nav id="main-nav">
+    <a href="index.html" class="nav-back">&larr; All Work</a>
     <a href="index.html" class="nav-logo">MD.</a>
-    <div class="nav-right">
-      <ul class="nav-links">
-        <li><a href="index.html#work">Work</a></li>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#contact" class="nav-cta">Hire Me</a></li>
-      </ul>
-      <a href="case-studies.html" class="nav-back"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M11 7H3M3 7L7 3M3 7L7 11" stroke="currentColor" stroke-width="1.2"/></svg>Back</a>
+    <div class="nav-cases">
+      <button class="nav-cases-btn">Case Studies <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.2"/></svg></button>
+      <div class="nav-dropdown">
+        <a href="rouge-case-study.html">ROUGE</a>
+        <a href="veil-case-study.html">VEIL</a>
+        <a href="vault-case-study.html">VAULT</a>
+        <a href="grove-case-study.html">GROVE</a>
+        <a href="halo-case-study.html" class="current">HALO</a>
+      </div>
     </div>
   </nav>
-
-  <div class="cs-hero">
-    <div class="cs-hero-bg"></div>
-    <div class="cs-hero-brand" aria-hidden="true">HALO</div>
-    <p class="cs-hero-label">Case Study &mdash; Spec Work</p>
-    <h1 class="cs-hero-title">Selling sleep with<br><em>cinematic atmosphere.</em></h1>
-    <div class="cs-hero-meta">
-      <div class="cs-hero-meta-item"><label>Brand</label><span>HALO</span></div>
-      <div class="cs-hero-meta-item"><label>Deliverables</label><span>2 pieces &mdash; 1 static, 1 motion</span></div>
-      <div class="cs-hero-meta-item"><label>Placement</label><span>Meta &mdash; Feed, Stories &amp; Reels</span></div>
-      <div class="cs-hero-meta-item"><label>Type</label><span>Spec / Self-initiated</span></div>
+  <section id="hero">
+    <div class="hero-grad"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Case Study &mdash; Spec Brand</p>
+      <h1 class="hero-brand">HALO</h1>
+      <p class="hero-tagline">Sleep and wellness. Rest as ritual.</p>
+      <div class="hero-foot">
+        <div class="hf-item"><p class="hf-label">Category</p><p class="hf-val">Wellness App</p></div>
+        <div class="hf-item"><p class="hf-label">Deliverables</p><p class="hf-val">Editorial &middot; Motion</p></div>
+        <div class="hf-item"><p class="hf-label">Tools</p><p class="hf-val">Photoshop &middot; After Effects</p></div>
+        <div class="hf-item"><p class="hf-label">Pieces</p><p class="hf-val">2 total</p></div>
+      </div>
     </div>
+  </section>
+  <div class="brief-strip reveal">
+    <div class="brief-item"><p class="bi-label">Aesthetic</p><p class="bi-val">Soft Deep Cosmic</p></div>
+    <div class="brief-item"><p class="bi-label">Palette</p><p class="bi-val">Deep Navy &mdash; Soft Indigo &mdash; Pale Luminance</p></div>
+    <div class="brief-item"><p class="bi-label">Typography</p><p class="bi-val">Light Serif &mdash; Lowercase &mdash; Whisper-Tone</p></div>
+    <div class="brief-item"><p class="bi-label">Reference</p><p class="bi-val">Calm &middot; Headspace &middot; More World-Building</p></div>
   </div>
-
-  <div class="cs-section">
-    <div class="cs-two-col">
-      <div>
-        <p class="cs-label reveal">The Brief</p>
-        <h2 class="cs-heading reveal reveal-delay-1">Sleep apps sell<br>features. HALO sells<br>a <em>feeling.</em></h2>
-        <div class="cs-body reveal reveal-delay-2">
-          <p>HALO is a premium sleep and wellness app in a crowded category. Most competitors advertise with product screenshots, sleep score graphics, and clinical claims. None of it creates desire.</p>
-          <p>The brief: make HALO feel like the sleep you want, not the sleep you need. Cinematic, aspirational, intimate. The kind of creative that makes someone stop scrolling at midnight and feel something.</p>
-        </div>
-        <div class="cs-specs reveal reveal-delay-3">
-          <span class="cs-spec">Sleep &amp; Wellness</span><span class="cs-spec">App Marketing</span><span class="cs-spec">Meta Paid Social</span><span class="cs-spec">Lifestyle</span><span class="cs-spec">Aspirational</span>
-        </div>
+  <section id="work">
+    <div class="sec-label reveal">Creative Work</div>
+    <div class="piece reveal">
+      <div class="piece-media r4x5">
+        <img src="images/HALO/HALO_Ad.png" alt="HALO Lifestyle Ad" />
       </div>
-      <div class="cs-media reveal reveal-delay-2" style="aspect-ratio:1080/1350;">
-        <img src="images/HALO/HALO_Ad.png" alt="HALO Sleep Deeper Ad" loading="lazy">
-        <span class="cs-media-label">Sleep Deeper &mdash; App Ad</span>
+      <div class="piece-info">
+        <p class="piece-num">01</p>
+        <p class="piece-tag">Halo &mdash; Editorial</p>
+        <h2 class="piece-title">Lifestyle Ad.<br>Brand Editorial</h2>
+        <div class="piece-pills"><span class="piece-pill">Editorial Composite</span><span class="piece-pill">Static Ad</span><span class="piece-pill">Meta Feed 1080&times;1350</span></div>
+        <p class="piece-desc">Lifestyle editorial for a sleep app built entirely around atmosphere rather than product features. Low-light environment, the phone as a soft glow — present but not pushed. The creative brief was simple: make rest feel like a state worth entering, not a problem to be solved. Deep navy tones, minimal copy. Photoshop.</p>
       </div>
     </div>
-  </div>
-
-  <div class="cs-section dark">
-    <p class="cs-label reveal">The Strategy</p>
-    <h2 class="cs-heading reveal reveal-delay-1">Atmosphere first,<br><em>download second.</em></h2>
-    <div class="cs-body reveal reveal-delay-2">
-      <p>The two-piece strategy leans into the product&rsquo;s emotional promise. Motion creates the dream state. Static locks in the brand moment. Together they build enough desire to make a download feel like a natural next step rather than a conversion.</p>
-    </div>
-    <div class="cs-funnel reveal reveal-delay-2">
-      <div class="cs-funnel-step">
-        <p class="cs-funnel-num">Stage 01</p>
-        <h3 class="cs-funnel-title">Dream</h3>
-        <p class="cs-funnel-desc">The animated social ad runs top-of-funnel on Reels and Stories. Aurora particles drift over a bedroom scene, headline reveals line by line. No screenshots, no features &mdash; pure atmosphere. Goal: make them want the feeling.</p>
-        <p class="cs-funnel-piece">Social Ad Animated &mdash; Reels / Stories</p>
+    <div class="piece flip reveal">
+      <div class="piece-media r9x16">
+        <video src="images/HALO/HALO_Social_Ad_1.mp4" autoplay muted loop playsinline></video>
       </div>
-      <div class="cs-funnel-step">
-        <p class="cs-funnel-num">Stage 02</p>
-        <h3 class="cs-funnel-title">Decide</h3>
-        <p class="cs-funnel-desc">The static feed ad retargets warm audiences. Same cinematic palette, same emotional register &mdash; now with enough clarity to drive a download. The visual does the heavy lifting so the copy doesn&rsquo;t have to.</p>
-        <p class="cs-funnel-piece">Sleep Deeper &mdash; Feed Static</p>
+      <div class="piece-info">
+        <p class="piece-num">02</p>
+        <p class="piece-tag">Halo &mdash; Motion</p>
+        <h2 class="piece-title">Animated Social Ad.<br>Stories Format</h2>
+        <div class="piece-pills"><span class="piece-pill">After Effects</span><span class="piece-pill">Motion Graphics</span><span class="piece-pill">Stories 1080&times;1920</span></div>
+        <p class="piece-desc">Gentle, rhythmic animation timed to a sleep-state pace — each element expanding and contracting like a slow breath. Breathwork metaphors embedded in the motion itself, not described in copy. Deep navy tones with soft luminance gradients. Built for Stories and Reels placement where the first second has to earn the next. After Effects.</p>
       </div>
     </div>
-  </div>
-
-  <div class="cs-section">
-    <p class="cs-label reveal">The Work</p>
-    <h2 class="cs-heading reveal reveal-delay-1">Cinematic,<br><em>intimate, HALO.</em></h2>
-    <div class="cs-pieces">
-      <div class="cs-piece reveal">
-        <div style="aspect-ratio:1080/1350;overflow:hidden;">
-          <img src="images/HALO/HALO_Ad.png" alt="HALO App Ad" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-        </div>
-        <div class="cs-piece-info">
-          <p class="cs-piece-num">01 &mdash; Static</p>
-          <h3 class="cs-piece-title">Sleep Deeper &mdash; App Ad</h3>
-          <p class="cs-piece-desc">Feed static for Meta warm audiences. Cinematic lifestyle photography with aurora particle overlay. Aspirational, intimate, premium. App download objective. 1080x1350.</p>
-        </div>
-      </div>
-      <div class="cs-piece reveal reveal-delay-1">
-        <div style="aspect-ratio:1080/1920;overflow:hidden;background:var(--brand);">
-          <video src="images/HALO/HALO_Social_Ad_1.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
-        </div>
-        <div class="cs-piece-info">
-          <p class="cs-piece-num">02 &mdash; Motion</p>
-          <h3 class="cs-piece-title">Social Ad &mdash; Animated</h3>
-          <p class="cs-piece-desc">Animated ad for Reels and Stories. Bedroom fades from black, aurora particles drift, headline reveals line by line. 8 seconds. Pure atmosphere, no product UI. 1080x1920.</p>
-        </div>
-      </div>
+  </section>
+  <section id="identity">
+    <div class="sec-label reveal">Brand Identity</div>
+    <div class="id-grid reveal">
+      <div class="id-card"><p class="id-label">Creative Direction</p><p class="id-body">Calm and Headspace as reference points, but pushed toward more world-building and less habit-tracking. Sleep as ritual rather than optimisation. The creative should feel like an invitation, not an instruction.</p></div>
+      <div class="id-card"><p class="id-label">Typography &amp; Tone</p><p class="id-body">Light weight serif, lowercase, generous leading. Whisper-tone, not broadcast-tone. Copy is suggestive and experiential — it describes a feeling rather than a feature. The pace of the words matches the pace of the motion.</p></div>
+      <div class="id-card"><p class="id-label">Colour &amp; Atmosphere</p><p class="id-body">Deep navy #080c1e &mdash; Soft indigo &mdash; Pale luminance glow. The colour of the hour before sleep. Nothing bright, nothing sharp. The palette should lower your cortisol, not raise it.</p></div>
     </div>
-    <div class="cs-disclaimer reveal">
-      <span class="cs-disclaimer-icon">&#9432;</span>
-      <p class="cs-disclaimer-text"><strong style="color:var(--cream);">This is spec work</strong> &mdash; HALO is a self-initiated brand created to demonstrate creative strategy for app marketing. All briefs and targeting rationale were developed independently.</p>
+  </section>
+  <section id="cta">
+    <p class="cta-label reveal">Work With Me</p>
+    <h2 class="cta-title reveal rd1">Ready to make<br>your brand <em>unforgettable?</em></h2>
+    <p class="cta-sub reveal rd2">I take on a limited number of retainer clients each month. If you&rsquo;re serious about your creative, let&rsquo;s talk.</p>
+    <div class="cta-btns reveal rd3">
+      <a href="https://mail.google.com/mail/?view=cm&to=maroundesigns@gmail.com" target="_blank" rel="noopener" class="btn-primary"><span>Start a Conversation</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.2"/></svg></a>
+      <a href="https://calendly.com/maroundesigns/new-meeting" target="_blank" rel="noopener" class="btn-secondary"><span>Book a Discovery Call</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.2"/></svg></a>
     </div>
-  </div>
-
-  <div class="cs-section dark">
-    <div class="cs-two-col flip">
-      <div>
-        <p class="cs-label reveal">Creative Decisions</p>
-        <h2 class="cs-heading reveal reveal-delay-1">Aurora as<br><em>brand language.</em></h2>
-        <div class="cs-body reveal reveal-delay-2">
-          <p>The aurora particle effect was chosen because it&rsquo;s both scientific and magical — which is exactly where HALO lives. It references the brain&rsquo;s activity during deep sleep without explaining it. The viewer feels it rather than reads it.</p>
-          <p>Deep navy backgrounds were chosen over clinical white to position HALO as an experience, not a tool. The difference between a sleep tracker and a sleep sanctuary is entirely in the creative.</p>
-        </div>
-      </div>
-      <div class="reveal reveal-delay-2">
-        <table class="cs-table">
-          <tr><td>Platform</td><td>Meta &mdash; Facebook &amp; Instagram</td></tr>
-          <tr><td>Primary Audience</td><td>Adults 25&ndash;45, Sleep issues, Wellness interest, Premium app buyers</td></tr>
-          <tr><td>Funnel Stage</td><td>Top &amp; Mid Funnel &mdash; Awareness + App Install</td></tr>
-          <tr><td>Objective</td><td>Brand awareness &rarr; App install &rarr; Subscription</td></tr>
-          <tr><td>Formats</td><td>Feed 4:5 &middot; Stories 9:16 &middot; Reels 9:16</td></tr>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="cs-cta-section">
-    <h2 class="cs-cta-title reveal">Want this for<br>your <em>brand?</em></h2>
-    <p class="cs-cta-sub reveal reveal-delay-1">I take on a limited number of retainer clients each month.</p>
-    <div class="cs-cta-btns reveal reveal-delay-2">
-      <a href="https://mail.google.com/mail/?view=cm&amp;to=maroundesigns@gmail.com" target="_blank" rel="noopener" class="cs-cta-btn"><span>Start a Conversation</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.2"/></svg></a>
-      <a href="https://calendly.com/maroundesigns/new-meeting" target="_blank" rel="noopener" class="cs-cta-btn-secondary"><span>Book a Discovery Call</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.2"/></svg></a>
-    </div>
-  </div>
-
-  <footer><div class="footer-logo">MD.</div><p class="footer-copy">&copy; 2026 Maroun Designs. All rights reserved.</p><div style="display:flex;gap:24px;"><a href="https://www.linkedin.com/in/benoit-hayek-946b71387/" target="_blank" rel="noopener" style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,240,235,0.45);text-decoration:none;">LinkedIn</a><a href="https://www.instagram.com/maroundesigns?igsh=MWo4czlkb2l5Mnl6Mw%3D%3D&utm_source=qr" target="_blank" rel="noopener" style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,240,235,0.45);text-decoration:none;">Instagram</a></div></footer>
-
+  </section>
+  <footer>
+    <div class="footer-logo">MD.</div>
+    <p class="footer-copy">&copy; 2026 Maroun Designs. All rights reserved.</p>
+    <a href="index.html" class="footer-back">&larr; Back to Portfolio</a>
+  </footer>
   <script>
-    var cursor=document.getElementById('cursor'),ring=document.getElementById('cursor-ring'),mx=0,my=0,rx=0,ry=0;
+    var cursor=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+    var mx=0,my=0,rx=0,ry=0;
     document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';},{passive:true});
     (function lerpRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(lerpRing);})();
     document.querySelectorAll('a,button').forEach(function(el){el.addEventListener('mouseenter',function(){document.body.classList.add('ch');},{passive:true});el.addEventListener('mouseleave',function(){document.body.classList.remove('ch');},{passive:true});});
-    window.addEventListener('scroll',function(){document.getElementById('main-nav').classList.toggle('scrolled',scrollY>60);},{passive:true});
+    var nav=document.getElementById('main-nav');
+    window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>60);},{passive:true});
+    var dd=document.querySelector('.nav-cases');
+    document.querySelector('.nav-cases-btn').addEventListener('click',function(){dd.classList.toggle('open');});
+    document.addEventListener('click',function(e){if(!dd.contains(e.target))dd.classList.remove('open');});
     var revObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revObs.unobserve(e.target);}});},{threshold:0.08});
     document.querySelectorAll('.reveal').forEach(function(el){revObs.observe(el);});
   </script>

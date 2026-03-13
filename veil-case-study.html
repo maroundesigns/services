@@ -1,421 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="description" content="Maroun Designs — premium ad creatives, motion graphics, and brand visuals for e-commerce and DTC brands. Available for monthly retainers." />
-  <meta property="og:title" content="Maroun Designs" />
-  <meta property="og:description" content="Premium ad creatives, motion graphics, and brand visuals for e-commerce brands. Available for retainers." />
-  <meta property="og:image" content="https://maroundesigns.github.io/portfolio/Maroun_Designs_Logo.png" />
-  <meta property="og:image:width" content="936" />
-  <meta property="og:image:height" content="1139" />
-  <meta property="og:url" content="https://maroundesigns.github.io/portfolio/" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://maroundesigns.github.io/portfolio/Maroun_Designs_Logo.png" />
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VEIL Case Study — Maroun Designs</title>
+  <meta name="description" content="VEIL — premium dark fashion. Editorial composites, product statics, and motion by Maroun Designs." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VEIL Case Study &mdash; Benoit Maroun</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Mono:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --black:        #080808;
-      --off-black:    #111111;
-      --cream:        #F5F0EB;
-      --gold:         #C9A84C;
-      --muted:        rgba(245,240,235,0.45);
-      --border:       rgba(245,240,235,0.1);
-      --veil-plum:    #1a1420;
-      --font-display: 'Playfair Display', serif;
-      --font-mono:    'DM Mono', monospace;
-      --font-light:   'Cormorant Garamond', serif;
-    }
-    html { scroll-behavior: smooth; }
-    body { background: var(--black); color: var(--cream); font-family: var(--font-mono); font-size: 14px; line-height: 1.6; cursor: none; overflow-x: hidden; }
-    ::selection { background: var(--gold); color: var(--black); }
-
-    #cursor { position: fixed; width: 10px; height: 10px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width .25s, height .25s; will-change: left,top; }
-    #cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(201,168,76,.5); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width .25s, height .25s, opacity .25s; will-change: left,top; }
-    body.ch #cursor { width: 20px; height: 20px; }
-    body.ch #cursor-ring { width: 56px; height: 56px; opacity: .4; }
-
-    ::-webkit-scrollbar { width: 3px; }
-    ::-webkit-scrollbar-track { background: var(--black); }
-    ::-webkit-scrollbar-thumb { background: var(--gold); }
-
-    /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; justify-content: space-between; align-items: center; padding: 28px 48px; transition: background .4s, border-bottom .4s; }
-    nav.scrolled { background: rgba(8,8,8,.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-    .nav-logo { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--cream); text-decoration: none; letter-spacing: .05em; }
-    .nav-back { color: var(--muted); text-decoration: none; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; transition: color .3s; display: flex; align-items: center; gap: 10px; }
-    .nav-back:hover { color: var(--gold); }
-    .nav-back svg { transition: transform .3s; }
-    .nav-back:hover svg { transform: translateX(-4px); }
-
-    /* HERO */
-    .cs-hero { min-height: 80vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 48px 80px; position: relative; overflow: hidden; background: var(--veil-plum); }
-    .cs-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 30% 50%, rgba(201,168,76,.04) 0%, transparent 60%), radial-gradient(ellipse 80% 60% at 80% 20%, rgba(140,40,120,.06) 0%, transparent 50%); }
-    .cs-hero-label { font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; opacity: 0; animation: fadeUp .7s ease .2s forwards; }
-    .cs-hero-brand { font-family: var(--font-display); font-size: clamp(80px,14vw,180px); font-weight: 900; line-height: .85; letter-spacing: -.04em; opacity: 0; animation: fadeUp .9s ease .3s forwards; color: rgba(245,240,235,.08); position: absolute; bottom: 60px; right: 48px; pointer-events: none; }
-    .cs-hero-title { font-family: var(--font-display); font-size: clamp(44px,6vw,80px); font-weight: 700; line-height: 1; letter-spacing: -.02em; max-width: 700px; opacity: 0; animation: fadeUp .9s ease .4s forwards; }
-    .cs-hero-title em { font-style: italic; font-weight: 400; color: var(--gold); }
-    .cs-hero-meta { display: flex; gap: 48px; margin-top: 40px; opacity: 0; animation: fadeUp .9s ease .6s forwards; }
-    .cs-hero-meta-item label { display: block; font-size: 9px; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
-    .cs-hero-meta-item span { font-family: var(--font-light); font-size: 16px; font-weight: 300; color: var(--muted); }
-
-    /* LAYOUT */
-    .cs-section { padding: 100px 48px; }
-    .cs-section + .cs-section { border-top: 1px solid var(--border); }
-    .cs-section.dark { background: var(--off-black); }
-    .cs-label { font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
-    .cs-label::after { content: ""; flex: 1; max-width: 60px; height: 1px; background: var(--gold); opacity: .4; }
-    .cs-heading { font-family: var(--font-display); font-size: clamp(32px,4vw,56px); font-weight: 700; line-height: 1.05; letter-spacing: -.02em; margin-bottom: 32px; }
-    .cs-heading em { font-style: italic; color: var(--gold); }
-    .cs-body { font-family: var(--font-light); font-size: 20px; font-weight: 300; color: var(--muted); line-height: 1.8; max-width: 680px; }
-    .cs-body p + p { margin-top: 20px; }
-
-    /* TWO COL */
-    .cs-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-    .cs-two-col.flip { direction: rtl; }
-    .cs-two-col.flip > * { direction: ltr; }
-
-    /* MEDIA */
-    .cs-media { position: relative; background: var(--veil-plum); overflow: hidden; }
-    .cs-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .cs-media video { width: 100%; display: block; background: var(--veil-plum); }
-    .cs-media-label { position: absolute; bottom: 16px; left: 16px; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); background: rgba(8,8,8,.7); padding: 6px 12px; backdrop-filter: blur(4px); border: 1px solid rgba(245,240,235,.1); }
-
-    /* PIECE CARDS */
-    .cs-pieces { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 64px; }
-    .cs-piece { background: var(--veil-plum); position: relative; overflow: hidden; }
-    .cs-piece img { width: 100%; display: block; object-fit: cover; }
-    .cs-piece video { width: 100%; display: block; }
-    .cs-piece-info { padding: 20px; border-top: 1px solid var(--border); }
-    .cs-piece-num { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
-    .cs-piece-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; }
-    .cs-piece-desc { font-size: 11px; color: var(--muted); margin-top: 6px; line-height: 1.6; }
-
-    /* STRATEGY PILLS */
-    .cs-funnel { display: flex; align-items: stretch; gap: 0; margin-top: 48px; }
-    .cs-funnel-step { flex: 1; padding: 32px 28px; border: 1px solid var(--border); position: relative; }
-    .cs-funnel-step + .cs-funnel-step { border-left: none; }
-    .cs-funnel-step::after { content: ""; position: absolute; right: -18px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-left: 10px solid var(--border); z-index: 1; }
-    .cs-funnel-step:last-child::after { display: none; }
-    .cs-funnel-num { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
-    .cs-funnel-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; margin-bottom: 8px; }
-    .cs-funnel-desc { font-size: 12px; color: var(--muted); line-height: 1.7; }
-    .cs-funnel-piece { font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); opacity: .7; }
-
-    /* SPEC TAGS */
-    .cs-specs { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
-    .cs-spec { padding: 8px 16px; border: 1px solid var(--border); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
-
-    /* DISCLAIMER */
-    .cs-disclaimer { background: rgba(201,168,76,.06); border: 1px solid rgba(201,168,76,.2); padding: 20px 28px; display: flex; gap: 16px; align-items: flex-start; margin-top: 64px; }
-    .cs-disclaimer-icon { color: var(--gold); font-size: 16px; flex-shrink: 0; margin-top: 2px; }
-    .cs-disclaimer-text { font-size: 12px; color: var(--muted); line-height: 1.7; }
-
-    /* CTA */
-    .cs-cta-section { background: var(--off-black); border-top: 1px solid var(--border); padding: 100px 48px; text-align: center; }
-    .cs-cta-title { font-family: var(--font-display); font-size: clamp(36px,5vw,64px); font-weight: 700; line-height: 1; letter-spacing: -.02em; margin-bottom: 24px; }
-    .cs-cta-title em { font-style: italic; color: var(--gold); }
-    .cs-cta-sub { font-family: var(--font-light); font-size: 18px; color: var(--muted); margin-bottom: 48px; }
-    .cs-cta-btn { display: inline-flex; align-items: center; gap: 14px; background: var(--gold); color: var(--black); text-decoration: none; padding: 20px 48px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; font-weight: 500; position: relative; overflow: hidden; cursor: none; }
-    .cs-cta-btn::after { content: ""; position: absolute; inset: 0; background: var(--cream); transform: translateY(101%); transition: transform .3s; }
-    .cs-cta-btn:hover::after { transform: translateY(0); }
-    .cs-cta-btn > * { position: relative; z-index: 1; }
-    .cs-cta-btns { display: flex; flex-direction: column; align-items: center; gap: 0; }
-    .cs-cta-btn-secondary { display: inline-flex; align-items: center; gap: 14px; background: none; color: var(--gold); text-decoration: none; padding: 18px 48px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; font-weight: 500; border: 1px solid var(--gold); margin-top: 16px; position: relative; overflow: hidden; cursor: none; transition: color .3s; }
-    .cs-cta-btn-secondary::after { content: ''; position: absolute; inset: 0; background: var(--gold); transform: translateY(101%); transition: transform .3s; z-index: 0; }
-    .cs-cta-btn-secondary:hover { color: var(--black); }
-    .cs-cta-btn-secondary:hover::after { transform: translateY(0); }
-    .cs-cta-btn-secondary > * { position: relative; z-index: 1; }
-
-    /* REVEAL */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-    .reveal-delay-1 { transition-delay: .1s; }
-    .reveal-delay-2 { transition-delay: .2s; }
-    .reveal-delay-3 { transition-delay: .3s; }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
-
-    /* FOOTER */
-    footer { background: var(--black); border-top: 1px solid var(--border); padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; }
-    .footer-logo { font-family: var(--font-display); font-size: 16px; font-weight: 700; }
-    .footer-copy { font-size: 11px; color: var(--muted); }
-    .footer-socials { display: flex; gap: 24px; }
-    .footer-socials a { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .3s; cursor: none; }
-    .footer-socials a:hover { color: var(--gold); }
-
-    @media (max-width: 900px) {
-      nav { padding: 24px; }
-      .cs-hero { padding: 0 24px 60px; }
-      .cs-section { padding: 72px 24px; }
-      .cs-two-col { grid-template-columns: 1fr; gap: 40px; }
-      .cs-two-col.flip { direction: ltr; }
-      .cs-pieces { grid-template-columns: 1fr; }
-      .cs-funnel { flex-direction: column; }
-      .cs-funnel-step::after { display: none; }
-      .cs-hero-meta { flex-direction: column; gap: 20px; }
-      footer { flex-direction: column; gap: 16px; text-align: center; }
-    }
-
-    .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; transition: color .3s; }
-    .nav-links a:hover { color: var(--gold); }
-    .nav-cta { background: var(--gold) !important; color: var(--black) !important; padding: 10px 20px; }
-    .nav-cta:hover { background: var(--cream) !important; }
-    .nav-right { display: flex; align-items: center; gap: 48px; }
-    @media (max-width: 768px) { .nav-links { display: none; } }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--black:#080808;--off-black:#111111;--cream:#F5F0EB;--gold:#C9A84C;--ac:#9b8db0;--muted:rgba(245,240,235,.45);--border:rgba(245,240,235,.08);--fd:'Playfair Display',serif;--fm:'DM Mono',monospace;--fl:'Cormorant Garamond',serif;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--black);color:var(--cream);font-family:var(--fm);font-size:13px;line-height:1.6;overflow-x:hidden;cursor:none;}
+    ::selection{background:var(--ac);color:var(--cream);}
+    #cursor{position:fixed;width:10px;height:10px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .25s,height .25s;}
+    #cursor-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(201,168,76,.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);}
+    body.ch #cursor{width:20px;height:20px;}body.ch #cursor-ring{width:56px;height:56px;opacity:.4;}
+    ::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-thumb{background:var(--gold);}
+    nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:28px 48px;transition:background .4s;}
+    nav.scrolled{background:rgba(8,8,8,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+    .nav-back{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--muted);font-size:11px;letter-spacing:.18em;text-transform:uppercase;transition:color .3s;cursor:none;}
+    .nav-back:hover{color:var(--cream);}
+    .nav-logo{font-family:var(--fd);font-size:18px;font-weight:700;color:var(--cream);text-decoration:none;letter-spacing:.05em;}
+    .nav-cases{position:relative;}
+    .nav-cases-btn{display:flex;align-items:center;gap:7px;background:none;border:none;color:var(--muted);font-family:var(--fm);font-size:10px;letter-spacing:.18em;text-transform:uppercase;cursor:none;transition:color .3s;padding:0;}
+    .nav-cases-btn:hover,.nav-cases.open .nav-cases-btn{color:var(--cream);}
+    .nav-cases-btn svg{transition:transform .3s;}
+    .nav-cases.open .nav-cases-btn svg{transform:rotate(180deg);}
+    .nav-dropdown{position:absolute;top:calc(100% + 16px);right:0;background:rgba(12,12,12,.97);backdrop-filter:blur(16px);border:1px solid var(--border);min-width:200px;opacity:0;pointer-events:none;transform:translateY(-8px);transition:opacity .25s,transform .25s;z-index:600;}
+    .nav-cases.open .nav-dropdown{opacity:1;pointer-events:all;transform:none;}
+    .nav-dropdown a{display:block;padding:13px 20px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--border);transition:color .2s,background .2s;cursor:none;}
+    .nav-dropdown a:last-child{border-bottom:none;}
+    .nav-dropdown a:hover{color:var(--cream);background:rgba(255,255,255,.03);}
+    .nav-dropdown a.current{color:var(--gold);pointer-events:none;}
+    #hero{min-height:92vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 48px 72px;position:relative;overflow:hidden;}
+    .hero-grad{position:absolute;inset:0;background:linear-gradient(135deg,#1a1420 0%,#0e0b14 50%,#080808 100%);}
+    .hero-content{position:relative;z-index:1;}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ac);margin-bottom:28px;opacity:0;animation:fadeUp .7s ease .3s forwards;}
+    .hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--ac);}
+    .hero-brand{font-family:var(--fd);font-size:clamp(72px,11vw,148px);font-weight:900;line-height:.82;letter-spacing:-.025em;opacity:0;animation:fadeUp .9s ease .5s forwards;}
+    .hero-tagline{font-family:var(--fl);font-size:clamp(18px,2.2vw,28px);font-weight:300;color:var(--muted);margin-top:24px;opacity:0;animation:fadeUp .7s ease .75s forwards;font-style:italic;}
+    .hero-foot{display:flex;align-items:center;gap:48px;margin-top:52px;padding-top:28px;border-top:1px solid rgba(245,240,235,.08);opacity:0;animation:fadeUp .6s ease 1s forwards;}
+    .hf-item{display:flex;flex-direction:column;gap:5px;}
+    .hf-label{font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--ac);}
+    .hf-val{font-family:var(--fl);font-size:16px;font-weight:300;color:var(--muted);}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+    .brief-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);}
+    .brief-item{background:#0e0c16;padding:32px 36px;}
+    .bi-label{font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--ac);margin-bottom:10px;}
+    .bi-val{font-family:var(--fl);font-size:17px;font-weight:300;color:var(--cream);line-height:1.5;}
+    #work{padding:100px 48px;}
+    .sec-label{display:flex;align-items:center;gap:14px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:60px;}
+    .sec-label::after{content:'';width:48px;height:1px;background:var(--gold);opacity:.4;}
+    .piece{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:100px;}
+    .piece:last-child{margin-bottom:0;}
+    .piece.flip{direction:rtl;}.piece.flip>*{direction:ltr;}
+    .piece-media{overflow:hidden;background:#0e0c16;}
+    .piece-media.cover{aspect-ratio:17/22;}
+    .piece-media.landscape{aspect-ratio:3/2;}
+    .piece-media.widescreen{aspect-ratio:16/9;}
+    .piece-media img,.piece-media video{width:100%;height:100%;object-fit:contain;display:block;}
+    .piece-media video{background:#000;}
+    .piece-num{font-size:80px;font-family:var(--fd);font-weight:900;color:rgba(155,141,176,.07);line-height:1;letter-spacing:-.04em;margin-bottom:4px;}
+    .piece-tag{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--ac);margin-bottom:16px;}
+    .piece-title{font-family:var(--fd);font-size:clamp(28px,3vw,44px);font-weight:700;line-height:1.05;margin-bottom:20px;}
+    .piece-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;}
+    .piece-pill{padding:5px 13px;border:1px solid rgba(155,141,176,.2);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
+    .piece-desc{font-family:var(--fl);font-size:17px;font-weight:300;color:var(--muted);line-height:1.85;}
+    #identity{padding:80px 48px;background:var(--off-black);border-top:1px solid var(--border);}
+    .id-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:52px;}
+    .id-card{padding:36px;border:1px solid var(--border);position:relative;overflow:hidden;}
+    .id-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--ac);transform:scaleX(0);transform-origin:left;transition:transform .4s;}
+    .id-card:hover::before{transform:scaleX(1);}
+    .id-label{font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--ac);margin-bottom:14px;}
+    .id-body{font-family:var(--fl);font-size:16px;font-weight:300;color:var(--muted);line-height:1.8;}
+    #cta{padding:120px 48px;text-align:center;background:var(--black);border-top:1px solid var(--border);}
+    .cta-label{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;}
+    .cta-title{font-family:var(--fd);font-size:clamp(40px,6vw,80px);font-weight:900;line-height:.95;letter-spacing:-.025em;margin-bottom:20px;}
+    .cta-title em{font-style:italic;font-weight:400;color:var(--gold);}
+    .cta-sub{font-family:var(--fl);font-size:19px;font-weight:300;color:var(--muted);max-width:460px;margin:0 auto 52px;line-height:1.7;}
+    .cta-btns{display:flex;justify-content:center;flex-direction:column;align-items:center;gap:0;}
+    .btn-primary{display:inline-flex;align-items:center;gap:14px;background:var(--gold);color:var(--black);text-decoration:none;padding:22px 52px;font-family:var(--fm);font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;position:relative;overflow:hidden;cursor:none;}
+    .btn-primary::after{content:'';position:absolute;inset:0;background:var(--cream);transform:translateY(101%);transition:transform .3s;}
+    .btn-primary:hover::after{transform:translateY(0);}
+    .btn-primary>*{position:relative;z-index:1;}
+    .btn-secondary{display:inline-flex;align-items:center;gap:14px;background:none;color:var(--gold);text-decoration:none;padding:20px 52px;font-family:var(--fm);font-size:11px;letter-spacing:.22em;text-transform:uppercase;border:1px solid var(--gold);margin-top:16px;position:relative;overflow:hidden;cursor:none;transition:color .3s;}
+    .btn-secondary::after{content:'';position:absolute;inset:0;background:var(--gold);transform:translateY(101%);transition:transform .3s;z-index:0;}
+    .btn-secondary:hover{color:var(--black);}
+    .btn-secondary:hover::after{transform:translateY(0);}
+    .btn-secondary>*{position:relative;z-index:1;}
+    footer{background:var(--off-black);border-top:1px solid var(--border);padding:32px 48px;display:flex;justify-content:space-between;align-items:center;}
+    .footer-logo{font-family:var(--fd);font-size:16px;font-weight:700;}
+    .footer-copy{font-size:11px;color:var(--muted);letter-spacing:.1em;}
+    .footer-back{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .3s;cursor:none;}
+    .footer-back:hover{color:var(--gold);}
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s;}
+    .reveal.visible{opacity:1;transform:none;}
+    .rd1{transition-delay:.1s;}.rd2{transition-delay:.22s;}.rd3{transition-delay:.34s;}
+    @media(max-width:900px){nav,#work,#identity,#cta,footer{padding-left:24px;padding-right:24px;}#hero{padding:0 24px 52px;}.brief-strip{grid-template-columns:1fr 1fr;}.piece,.piece.flip{grid-template-columns:1fr;direction:ltr;}.id-grid{grid-template-columns:1fr;}.hero-foot{flex-wrap:wrap;gap:24px;}footer{flex-direction:column;gap:16px;text-align:center;}}
   </style>
 </head>
 <body>
-
-  <div id="cursor"></div>
-  <div id="cursor-ring"></div>
-
+  <div id="cursor"></div><div id="cursor-ring"></div>
   <nav id="main-nav">
+    <a href="index.html" class="nav-back">&larr; All Work</a>
     <a href="index.html" class="nav-logo">MD.</a>
-    <div class="nav-right">
-      <ul class="nav-links">
-        <li><a href="index.html#work">Work</a></li>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#contact" class="nav-cta">Hire Me</a></li>
-      </ul>
-      <a href="case-studies.html" class="nav-back">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M11 7H3M3 7L7 3M3 7L7 11" stroke="currentColor" stroke-width="1.2"/></svg>
-        Back
-      </a>
+    <div class="nav-cases">
+      <button class="nav-cases-btn">Case Studies <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.2"/></svg></button>
+      <div class="nav-dropdown">
+        <a href="rouge-case-study.html">ROUGE</a>
+        <a href="veil-case-study.html" class="current">VEIL</a>
+        <a href="vault-case-study.html">VAULT</a>
+        <a href="grove-case-study.html">GROVE</a>
+        <a href="halo-case-study.html">HALO</a>
+      </div>
     </div>
   </nav>
-
-  <!-- HERO -->
-  <div class="cs-hero">
-    <div class="cs-hero-bg"></div>
-    <div class="cs-hero-brand" aria-hidden="true">VEIL</div>
-    <p class="cs-hero-label">Case Study &mdash; Spec Work</p>
-    <h1 class="cs-hero-title">Building a dark luxury brand<br>from <em>first principles.</em></h1>
-    <div class="cs-hero-meta">
-      <div class="cs-hero-meta-item">
-        <label>Brand</label>
-        <span>VEIL</span>
-      </div>
-      <div class="cs-hero-meta-item">
-        <label>Deliverables</label>
-        <span>3 pieces &mdash; 2 static, 1 motion</span>
-      </div>
-      <div class="cs-hero-meta-item">
-        <label>Placement</label>
-        <span>Meta &mdash; Feed &amp; Stories</span>
-      </div>
-      <div class="cs-hero-meta-item">
-        <label>Type</label>
-        <span>Spec / Self-initiated</span>
+  <section id="hero">
+    <div class="hero-grad"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Case Study &mdash; Spec Brand</p>
+      <h1 class="hero-brand">VEIL</h1>
+      <p class="hero-tagline">Premium dark fashion. Quiet luxury with an edge.</p>
+      <div class="hero-foot">
+        <div class="hf-item"><p class="hf-label">Category</p><p class="hf-val">Fashion &amp; Apparel</p></div>
+        <div class="hf-item"><p class="hf-label">Deliverables</p><p class="hf-val">Editorial &middot; Product Static &middot; Motion</p></div>
+        <div class="hf-item"><p class="hf-label">Tools</p><p class="hf-val">Photoshop &middot; After Effects</p></div>
+        <div class="hf-item"><p class="hf-label">Pieces</p><p class="hf-val">3 total</p></div>
       </div>
     </div>
+  </section>
+  <div class="brief-strip reveal">
+    <div class="brief-item"><p class="bi-label">Aesthetic</p><p class="bi-val">Dark Minimalism</p></div>
+    <div class="brief-item"><p class="bi-label">Palette</p><p class="bi-val">Near Black &mdash; Ivory &mdash; Deep Violet</p></div>
+    <div class="brief-item"><p class="bi-label">Typography</p><p class="bi-val">Thin Grotesque &mdash; Lowercase &mdash; Wide Leading</p></div>
+    <div class="brief-item"><p class="bi-label">Reference</p><p class="bi-val">The Row &middot; Celine &middot; Toteme</p></div>
   </div>
-
-  <!-- BRIEF -->
-  <div class="cs-section">
-    <div class="cs-two-col">
-      <div>
-        <p class="cs-label reveal">The Brief</p>
-        <h2 class="cs-heading reveal reveal-delay-1">A brand built on<br><em>what it doesn&rsquo;t say.</em></h2>
-        <div class="cs-body reveal reveal-delay-2">
-          <p>VEIL is a dark luxury fashion brand built around mystery and restraint. The challenge: create a campaign suite that feels editorial &mdash; closer to Bottega Veneta than a typical DTC brand &mdash; while still functioning as paid social creative.</p>
-          <p>Most luxury brands fail on social because they try to compete on spectacle. VEIL&rsquo;s brief was the opposite: communicate exclusivity through silence. Every creative decision had to feel deliberate and withheld.</p>
-        </div>
-        <div class="cs-specs reveal reveal-delay-3">
-          <span class="cs-spec">Dark Luxury</span>
-          <span class="cs-spec">Editorial Aesthetic</span>
-          <span class="cs-spec">Meta Paid Social</span>
-          <span class="cs-spec">Brand Awareness</span>
-          <span class="cs-spec">Cold Traffic</span>
-        </div>
+  <section id="work">
+    <div class="sec-label reveal">Creative Work</div>
+    <div class="piece reveal">
+      <div class="piece-media cover">
+        <img src="images/Veil/Veil_Magazine_Cover.png" alt="VEIL Magazine Cover" />
       </div>
-      <div class="cs-media reveal reveal-delay-2" style="aspect-ratio:2550/3300;">
-        <img src="images/Veil/Veil_Magazine_Cover.png" alt="VEIL Magazine Cover" loading="lazy">
-        <span class="cs-media-label">Magazine Cover &mdash; Static</span>
+      <div class="piece-info">
+        <p class="piece-num">01</p>
+        <p class="piece-tag">Veil &mdash; Editorial Composite</p>
+        <h2 class="piece-title">Magazine Cover.<br>Editorial</h2>
+        <div class="piece-pills"><span class="piece-pill">Editorial Composite</span><span class="piece-pill">Static Ad</span><span class="piece-pill">Meta Feed 1080&times;1350</span></div>
+        <p class="piece-desc">Full magazine cover concept built as a paid social creative. Typographic masthead, high-contrast model shot, and product placement in the lower frame. The premise: what if a luxury fashion editorial ran as a Meta ad without changing a single element? Dark palette, deep violet background, no concessions to "ad format" conventions.</p>
       </div>
     </div>
-  </div>
-
-  <!-- STRATEGY -->
-  <div class="cs-section dark">
-    <p class="cs-label reveal">The Strategy</p>
-    <h2 class="cs-heading reveal reveal-delay-1">Three pieces.<br><em>One funnel.</em></h2>
-    <div class="cs-body reveal reveal-delay-2">
-      <p>Rather than building three independent ads, each piece was designed to play a specific role in a cold-to-warm awareness funnel. The motion piece captures attention, the editorial static builds intrigue, and the campaign ad drives intent.</p>
-    </div>
-    <div class="cs-funnel reveal reveal-delay-2">
-      <div class="cs-funnel-step">
-        <p class="cs-funnel-num">Stage 01</p>
-        <h3 class="cs-funnel-title">Capture</h3>
-        <p class="cs-funnel-desc">Stop the scroll with movement and atmosphere. No product, no price, no CTA &mdash; just VEIL&rsquo;s world rendered in motion.</p>
-        <p class="cs-funnel-piece">Typographic Animation &mdash; Reels / Stories</p>
+    <div class="piece flip reveal">
+      <div class="piece-media landscape">
+        <img src="images/Veil/Veil_Spring_Launch.png" alt="VEIL Spring Launch" />
       </div>
-      <div class="cs-funnel-step">
-        <p class="cs-funnel-num">Stage 02</p>
-        <h3 class="cs-funnel-title">Intrigue</h3>
-        <p class="cs-funnel-desc">The editorial magazine cover communicates brand world and positioning. The viewer wonders what VEIL is before they read the name.</p>
-        <p class="cs-funnel-piece">Magazine Cover &mdash; Feed Static</p>
-      </div>
-      <div class="cs-funnel-step">
-        <p class="cs-funnel-num">Stage 03</p>
-        <h3 class="cs-funnel-title">Convert</h3>
-        <p class="cs-funnel-desc">The Spring Launch campaign ad brings consistent visual language with clear intent &mdash; a reason to click, for an audience already primed by stages one and two.</p>
-        <p class="cs-funnel-piece">Spring Launch &mdash; Feed Static</p>
+      <div class="piece-info">
+        <p class="piece-num">02</p>
+        <p class="piece-tag">Veil &mdash; Product Static</p>
+        <h2 class="piece-title">Spring Launch.<br>Campaign Ad</h2>
+        <div class="piece-pills"><span class="piece-pill">Product Static</span><span class="piece-pill">Campaign Ad</span><span class="piece-pill">Landscape Format</span></div>
+        <p class="piece-desc">Spring collection launch static. Extreme negative space does the heavy lifting — the product earns attention through absence, not noise. Restrained copy, elevated placement, no background clutter. Built for a premium fashion feed where the cost of looking cheap is higher than the cost of saying less.</p>
       </div>
     </div>
-  </div>
-
-  <!-- THE WORK -->
-  <div class="cs-section">
-    <p class="cs-label reveal">The Work</p>
-    <h2 class="cs-heading reveal reveal-delay-1">Three pieces,<br><em>three purposes.</em></h2>
-    <div class="cs-pieces">
-
-      <div class="cs-piece reveal">
-        <div style="aspect-ratio:2550/3300;overflow:hidden;">
-          <img src="images/Veil/Veil_Magazine_Cover.png" alt="VEIL Magazine Cover" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-        </div>
-        <div class="cs-piece-info">
-          <p class="cs-piece-num">01 &mdash; Static</p>
-          <h3 class="cs-piece-title">Magazine Cover</h3>
-          <p class="cs-piece-desc">Feed static. Deep plum tones and editorial typography. Designed to feel like it belongs in a magazine, not a news feed. Placement: Meta cold traffic, brand awareness objective.</p>
-        </div>
+    <div class="piece reveal">
+      <div class="piece-media widescreen">
+        <video src="images/Veil/Veil_Typographic_Animation.mp4" autoplay muted loop playsinline></video>
       </div>
-
-      <div class="cs-piece reveal reveal-delay-1">
-        <div style="aspect-ratio:1920/1277;overflow:hidden;">
-          <img src="images/Veil/Veil_Spring_Launch.png" alt="VEIL Spring Launch" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-        </div>
-        <div class="cs-piece-info">
-          <p class="cs-piece-num">02 &mdash; Static</p>
-          <h3 class="cs-piece-title">Spring Launch Campaign</h3>
-          <p class="cs-piece-desc">Campaign ad with refined typographic hierarchy. Consistent with the brand world established in piece 01, with a clearer conversion intent. Placement: Meta retargeting, traffic objective.</p>
-        </div>
-      </div>
-
-      <div class="cs-piece reveal reveal-delay-2">
-        <div style="aspect-ratio:16/9;overflow:hidden;background:var(--veil-plum);">
-          <video src="images/Veil/Veil_Typographic_Animation.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
-        </div>
-        <div class="cs-piece-info">
-          <p class="cs-piece-num">03 &mdash; Motion</p>
-          <h3 class="cs-piece-title">Typographic Animation</h3>
-          <p class="cs-piece-desc">Atmospheric motion piece for Reels and Stories. Dark, slow, deliberate. No product shot, no offer &mdash; pure brand world delivered through movement. Top-of-funnel awareness.</p>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="cs-disclaimer reveal">
-      <span class="cs-disclaimer-icon">&#9432;</span>
-      <p class="cs-disclaimer-text"><strong style="color:var(--cream);">This is spec work</strong> &mdash; VEIL is a self-initiated brand created to demonstrate creative strategy and execution across a full campaign suite. All briefs, positioning, and targeting rationale were developed independently to show how I think, not just what I make.</p>
-    </div>
-  </div>
-
-  <!-- CREATIVE DECISIONS -->
-  <div class="cs-section dark">
-    <div class="cs-two-col flip">
-      <div>
-        <p class="cs-label reveal">Creative Decisions</p>
-        <h2 class="cs-heading reveal reveal-delay-1">Why restraint<br><em>is the strategy.</em></h2>
-        <div class="cs-body reveal reveal-delay-2">
-          <p>Every luxury brand wants to look premium. Most do it by adding &mdash; more visual noise, more copy, bigger logos. VEIL does it by removing. The creative decisions here were almost entirely subtractive.</p>
-          <p>No product shot in the motion piece. No price in the statics. No discount. No urgency copy. The absence of these conventions signals that VEIL doesn&rsquo;t need them &mdash; which is exactly what luxury positioning requires.</p>
-          <p>The dark plum and shadow palette was chosen to sit uncomfortably in a feed dominated by bright DTC brands. Discomfort creates pause. Pause creates attention.</p>
-        </div>
-      </div>
-      <div class="cs-media reveal reveal-delay-2" style="aspect-ratio:1920/1277;">
-        <img src="images/Veil/Veil_Spring_Launch.png" alt="VEIL Spring Launch" loading="lazy">
-        <span class="cs-media-label">Spring Launch &mdash; Static</span>
+      <div class="piece-info">
+        <p class="piece-num">03</p>
+        <p class="piece-tag">Veil &mdash; Motion</p>
+        <h2 class="piece-title">Typographic Animation.<br>Brand Film</h2>
+        <div class="piece-pills"><span class="piece-pill">After Effects</span><span class="piece-pill">Motion Graphics</span><span class="piece-pill">16&times;9 Brand Film</span></div>
+        <p class="piece-desc">Kinetic typographic sequence revealing the VEIL name through layered fade and position animations. The pacing is deliberate — every beat held a half-second longer than feels comfortable, which is exactly what makes it feel expensive. No visual noise, no transitions for their own sake. Just the word, the weight, and the timing.</p>
       </div>
     </div>
-  </div>
-
-  <!-- TARGETING -->
-  <div class="cs-section">
-    <p class="cs-label reveal">Hypothetical Targeting</p>
-    <h2 class="cs-heading reveal reveal-delay-1">Who sees this,<br><em>and when.</em></h2>
-    <div class="cs-two-col" style="align-items:start;">
-      <div class="cs-body reveal reveal-delay-1">
-        <p>Cold audience targeting would focus on women 22&ndash;38 with demonstrated interest in luxury fashion, editorial magazines, niche perfume brands, and high-end lifestyle content. The motion piece runs first &mdash; broad, low-cost impressions to build brand familiarity.</p>
-        <p>Warm retargeting (video viewers 50%+, profile visitors) would then see the Spring Launch campaign ad with a clearer intent signal. The editorial static would run across both phases, acting as a brand anchor.</p>
-      </div>
-      <div class="reveal reveal-delay-2">
-        <div style="display:flex;flex-direction:column;gap:1px;background:var(--border);">
-          <div style="background:var(--off-black);padding:24px 28px;">
-            <p style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Platform</p>
-            <p style="font-family:var(--font-light);font-size:17px;color:var(--muted);">Meta &mdash; Facebook &amp; Instagram</p>
-          </div>
-          <div style="background:var(--off-black);padding:24px 28px;">
-            <p style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Primary Audience</p>
-            <p style="font-family:var(--font-light);font-size:17px;color:var(--muted);">Women, 22&ndash;38, Luxury Fashion Interest</p>
-          </div>
-          <div style="background:var(--off-black);padding:24px 28px;">
-            <p style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Funnel Stage</p>
-            <p style="font-family:var(--font-light);font-size:17px;color:var(--muted);">Top &amp; Mid Funnel (Awareness + Retargeting)</p>
-          </div>
-          <div style="background:var(--off-black);padding:24px 28px;">
-            <p style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Objective</p>
-            <p style="font-family:var(--font-light);font-size:17px;color:var(--muted);">Brand Awareness &rarr; Traffic &rarr; Conversion</p>
-          </div>
-          <div style="background:var(--off-black);padding:24px 28px;">
-            <p style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Formats</p>
-            <p style="font-family:var(--font-light);font-size:17px;color:var(--muted);">Feed 4:5 &middot; Stories 9:16 &middot; Reels 9:16</p>
-          </div>
-        </div>
-      </div>
+  </section>
+  <section id="identity">
+    <div class="sec-label reveal">Brand Identity</div>
+    <div class="id-grid reveal">
+      <div class="id-card"><p class="id-label">Creative Direction</p><p class="id-body">The Row, Celine, Toteme energy. Quiet luxury — no logos, no noise, no explanation. Fashion for people who already know. The brand communicates through restraint, not declaration.</p></div>
+      <div class="id-card"><p class="id-label">Typography &amp; Tone</p><p class="id-body">Thin grotesque, generous tracking, lowercase throughout. White on deep ground. Copy is sparse — three words maximum where possible. Typography that breathes, not typography that fills space.</p></div>
+      <div class="id-card"><p class="id-label">Colour &amp; Atmosphere</p><p class="id-body">Near black #0d0b12 &mdash; Dusty ivory &mdash; Muted violet accent #9b8db0. Colour as atmosphere, not decoration. The palette should feel like a darkened fitting room in a Paris concept store.</p></div>
     </div>
-  </div>
-
-  <!-- CTA -->
-  <div class="cs-cta-section">
-    <h2 class="cs-cta-title reveal">Want this for<br>your <em>brand?</em></h2>
-    <p class="cs-cta-sub reveal reveal-delay-1">I take on a limited number of retainer clients each month.</p>
-    <div class="cs-cta-btns reveal reveal-delay-2">
-      <a href="https://mail.google.com/mail/?view=cm&amp;to=maroundesigns@gmail.com" target="_blank" rel="noopener" class="cs-cta-btn">
-        <span>Start a Conversation</span>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.2"/></svg>
-      </a>
-      <a href="https://calendly.com/maroundesigns/new-meeting" target="_blank" rel="noopener" class="cs-cta-btn-secondary">
-        <span>Book a Discovery Call</span>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.2"/></svg>
-      </a>
+  </section>
+  <section id="cta">
+    <p class="cta-label reveal">Work With Me</p>
+    <h2 class="cta-title reveal rd1">Ready to make<br>your brand <em>unforgettable?</em></h2>
+    <p class="cta-sub reveal rd2">I take on a limited number of retainer clients each month. If you&rsquo;re serious about your creative, let&rsquo;s talk.</p>
+    <div class="cta-btns reveal rd3">
+      <a href="https://mail.google.com/mail/?view=cm&to=maroundesigns@gmail.com" target="_blank" rel="noopener" class="btn-primary"><span>Start a Conversation</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.2"/></svg></a>
+      <a href="https://calendly.com/maroundesigns/new-meeting" target="_blank" rel="noopener" class="btn-secondary"><span>Book a Discovery Call</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.2"/></svg></a>
     </div>
-  </div>
-
+  </section>
   <footer>
     <div class="footer-logo">MD.</div>
     <p class="footer-copy">&copy; 2026 Maroun Designs. All rights reserved.</p>
-    <div class="footer-socials">
-      <a href="https://www.linkedin.com/in/benoit-hayek-946b71387/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://www.instagram.com/maroundesigns?igsh=MWo4czlkb2l5Mnl6Mw%3D%3D&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
-    </div>
+    <a href="index.html" class="footer-back">&larr; Back to Portfolio</a>
   </footer>
-
   <script>
-    const cursor = document.getElementById("cursor");
-    const ring   = document.getElementById("cursor-ring");
-    let mx=0, my=0, rx=0, ry=0;
-    document.addEventListener("mousemove", function(e){ mx=e.clientX; my=e.clientY; cursor.style.left=mx+"px"; cursor.style.top=my+"px"; }, {passive:true});
-    (function lerpRing(){ rx+=(mx-rx)*.12; ry+=(my-ry)*.12; ring.style.left=rx+"px"; ring.style.top=ry+"px"; requestAnimationFrame(lerpRing); })();
-    document.querySelectorAll("a,button").forEach(function(el){
-      el.addEventListener("mouseenter", function(){ document.body.classList.add("ch"); }, {passive:true});
-      el.addEventListener("mouseleave", function(){ document.body.classList.remove("ch"); }, {passive:true});
-    });
-    var nav = document.getElementById("main-nav");
-    window.addEventListener("scroll", function(){ nav.classList.toggle("scrolled", scrollY>60); }, {passive:true});
-    var revObs = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("visible"); revObs.unobserve(e.target); } });
-    }, {threshold:0.08});
-    document.querySelectorAll(".reveal").forEach(function(el){ revObs.observe(el); });
+    var cursor=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+    var mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';},{passive:true});
+    (function lerpRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(lerpRing);})();
+    document.querySelectorAll('a,button').forEach(function(el){el.addEventListener('mouseenter',function(){document.body.classList.add('ch');},{passive:true});el.addEventListener('mouseleave',function(){document.body.classList.remove('ch');},{passive:true});});
+    var nav=document.getElementById('main-nav');
+    window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>60);},{passive:true});
+    var dd=document.querySelector('.nav-cases');
+    document.querySelector('.nav-cases-btn').addEventListener('click',function(){dd.classList.toggle('open');});
+    document.addEventListener('click',function(e){if(!dd.contains(e.target))dd.classList.remove('open');});
+    var revObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revObs.unobserve(e.target);}});},{threshold:0.08});
+    document.querySelectorAll('.reveal').forEach(function(el){revObs.observe(el);});
   </script>
 </body>
 </html>
