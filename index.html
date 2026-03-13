@@ -78,62 +78,85 @@
     .section-label::after { content: ''; flex: 1; max-width: 80px; height: 1px; background: var(--gold); opacity: .4; }
     .section-title { font-family: var(--font-display); font-size: clamp(40px,5vw,72px); font-weight: 700; line-height: 1.05; letter-spacing: -.02em; }
     #work { background: var(--black); }
-    .work-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
-    .work-filter { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
-    .filter-btn { padding: 8px 18px; border: 1px solid var(--border); background: none; color: var(--muted); font-family: var(--font-mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; cursor: none; transition: border-color .25s, color .25s, background .25s; }
-    .filter-btn:hover, .filter-btn.active { border-color: var(--gold); color: var(--gold); }
-    .filter-btn.active { background: rgba(201,168,76,.08); }
-    .work-grid { display: grid; grid-template-columns: repeat(12,1fr); gap: 16px; }
-    .work-item { position: relative; overflow: hidden; background: var(--off-black); cursor: none; transition: transform .4s ease; contain: layout; will-change: transform; }
-    .work-item:hover { transform: scale(1.02); }
-    .work-item[data-hidden="true"] { display: none; }
-    .work-item:nth-child(1)  { grid-column: span 7; aspect-ratio: 1080/1350; }
-    .work-item:nth-child(2)  { grid-column: span 5; aspect-ratio: 1/1; }
-    .work-item:nth-child(3)  { grid-column: span 8; aspect-ratio: 1080/1350; }
-    .work-item:nth-child(4)  { grid-column: span 4; aspect-ratio: 1080/1920; }
-    .work-item:nth-child(5)  { grid-column: span 6; aspect-ratio: 1080/1350; }
-    .work-item:nth-child(6)  { grid-column: span 6; aspect-ratio: 1/1; }
-    .work-item:nth-child(7)  { grid-column: span 4; aspect-ratio: 2550/3300; }
-    .work-item:nth-child(8)  { grid-column: span 8; aspect-ratio: 1920/1277; }
-    .work-item:nth-child(9)  { grid-column: span 12; aspect-ratio: 16/9; }
-    .work-item:nth-child(10) { grid-column: span 5; aspect-ratio: 1/1; }
-    .work-item:nth-child(11) { grid-column: span 7; aspect-ratio: 2355/3508; }
-    .work-item.vault  .work-item-bg { background: linear-gradient(135deg,#0D0D0D,#1c1c1c); }
-    .work-item.halo   .work-item-bg { background: linear-gradient(135deg,#0B0F2E,#18104a); }
-    .work-item.grove  .work-item-bg { background: linear-gradient(135deg,#1a2e1b,#0f1a10); }
-    .work-item.veil   .work-item-bg { background: linear-gradient(135deg,#1a1420,#0e0b14); }
-    .work-item.burbur .work-item-bg { background: linear-gradient(135deg,#2a1a0e,#1a0f08); }
-    .work-item-bg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 72px; font-weight: 900; color: rgba(245,240,235,.04); letter-spacing: -.04em; }
-    .work-item-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; will-change: transform; }
-    .work-item:hover .work-item-img { transform: scale(1.04); }
-    .work-item-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; will-change: transform; }
-    .work-item:hover .work-item-video { transform: scale(1.04); }
-    .play-badge { position: absolute; top: 20px; left: 20px; display: flex; align-items: center; gap: 8px; background: rgba(8,8,8,.7); border: 1px solid rgba(245,240,235,.2); padding: 6px 12px; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); backdrop-filter: blur(4px); }
-    .work-item-inner { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 28px; background: linear-gradient(to top, rgba(8,8,8,.9) 0%, transparent 55%); opacity: 0; transition: opacity .35s; }
-    .work-item:hover .work-item-inner { opacity: 1; }
-    .work-item-brand { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
-    .work-item-title { font-family: var(--font-display); font-size: 22px; font-weight: 700; line-height: 1.2; }
-    .work-item-type { font-size: 10px; letter-spacing: .15em; color: var(--muted); margin-top: 4px; text-transform: uppercase; }
-    .work-item-cs-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,.4); padding-bottom: 2px; }
-    .work-item-corner { position: absolute; top: 20px; right: 20px; width: 36px; height: 36px; border: 1px solid rgba(245,240,235,.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(.7); transition: opacity .3s, transform .3s; }
-    .work-item:hover .work-item-corner { opacity: 1; transform: scale(1); }
-    #modal-overlay { position: fixed; inset: 0; background: rgba(8,8,8,.92); backdrop-filter: blur(14px); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .35s; cursor: none; }
-    #modal-overlay.open { opacity: 1; pointer-events: all; }
-    .modal { background: var(--off-black); border: 1px solid var(--border); max-width: 860px; width: 92%; max-height: 92vh; overflow-y: auto; position: relative; transform: translateY(20px) scale(.98); transition: transform .35s ease; }
-    #modal-overlay.open .modal { transform: none; }
-    .modal-close { position: absolute; top: 16px; right: 16px; width: 40px; height: 40px; border: 1px solid var(--border); background: none; color: var(--cream); font-size: 16px; display: flex; align-items: center; justify-content: center; cursor: none; transition: border-color .3s, color .3s; z-index: 10; }
-    .modal-close:hover { border-color: var(--gold); color: var(--gold); }
-    .modal-media { width: 100%; background: var(--black); display: flex; align-items: center; justify-content: center; overflow: hidden; min-height: 280px; }
-    .modal-media img { width: 100%; object-fit: contain; max-height: 560px; display: block; }
-    .modal-media video { width: 100%; max-height: 560px; display: block; background: #000; }
-    .modal-placeholder-text { font-family: var(--font-display); font-size: 72px; font-weight: 900; color: rgba(245,240,235,.06); letter-spacing: -.04em; }
-    .modal-body { padding: 40px; }
-    .modal-brand { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
-    .modal-title { font-family: var(--font-display); font-size: 36px; font-weight: 700; line-height: 1.1; margin-bottom: 12px; }
-    .modal-type { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
-    .modal-desc { font-family: var(--font-light); font-size: 17px; font-weight: 300; color: var(--muted); line-height: 1.8; }
-    .modal-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
-    .modal-tag { padding: 6px 14px; border: 1px solid var(--border); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+    .work-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 64px; }
+
+    /* BRAND INDEX */
+    .brand-index { border-top: 1px solid var(--border); }
+    .brand-row {
+      display: grid;
+      grid-template-columns: 160px 1fr auto;
+      align-items: center;
+      gap: 40px;
+      padding: 36px 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+      cursor: none;
+      transition: padding-left .4s ease;
+    }
+    /* gold rule slides in from left on hover */
+    .brand-row::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: var(--gold);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform .35s ease;
+    }
+    .brand-row:hover { padding-left: 20px; }
+    .brand-row:hover::before { transform: scaleY(1); }
+
+    .br-left { display: flex; align-items: baseline; gap: 20px; }
+    .br-num { font-size: 10px; letter-spacing: .2em; color: var(--muted); }
+    .br-name {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4vw, 56px);
+      font-weight: 900;
+      letter-spacing: -.02em;
+      line-height: 1;
+      color: var(--cream);
+      transition: color .3s;
+    }
+    .brand-row:hover .br-name { color: var(--gold); }
+
+    .br-mid { display: flex; flex-direction: column; gap: 10px; }
+    .br-cat { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
+    .br-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+    .br-pill { padding: 4px 12px; border: 1px solid var(--border); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); transition: border-color .3s, color .3s; }
+    .brand-row:hover .br-pill { border-color: rgba(201,168,76,.3); color: rgba(201,168,76,.7); }
+
+    .br-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+    .br-count { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+    .br-arrow { font-size: 22px; color: var(--muted); transition: color .3s, transform .3s; }
+    .brand-row:hover .br-arrow { color: var(--gold); transform: translate(3px,-3px); }
+
+    /* thumbnail peeks in from right on hover */
+    .br-thumb {
+      position: absolute;
+      right: 56px; top: 50%;
+      transform: translateY(-50%) translateX(24px);
+      opacity: 0;
+      width: 72px;
+      height: 90px;
+      overflow: hidden;
+      pointer-events: none;
+      transition: opacity .35s, transform .35s;
+      border: 1px solid var(--border);
+    }
+    .br-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .brand-row:hover .br-thumb { opacity: 1; transform: translateY(-50%) translateX(0); }
+
+    @media(max-width:700px){
+      .brand-row { grid-template-columns: 1fr auto; gap: 20px; }
+      .br-left { flex-direction: column; gap: 4px; }
+      .br-mid { display: none; }
+      .br-thumb { display: none; }
+    }
+    
     #services { background: var(--off-black); border-top: 1px solid var(--border); }
     .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); margin-top: 72px; }
     .service-card { background: var(--off-black); padding: 48px 40px; position: relative; overflow: hidden; transition: background .35s; }
@@ -256,22 +279,6 @@
 <div id="cursor"></div>
   <div id="cursor-ring"></div>
 
-  <div id="modal-overlay" role="dialog" aria-modal="true">
-    <div class="modal">
-      <button class="modal-close" id="modal-close" aria-label="Close">&#x2715;</button>
-      <div class="modal-media" id="modal-media">
-        <span class="modal-placeholder-text" id="modal-placeholder"></span>
-      </div>
-      <div class="modal-body">
-        <p class="modal-brand" id="modal-brand"></p>
-        <h2 class="modal-title" id="modal-title"></h2>
-        <p class="modal-type" id="modal-type"></p>
-        <p class="modal-desc" id="modal-desc"></p>
-        <div class="modal-tags" id="modal-tags"></div>
-      </div>
-    </div>
-  </div>
-
   <nav id="main-nav">
     <a href="#hero" class="nav-logo">MD.</a>
     <ul class="nav-links">
@@ -297,26 +304,6 @@
       </a>
     </div>
   </section>
-
-  <div class="marquee-section" aria-hidden="true">
-    <div class="marquee-track">
-      <span class="marquee-item"><span class="marquee-dot"></span>Ad Creatives</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Motion Graphics</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Brand Identity</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>After Effects</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Social Media Content</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Logo Animation</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>E-Commerce Brands</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Retainer Packages</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Ad Creatives</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Motion Graphics</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Brand Identity</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>After Effects</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Social Media Content</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Logo Animation</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>E-Commerce Brands</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Retainer Packages</span>
-    </div>
   </div>
 
   <section id="work">
@@ -327,101 +314,108 @@
       </div>
       <p class="reveal reveal-delay-2" style="font-size:12px;color:var(--muted);max-width:280px;text-align:right;line-height:1.7;">Five brands. Five aesthetics.<br>One consistent standard of quality.</p>
     </div>
-    <div class="work-filter reveal">
-      <button class="filter-btn active" data-filter="all">All Work</button>
-      <button class="filter-btn" data-filter="vault">VAULT</button>
-      <button class="filter-btn" data-filter="halo">HALO</button>
-      <button class="filter-btn" data-filter="grove">GROVE</button>
-      <button class="filter-btn" data-filter="veil">VEIL</button>
-      <button class="filter-btn" data-filter="burbur">BUR BUR</button>
-      <button class="filter-btn" data-filter="motion">Motion Only</button>
-      <button class="filter-btn" data-filter="static">Static Only</button>
+
+    <div class="brand-index reveal">
+
+      <a href="rouge-case-study.html" class="brand-row" data-thumb="images/Rouge/Rouge_Hero_Ad.png">
+        <div class="br-left">
+          <span class="br-num">01</span>
+          <span class="br-name">ROUGE</span>
+        </div>
+        <div class="br-mid">
+          <span class="br-cat">Luxury Fragrance</span>
+          <div class="br-pills">
+            <span class="br-pill">Editorial</span>
+            <span class="br-pill">Product Static</span>
+            <span class="br-pill">Motion</span>
+          </div>
+        </div>
+        <div class="br-right">
+          <span class="br-count">3 pieces</span>
+          <span class="br-arrow">&#x2197;</span>
+        </div>
+        <div class="br-thumb"><img src="images/Rouge/Rouge_Hero_Ad.png" alt="ROUGE" /></div>
+      </a>
+
+      <a href="veil-case-study.html" class="brand-row" data-thumb="images/Veil/Veil_Magazine_Cover.png">
+        <div class="br-left">
+          <span class="br-num">02</span>
+          <span class="br-name">VEIL</span>
+        </div>
+        <div class="br-mid">
+          <span class="br-cat">Premium Fashion</span>
+          <div class="br-pills">
+            <span class="br-pill">Editorial</span>
+            <span class="br-pill">Product Static</span>
+            <span class="br-pill">Motion</span>
+          </div>
+        </div>
+        <div class="br-right">
+          <span class="br-count">3 pieces</span>
+          <span class="br-arrow">&#x2197;</span>
+        </div>
+        <div class="br-thumb"><img src="images/Veil/Veil_Magazine_Cover.png" alt="VEIL" /></div>
+      </a>
+
+      <a href="vault-case-study.html" class="brand-row" data-thumb="images/VAULT/VAULT_DROP001_Ad.png">
+        <div class="br-left">
+          <span class="br-num">03</span>
+          <span class="br-name">VAULT</span>
+        </div>
+        <div class="br-mid">
+          <span class="br-cat">Luxury Streetwear</span>
+          <div class="br-pills">
+            <span class="br-pill">Editorial</span>
+            <span class="br-pill">Motion</span>
+          </div>
+        </div>
+        <div class="br-right">
+          <span class="br-count">2 pieces</span>
+          <span class="br-arrow">&#x2197;</span>
+        </div>
+        <div class="br-thumb"><img src="images/VAULT/VAULT_DROP001_Ad.png" alt="VAULT" /></div>
+      </a>
+
+      <a href="grove-case-study.html" class="brand-row" data-thumb="images/GROVE/Grove_Ad.png">
+        <div class="br-left">
+          <span class="br-num">04</span>
+          <span class="br-name">GROVE</span>
+        </div>
+        <div class="br-mid">
+          <span class="br-cat">Organic Food</span>
+          <div class="br-pills">
+            <span class="br-pill">Editorial</span>
+            <span class="br-pill">Motion</span>
+          </div>
+        </div>
+        <div class="br-right">
+          <span class="br-count">2 pieces</span>
+          <span class="br-arrow">&#x2197;</span>
+        </div>
+        <div class="br-thumb"><img src="images/GROVE/Grove_Ad.png" alt="GROVE" /></div>
+      </a>
+
+      <a href="halo-case-study.html" class="brand-row" data-thumb="images/HALO/HALO_Ad.png">
+        <div class="br-left">
+          <span class="br-num">05</span>
+          <span class="br-name">HALO</span>
+        </div>
+        <div class="br-mid">
+          <span class="br-cat">Wellness App</span>
+          <div class="br-pills">
+            <span class="br-pill">Editorial</span>
+            <span class="br-pill">Motion</span>
+          </div>
+        </div>
+        <div class="br-right">
+          <span class="br-count">2 pieces</span>
+          <span class="br-arrow">&#x2197;</span>
+        </div>
+        <div class="br-thumb"><img src="images/HALO/HALO_Ad.png" alt="HALO" /></div>
+      </a>
+
     </div>
-    <div class="work-grid">
-
-      <div class="work-item vault reveal" data-brand="vault" data-type="static" data-media="images/VAULT/VAULT_DROP001_Ad.png" data-media-type="image" data-modal-brand="VAULT" data-modal-title="Drop 001 - Campaign Ad" data-modal-type="Static Ad Creative - Instagram Feed - 1080x1350" data-modal-desc="A luxury product launch ad for VAULT debut streetwear drop. Off-black palette with brushed gold accents, designed to feel like a high fashion editorial rather than a typical DTC ad." data-modal-tags="Photoshop,Ad Creative,Streetwear,Luxury">
-        <div class="work-item-bg">VAULT</div>
-        <img class="work-item-img" src="images/VAULT/VAULT_DROP001_Ad.png" alt="VAULT Drop 001" loading="lazy">
-        <div class="work-item-inner"><p class="work-item-brand">VAULT</p><h3 class="work-item-title">Drop 001 &mdash; Campaign Ad</h3><p class="work-item-type">Static Ad Creative</p><a href="vault-case-study.html" class="work-item-cs-link" onclick="event.stopPropagation();">View Case Study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5H8M8 5L5 2M8 5L5 8" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
-        <div class="work-item-corner"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="var(--cream)" stroke-width="1.2"/></svg></div>
-      </div>
-
-      <div class="work-item vault reveal reveal-delay-1" data-brand="vault" data-type="motion" data-media="images/VAULT/VAULT_Logo_Animation.mp4" data-media-type="video" data-modal-brand="VAULT" data-modal-title="Logo Reveal Animation" data-modal-type="After Effects - Motion Graphics - 5s - 1080x1080" data-modal-desc="A cold minimal logo reveal for VAULT. Each letter assembles on screen with a staggered entry, then a single gold line draws left to right underneath." data-modal-tags="After Effects,Motion Graphics,Logo Animation,Luxury">
-        <div class="work-item-bg">VAULT</div>
-        <video class="work-item-video" data-src="images/VAULT/VAULT_Logo_Animation.mp4" muted loop playsinline preload="none"></video>
-        <div class="play-badge"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 1.5L8 5L2 8.5V1.5Z" fill="var(--gold)"/></svg>Motion</div>
-        <div class="work-item-inner"><p class="work-item-brand">VAULT</p><h3 class="work-item-title">Logo Reveal Animation</h3><p class="work-item-type">After Effects &middot; Motion</p><a href="vault-case-study.html" class="work-item-cs-link" onclick="event.stopPropagation();">View Case Study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5H8M8 5L5 2M8 5L5 8" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
-        <div class="work-item-corner"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="var(--cream)" stroke-width="1.2"/></svg></div>
-      </div>
-
-      <div class="work-item halo reveal reveal-delay-2" data-brand="halo" data-type="static" data-media="images/HALO/HALO_Ad.png" data-media-type="image" data-modal-brand="HALO" data-modal-title="Sleep Deeper - App Ad" data-modal-type="Static Ad Creative - Instagram Feed - 1080x1350" data-modal-desc="A cinematic lifestyle ad for HALO, a premium sleep and wellness app. An aurora particle overlay blended over a bedroom scene creates a dreamy aspirational mood." data-modal-tags="Photoshop,Ad Creative,App Marketing,Wellness">
-        <div class="work-item-bg">HALO</div>
-        <img class="work-item-img" src="images/HALO/HALO_Ad.png" alt="HALO Sleep Deeper" loading="lazy">
-        <div class="work-item-inner"><p class="work-item-brand">HALO</p><h3 class="work-item-title">Sleep Deeper &mdash; App Ad</h3><p class="work-item-type">Static Ad Creative</p><a href="halo-case-study.html" class="work-item-cs-link" onclick="event.stopPropagation();">View Case Study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5H8M8 5L5 2M8 5L5 8" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
-        <div class="work-item-corner"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="var(--cream)" stroke-width="1.2"/></svg></div>
-      </div>
-
-      <div class="work-item halo reveal reveal-delay-1" data-brand="halo" data-type="motion" data-media="images/HALO/HALO_Social_Ad_1.mp4" data-media-type="video" data-modal-brand="HALO" data-modal-title="Social Ad - Animated" data-modal-type="After Effects - Instagram Stories and Reels - 8s - 1080x1920" data-modal-desc="A full animated social ad for HALO. The bedroom fades in from black, aurora particles drift across the background, and the headline reveals itself line by line." data-modal-tags="After Effects,Motion Graphics,Social Ad,App Marketing">
-        <div class="work-item-bg">HALO</div>
-        <video class="work-item-video" data-src="images/HALO/HALO_Social_Ad_1.mp4" muted loop playsinline preload="none"></video>
-        <div class="play-badge"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 1.5L8 5L2 8.5V1.5Z" fill="var(--gold)"/></svg>Motion</div>
-        <div class="work-item-inner"><p class="work-item-brand">HALO</p><h3 class="work-item-title">Social Ad &mdash; Animated</h3><p class="work-item-type">After Effects &middot; Stories</p><a href="halo-case-study.html" class="work-item-cs-link" onclick="event.stopPropagation();">View Case Study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5H8M8 5L5 2M8 5L5 8" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
-        <div class="work-item-corner"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="var(--cream)" stroke-width="1.2"/></svg></div>
-      </div>
-
-      <div class="work-item grove reveal" data-brand="grove" data-type="static" data-media="images/GROVE/Grove_Ad.png" data-media-type="image" data-modal-brand="GROVE" data-modal-title="Just Grove - Brand Ad" data-modal-type="Static Ad Creative - Instagram Feed - 1080x1350" data-modal-desc="An earthy premium ad for GROVE organic food brand. Warm forest green gradients over real ingredient photography." data-modal-tags="Photoshop,Ad Creative,Food Brand,Organic,DTC">
-        <div class="work-item-bg">GROVE</div>
-        <img class="work-item-img" src="images/GROVE/Grove_Ad.png" alt="GROVE Just Grove" loading="lazy">
-        <div class="work-item-inner"><p class="work-item-brand">GROVE</p><h3 class="work-item-title">Just Grove &mdash; Brand Ad</h3><p class="work-item-type">Static Ad Creative</p><a href="grove-case-study.html" class="work-item-cs-link" onclick="event.stopPropagation();">View Case Study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5H8M8 5L5 2M8 5L5 8" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
-        <div class="work-item-corner"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="var(--cream)" stroke-width="1.2"/></svg></div>
-      </div>
-
-      <div class="work-item grove reveal reveal-delay-1" data-brand="grove" data-type="motion" data-media="images/GROVE/Grove_Ingredient_Reveal.mp4" data-media-type="video" data-modal-brand="GROVE" data-modal-title="Ingredient Reveal" data-modal-type="After Effects - Brand Film - 8s - 1080x1080" data-modal-desc="A slow confident brand film for GROVE. Single words appear and dissolve over earthy ingredient close-ups, ending with Just Grove in terracotta." data-modal-tags="After Effects,Motion Graphics,Brand Film,Food Brand">
-        <div class="work-item-bg">GROVE</div>
-        <video class="work-item-video" data-src="images/GROVE/Grove_Ingredient_Reveal.mp4" muted loop playsinline preload="none"></video>
-        <div class="play-badge"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 1.5L8 5L2 8.5V1.5Z" fill="var(--gold)"/></svg>Motion</div>
-        <div class="work-item-inner"><p class="work-item-brand">GROVE</p><h3 class="work-item-title">Ingredient Reveal</h3><p class="work-item-type">After Effects &middot; Brand Film</p><a href="grove-case-study.html" class="work-item-cs-link" onclick="event.stopPropagation();">View Case Study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5H8M8 5L5 2M8 5L5 8" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
-        <div class="work-item-corner"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="var(--cream)" stroke-width="1.2"/></svg></div>
-      </div>
-
-      <div class="work-item veil reveal" data-brand="veil" data-type="static" data-media="images/Veil/Veil_Magazine_Cover.png" data-media-type="image" data-modal-brand="VEIL" data-modal-title="Magazine Cover" data-modal-type="Static Ad Creative" data-modal-desc="A static editorial piece for VEIL. Deep plum and shadow tones build an atmosphere of intrigue and exclusivity." data-modal-tags="Photoshop,Ad Creative,Dark Aesthetic,Editorial,Premium">
-        <div class="work-item-bg">VEIL</div>
-        <img class="work-item-img" src="images/Veil/Veil_Magazine_Cover.png" alt="VEIL Magazine Cover" loading="lazy">
-        <div class="work-item-inner"><p class="work-item-brand">VEIL</p><h3 class="work-item-title">Magazine Cover</h3><p class="work-item-type">Static Ad Creative</p><a href="veil-case-study.html" class="work-item-cs-link" onclick="event.stopPropagation();">View Case Study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5H8M8 5L5 2M8 5L5 8" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
-        <div class="work-item-corner"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="var(--cream)" stroke-width="1.2"/></svg></div>
-      </div>
-
-      <div class="work-item veil reveal reveal-delay-1" data-brand="veil" data-type="static" data-media="images/Veil/Veil_Spring_Launch.png" data-media-type="image" data-modal-brand="VEIL" data-modal-title="Spring Launch Campaign" data-modal-type="Static Ad Creative" data-modal-desc="VEIL Spring Launch campaign creative. Consistent dark palette with refined typographic hierarchy." data-modal-tags="Photoshop,Ad Creative,Dark Aesthetic,Campaign,Premium">
-        <div class="work-item-bg">VEIL</div>
-        <img class="work-item-img" src="images/Veil/Veil_Spring_Launch.png" alt="VEIL Spring Launch" loading="lazy">
-        <div class="work-item-inner"><p class="work-item-brand">VEIL</p><h3 class="work-item-title">Spring Launch Campaign</h3><p class="work-item-type">Static Ad Creative</p><a href="veil-case-study.html" class="work-item-cs-link" onclick="event.stopPropagation();">View Case Study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5H8M8 5L5 2M8 5L5 8" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
-        <div class="work-item-corner"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="var(--cream)" stroke-width="1.2"/></svg></div>
-      </div>
-
-      <div class="work-item veil reveal reveal-delay-2" data-brand="veil" data-type="motion" data-media="images/Veil/Veil_Typographic_Animation.mp4" data-media-type="video" data-modal-brand="VEIL" data-modal-title="Typographic Animation" data-modal-type="After Effects - Motion Graphics" data-modal-desc="An atmospheric typographic motion piece for VEIL. Dark, deliberate, and slow, built to communicate the brand mysterious premium positioning." data-modal-tags="After Effects,Motion Graphics,Typography,Dark Aesthetic,Premium">
-        <div class="work-item-bg">VEIL</div>
-        <video class="work-item-video" data-src="images/Veil/Veil_Typographic_Animation.mp4" muted loop playsinline preload="none"></video>
-        <div class="play-badge"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 1.5L8 5L2 8.5V1.5Z" fill="var(--gold)"/></svg>Motion</div>
-        <div class="work-item-inner"><p class="work-item-brand">VEIL</p><h3 class="work-item-title">Typographic Animation</h3><p class="work-item-type">After Effects &middot; Motion</p><a href="veil-case-study.html" class="work-item-cs-link" onclick="event.stopPropagation();">View Case Study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5H8M8 5L5 2M8 5L5 8" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
-        <div class="work-item-corner"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="var(--cream)" stroke-width="1.2"/></svg></div>
-      </div>
-
-      <div class="work-item burbur reveal" data-brand="burbur" data-type="static" data-media="images/BurBur/BurBur_Ad_Poster.png" data-media-type="image" data-modal-brand="BUR BUR" data-modal-title="Ad Poster" data-modal-type="Static Ad Creative" data-modal-desc="A bold warm ad poster for BUR BUR. Rich tones and confident layout communicate energy and personality." data-modal-tags="Photoshop,Ad Creative,Bold Brand,DTC">
-        <div class="work-item-bg">BUR BUR</div>
-        <img class="work-item-img" src="images/BurBur/BurBur_Ad_Poster.png" alt="BUR BUR Ad Poster" loading="lazy">
-        <div class="work-item-inner"><p class="work-item-brand">BUR BUR</p><h3 class="work-item-title">Ad Poster</h3><p class="work-item-type">Static Ad Creative</p><a href="burbur-case-study.html" class="work-item-cs-link" onclick="event.stopPropagation();">View Case Study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5H8M8 5L5 2M8 5L5 8" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
-        <div class="work-item-corner"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="var(--cream)" stroke-width="1.2"/></svg></div>
-      </div>
-
-      <div class="work-item burbur reveal reveal-delay-1" data-brand="burbur" data-type="static" data-media="images/BurBur/BurBur_Aesthetic.png" data-media-type="image" data-modal-brand="BUR BUR" data-modal-title="Aesthetic Campaign" data-modal-type="Static Ad Creative" data-modal-desc="BUR BUR aesthetic campaign piece, warm confident and unmistakably unique. A brand with its own visual language." data-modal-tags="Photoshop,Ad Creative,Bold Brand,DTC">
-        <div class="work-item-bg">BUR BUR</div>
-        <img class="work-item-img" src="images/BurBur/BurBur_Aesthetic.png" alt="BUR BUR Aesthetic" loading="lazy">
-        <div class="work-item-inner"><p class="work-item-brand">BUR BUR</p><h3 class="work-item-title">Aesthetic Campaign</h3><p class="work-item-type">Static Ad Creative</p><a href="burbur-case-study.html" class="work-item-cs-link" onclick="event.stopPropagation();">View Case Study <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5H8M8 5L5 2M8 5L5 8" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
-        <div class="work-item-corner"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="var(--cream)" stroke-width="1.2"/></svg></div>
-      </div>
-
-    </div>
-  </section>
+</section>
 
   <section id="services">
     <div class="section-label reveal">What I Offer</div>
@@ -601,7 +595,7 @@
     var mx=0, my=0, rx=0, ry=0;
     document.addEventListener('mousemove', function(e){ mx=e.clientX; my=e.clientY; cursor.style.left=mx+'px'; cursor.style.top=my+'px'; }, {passive:true});
     (function lerpRing(){ rx+=(mx-rx)*.12; ry+=(my-ry)*.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(lerpRing); })();
-    document.querySelectorAll('a,button,.work-item').forEach(function(el){
+    document.querySelectorAll('a,button').forEach(function(el){
       el.addEventListener('mouseenter', function(){ document.body.classList.add('ch'); }, {passive:true});
       el.addEventListener('mouseleave', function(){ document.body.classList.remove('ch'); }, {passive:true});
     });
@@ -617,81 +611,6 @@
       entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); revObs.unobserve(e.target); } });
     }, {threshold:0.08});
     document.querySelectorAll('.reveal').forEach(function(el){ revObs.observe(el); });
-    var vidObs = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        var vid = e.target.querySelector('video[data-src]');
-        if(!vid) return;
-        if(e.isIntersecting){
-          if(!vid.src){ vid.src = vid.dataset.src; }
-          vid.play().catch(function(){});
-        } else {
-          vid.pause();
-        }
-      });
-    }, {threshold:0.2});
-    document.querySelectorAll('.work-item').forEach(function(item){ vidObs.observe(item); });
-    document.querySelectorAll('.filter-btn').forEach(function(btn){
-      btn.addEventListener('click', function(){
-        document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
-        btn.classList.add('active');
-        var f = btn.dataset.filter;
-        document.querySelectorAll('.work-item').forEach(function(item){
-          var b = item.dataset.brand, t = item.dataset.type;
-          var show = f==='all' ? true : f==='motion' ? t==='motion' : f==='static' ? t==='static' : b===f;
-          item.setAttribute('data-hidden', String(!show));
-        });
-      });
-    });
-    var overlay      = document.getElementById('modal-overlay');
-    var modalMediaEl = document.getElementById('modal-media');
-    var modalPH      = document.getElementById('modal-placeholder');
-    var activeVid    = null;
-    function openModal(item){
-      document.getElementById('modal-brand').textContent = item.dataset.modalBrand || '';
-      document.getElementById('modal-title').textContent = item.dataset.modalTitle || '';
-      document.getElementById('modal-type').textContent  = item.dataset.modalType  || '';
-      document.getElementById('modal-desc').textContent  = item.dataset.modalDesc  || '';
-      var tagsEl = document.getElementById('modal-tags');
-      tagsEl.innerHTML = '';
-      (item.dataset.modalTags || '').split(',').filter(Boolean).forEach(function(tag){
-        var s = document.createElement('span');
-        s.className = 'modal-tag';
-        s.textContent = tag.trim();
-        tagsEl.appendChild(s);
-      });
-      modalMediaEl.querySelectorAll('img.mi,video.mv').forEach(function(el){ el.remove(); });
-      if(activeVid){ activeVid.pause(); activeVid = null; }
-      var src = item.dataset.media, type = item.dataset.mediaType;
-      if(src && type==='image'){
-        modalPH.style.display = 'none';
-        var img = document.createElement('img');
-        img.className = 'mi'; img.src = src; img.alt = item.dataset.modalTitle || '';
-        modalMediaEl.appendChild(img);
-      } else if(src && type==='video'){
-        modalPH.style.display = 'none';
-        var vid = document.createElement('video');
-        vid.className = 'mv'; vid.src = src;
-        vid.controls = true; vid.autoplay = true; vid.muted = false;
-        modalMediaEl.appendChild(vid);
-        activeVid = vid;
-      } else {
-        modalPH.style.display = '';
-        modalPH.textContent = item.dataset.modalBrand || '';
-      }
-      overlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeModal(){
-      overlay.classList.remove('open');
-      document.body.style.overflow = '';
-      if(activeVid){ activeVid.pause(); activeVid = null; }
-    }
-    document.querySelectorAll('.work-item').forEach(function(item){
-      item.addEventListener('click', function(){ openModal(item); });
-    });
-    document.getElementById('modal-close').addEventListener('click', closeModal);
-    overlay.addEventListener('click', function(e){ if(e.target===overlay) closeModal(); });
-    document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
   </script>
 </body>
 </html>
