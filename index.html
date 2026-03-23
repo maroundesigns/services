@@ -37,10 +37,10 @@
     html { scroll-behavior: smooth; }
     body { background: var(--black); color: var(--cream); font-family: var(--font-mono); font-size: 14px; line-height: 1.6; cursor: none; overflow-x: hidden; }
     ::selection { background: var(--gold); color: var(--black); }
-    #cursor { position: fixed; width: 10px; height: 10px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width .25s, height .25s; will-change: left,top; }
-    #cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(201,168,76,.5); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width .25s, height .25s, opacity .25s; will-change: left,top; }
-    body.ch #cursor { width: 20px; height: 20px; }
-    body.ch #cursor-ring { width: 56px; height: 56px; opacity: .4; }
+    #cursor { position: fixed; width: 8px; height: 8px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); }
+    
+    
+    body.ch 
     ::-webkit-scrollbar { width: 3px; }
     ::-webkit-scrollbar-track { background: var(--black); }
     ::-webkit-scrollbar-thumb { background: var(--gold); }
@@ -280,8 +280,7 @@
 </head>
 <body>
 <div id="cursor"></div>
-  <div id="cursor-ring"></div>
-
+  
   <nav id="main-nav">
     <a href="#hero" class="nav-logo">MD.</a>
     <ul class="nav-links">
@@ -358,69 +357,6 @@
           <div class="br-thumb"><img src="images/Veil/Veil_Magazine_Cover.png" alt="VEIL" /></div>
           <div class="br-meta-right">
             <span class="br-count">3 pieces</span>
-            <span class="br-arrow">&#x2197;</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="vault-case-study.html" class="brand-row">
-        <div class="br-left">
-          <span class="br-num">03</span>
-          <span class="br-name">VAULT</span>
-          <div class="br-meta">
-            <span class="br-cat">Luxury Streetwear</span>
-            <div class="br-pills">
-              <span class="br-pill">Editorial</span>
-              <span class="br-pill">Motion</span>
-            </div>
-          </div>
-        </div>
-        <div class="br-right">
-          <div class="br-thumb"><img src="images/VAULT/VAULT_DROP001_Ad.png" alt="VAULT" /></div>
-          <div class="br-meta-right">
-            <span class="br-count">2 pieces</span>
-            <span class="br-arrow">&#x2197;</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="grove-case-study.html" class="brand-row">
-        <div class="br-left">
-          <span class="br-num">04</span>
-          <span class="br-name">GROVE</span>
-          <div class="br-meta">
-            <span class="br-cat">Organic Food</span>
-            <div class="br-pills">
-              <span class="br-pill">Editorial</span>
-              <span class="br-pill">Motion</span>
-            </div>
-          </div>
-        </div>
-        <div class="br-right">
-          <div class="br-thumb"><img src="images/GROVE/Grove_Ad.png" alt="GROVE" /></div>
-          <div class="br-meta-right">
-            <span class="br-count">2 pieces</span>
-            <span class="br-arrow">&#x2197;</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="halo-case-study.html" class="brand-row">
-        <div class="br-left">
-          <span class="br-num">05</span>
-          <span class="br-name">HALO</span>
-          <div class="br-meta">
-            <span class="br-cat">Wellness App</span>
-            <div class="br-pills">
-              <span class="br-pill">Editorial</span>
-              <span class="br-pill">Motion</span>
-            </div>
-          </div>
-        </div>
-        <div class="br-right">
-          <div class="br-thumb"><img src="images/HALO/HALO_Ad.png" alt="HALO" /></div>
-          <div class="br-meta-right">
-            <span class="br-count">2 pieces</span>
             <span class="br-arrow">&#x2197;</span>
           </div>
         </div>
@@ -547,7 +483,6 @@
     </div>
   </section>
 
-
   <section id="about">
     <div class="about-left">
       <div class="section-label reveal">The Creative</div>
@@ -598,10 +533,9 @@
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     var cursor = document.getElementById('cursor');
-    var ring   = document.getElementById('cursor-ring');
-    var mx=0, my=0, rx=0, ry=0;
+    var mx=0, my=0;
     document.addEventListener('mousemove', function(e){ mx=e.clientX; my=e.clientY; cursor.style.left=mx+'px'; cursor.style.top=my+'px'; }, {passive:true});
-    (function lerpRing(){ rx+=(mx-rx)*.12; ry+=(my-ry)*.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(lerpRing); })();
+    
     document.querySelectorAll('a,button').forEach(function(el){
       el.addEventListener('mouseenter', function(){ document.body.classList.add('ch'); }, {passive:true});
       el.addEventListener('mouseleave', function(){ document.body.classList.remove('ch'); }, {passive:true});

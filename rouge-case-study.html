@@ -20,10 +20,10 @@
     html{scroll-behavior:smooth;}
     body{background:var(--black);color:var(--cream);font-family:var(--fm);font-size:13px;line-height:1.6;overflow-x:hidden;cursor:none;}
     ::selection{background:var(--red);color:var(--cream);}
-    #cursor{position:fixed;width:10px;height:10px;background:var(--red);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .25s,height .25s;}
-    #cursor-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(139,0,0,.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);}
-    body.ch #cursor{width:20px;height:20px;}
-    body.ch #cursor-ring{width:56px;height:56px;opacity:.4;}
+    #cursor { position: fixed; width: 8px; height: 8px; background: var(--red); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); }
+    
+    
+    body.ch 
     ::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-thumb{background:var(--gold);}
 
     /* NAV */
@@ -148,19 +148,15 @@
 </head>
 <body>
   <div id="cursor"></div>
-  <div id="cursor-ring"></div>
-
+  
   <nav id="main-nav">
     <a href="index.html" class="nav-back">&larr; All Work</a>
     <a href="index.html" class="nav-logo">MD.</a>
     <div class="nav-cases">
       <button class="nav-cases-btn">Case Studies <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.2"/></svg></button>
-      <div class="nav-dropdown">
+            <div class="nav-dropdown">
         <a href="rouge-case-study.html" class="current">ROUGE</a>
         <a href="veil-case-study.html">VEIL</a>
-        <a href="vault-case-study.html">VAULT</a>
-        <a href="grove-case-study.html">GROVE</a>
-        <a href="halo-case-study.html">HALO</a>
       </div>
     </div>
   </nav>
@@ -293,10 +289,10 @@
   </footer>
 
   <script>
-    var cursor=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
-    var mx=0,my=0,rx=0,ry=0;
+    var cursor=document.getElementById('cursor');
+    var mx=0,my=0;
     document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';},{passive:true});
-    (function lerpRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(lerpRing);})();
+    
     document.querySelectorAll('a,button').forEach(function(el){
       el.addEventListener('mouseenter',function(){document.body.classList.add('ch');},{passive:true});
       el.addEventListener('mouseleave',function(){document.body.classList.remove('ch');},{passive:true});
