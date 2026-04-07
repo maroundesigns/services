@@ -49,11 +49,11 @@
     @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; justify-content: space-between; align-items: center; padding: 28px 48px; transition: background .4s, border-bottom .4s; }
     nav.scrolled { background: rgba(8,8,8,.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-    .nav-logo { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--cream); text-decoration: none; letter-spacing: .05em; }
+    .nav-logo { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--cream); text-decoration: none; letter-spacing: .05em; cursor: none; }
     .nav-links { display: flex; gap: 40px; list-style: none; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; transition: color .3s; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; transition: color .3s; cursor: none; }
     .nav-links a:hover { color: var(--gold); }
-    .nav-cta { background: var(--gold) !important; color: var(--black) !important; padding: 10px 20px; }
+    .nav-cta { background: var(--gold) !important; color: var(--black) !important; padding: 10px 20px; cursor: none; }
     .nav-cta:hover { background: var(--cream) !important; }
     #hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 48px 80px; position: relative; overflow: hidden; }
     .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(201,168,76,.06) 0%, transparent 60%), radial-gradient(ellipse 50% 80% at 10% 80%, rgba(201,168,76,.04) 0%, transparent 50%); }
