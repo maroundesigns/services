@@ -268,100 +268,6 @@
       .marquee-track { animation: none; }
     }
 
-    /* ─── AD CREATIVE / PAID SOCIAL SECTION ─── */
-    #ad-creative {
-      background: var(--off-black);
-      border-top: 1px solid var(--border);
-      padding: 100px 48px;
-    }
-    .ac-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 64px;
-    }
-    .ac-spec-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid var(--border);
-      padding: 7px 16px;
-      font-size: 9px;
-      letter-spacing: .26em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .ac-spec-badge::before {
-      content: '';
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--gold);
-      opacity: .65;
-      flex-shrink: 0;
-    }
-    .ac-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-    .ac-item {
-      position: relative;
-      overflow: hidden;
-      aspect-ratio: 1 / 1;
-      cursor: none;
-    }
-    .ac-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform .7s cubic-bezier(.25,.46,.45,.94);
-    }
-    .ac-item:hover img { transform: scale(1.04); }
-    .ac-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(8,8,8,.90) 30%, rgba(8,8,8,.25) 100%);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 28px 28px 32px;
-      opacity: 0;
-      transition: opacity .38s ease;
-    }
-    .ac-item:hover .ac-overlay { opacity: 1; }
-    .ac-brand-name {
-      font-family: var(--font-display);
-      font-size: clamp(30px, 3.2vw, 48px);
-      font-weight: 900;
-      letter-spacing: -.03em;
-      color: var(--cream);
-      line-height: 1;
-      margin-bottom: 9px;
-    }
-    .ac-type-label {
-      font-size: 9px;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 6px;
-    }
-    .ac-spec-note {
-      font-size: 9px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: rgba(245,240,235,.3);
-    }
-    @media (max-width: 900px) {
-      #ad-creative { padding: 72px 24px; }
-      .ac-header { flex-direction: column; align-items: flex-start; gap: 24px; }
-      .ac-header > div:last-child { text-align: left; }
-    }
-    @media (max-width: 600px) {
-      .ac-grid { grid-template-columns: 1fr; gap: 10px; }
-    }
-
     #process .process-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); margin-top: 72px; }
     .process-step { background: var(--black); padding: 56px 40px; position: relative; overflow: hidden; transition: background .35s; }
     .process-step:hover { background: #0d0d0d; }
@@ -435,7 +341,7 @@
         <div class="section-label reveal">Selected Work</div>
         <h2 class="section-title reveal reveal-delay-1">The Portfolio</h2>
       </div>
-      <p class="reveal reveal-delay-2" style="font-size:12px;color:var(--muted);max-width:280px;text-align:right;line-height:1.7;">Two brands. Two distinct aesthetics.<br>One standard of quality.</p>
+      <p class="reveal reveal-delay-2" style="font-size:12px;color:var(--muted);max-width:280px;text-align:right;line-height:1.7;">Three projects. Three distinct aesthetics.<br>One standard of quality.</p>
     </div>
 
     <div class="brand-index reveal">
@@ -484,56 +390,30 @@
         </div>
       </a>
 
+      <a href="ad-creative-case-study.html" class="brand-row">
+        <div class="br-left">
+          <span class="br-num">03</span>
+          <span class="br-name">Ad Creative</span>
+          <div class="br-meta">
+            <span class="br-cat">Paid Social Spec Work</span>
+            <div class="br-pills">
+              <span class="br-pill">Skincare</span>
+              <span class="br-pill">Static Ads</span>
+              <span class="br-pill">3 Formats</span>
+            </div>
+          </div>
+        </div>
+        <div class="br-right">
+          <div class="br-thumb"><img src="images/Ad_Creative/Ad_3.png" alt="Ad Creative Spec Work" /></div>
+          <div class="br-meta-right">
+            <span class="br-count">3 ads</span>
+            <span class="br-arrow">&#x2197;</span>
+          </div>
+        </div>
+      </a>
+
     </div>
 </section>
-
-  <!-- AD CREATIVE / PAID SOCIAL SPEC SECTION -->
-  <section id="ad-creative">
-    <div class="ac-header">
-      <div>
-        <div class="section-label reveal">Paid Social Creative</div>
-        <h2 class="section-title reveal reveal-delay-1">Ad Creative<br><em style="font-style:italic;color:var(--gold);">Spec Work</em></h2>
-      </div>
-      <div class="reveal reveal-delay-2" style="text-align:right;">
-        <span class="ac-spec-badge">Concept Executions</span>
-        <p style="font-size:12px;color:var(--muted);max-width:280px;line-height:1.7;margin-top:16px;">Three skincare ad concepts showing range across clinical-luxe, botanical, and bold graphic formats.</p>
-      </div>
-    </div>
-
-    <div class="ac-grid">
-
-      <!-- LEVÉ -->
-      <div class="ac-item reveal">
-        <img src="images/Ad_Creative/Ad_3.png" alt="LEVÉ Clinical Luxury Static Ad" />
-        <div class="ac-overlay">
-          <span class="ac-type-label">Clinical Luxury &middot; Product Static</span>
-          <div class="ac-brand-name">LEV&Eacute;</div>
-          <span class="ac-spec-note">Spec Work</span>
-        </div>
-      </div>
-
-      <!-- FOLIA -->
-      <div class="ac-item reveal reveal-delay-1">
-        <img src="images/Ad_Creative/Ad_2.png" alt="FOLIA Botanical Skincare Static Ad" />
-        <div class="ac-overlay">
-          <span class="ac-type-label">Botanical &middot; Editorial Flatlay</span>
-          <div class="ac-brand-name">FOLIA</div>
-          <span class="ac-spec-note">Spec Work</span>
-        </div>
-      </div>
-
-      <!-- PAVO -->
-      <div class="ac-item reveal reveal-delay-2">
-        <img src="images/Ad_Creative/Ad_1.png" alt="PAVO Bold Graphic Static Ad" />
-        <div class="ac-overlay">
-          <span class="ac-type-label">Bold Graphic &middot; Brand Static</span>
-          <div class="ac-brand-name">PAVO</div>
-          <span class="ac-spec-note">Spec Work</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
 
   <section id="services">
     <div class="section-label reveal">What I Offer</div>

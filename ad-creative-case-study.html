@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Veil Case Study</title>
-  <meta name="description" content="VEIL: Premium dark fashion. Editorial composites, product statics, and motion by Maroun Designs." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ad Creative Case Study</title>
+  <meta name="description" content="Paid social static ad creative spec work by Maroun Designs. Three skincare brands, three formats: clinical-luxe, botanical editorial, and bold graphic." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Mono:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    :root{--black:#080808;--off-black:#111111;--cream:#F5F0EB;--gold:#C9A84C;--ac:#9b8db0;--muted:rgba(245,240,235,.45);--border:rgba(245,240,235,.08);--fd:'Playfair Display',serif;--fm:'DM Mono',monospace;--fl:'Cormorant Garamond',serif;}
+    :root{
+      --black:#080808;--off-black:#111111;--cream:#F5F0EB;--gold:#C9A84C;
+      --muted:rgba(245,240,235,.45);--border:rgba(245,240,235,.08);
+      --fd:'Playfair Display',serif;--fm:'DM Mono',monospace;--fl:'Cormorant Garamond',serif;
+    }
     html{scroll-behavior:smooth;}
     body{background:var(--black);color:var(--cream);font-family:var(--fm);font-size:13px;line-height:1.6;overflow-x:hidden;}
     @media(hover:hover){body{cursor:none;}}
-    ::selection{background:var(--ac);color:var(--cream);}
-    #cursor{position:fixed;width:8px;height:8px;background:var(--ac);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);display:none;}
+    ::selection{background:var(--gold);color:var(--black);}
+    #cursor{position:fixed;width:8px;height:8px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);display:none;}
     @media(hover:hover){#cursor{display:block;}}
     ::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-thumb{background:var(--gold);}
 
+    /* NAV */
     nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:28px 48px;transition:background .4s;}
     nav.scrolled{background:rgba(8,8,8,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
     .nav-back{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--muted);font-size:11px;letter-spacing:.18em;text-transform:uppercase;transition:color .3s;cursor:none;}
@@ -36,51 +42,57 @@
     .nav-dropdown a:hover{color:var(--cream);background:rgba(255,255,255,.03);}
     .nav-dropdown a.current{color:var(--gold);pointer-events:none;}
 
-    #hero{min-height:92vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 48px 72px;position:relative;overflow:hidden;}
-    .hero-grad{position:absolute;inset:0;background:linear-gradient(135deg,#1a1420 0%,#0e0b14 50%,#080808 100%);}
+    /* HERO */
+    #hero{min-height:92vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 48px 72px;position:relative;overflow:hidden;background:var(--off-black);}
+    .hero-grad{position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 20% 80%,rgba(201,168,76,.07) 0%,transparent 55%),radial-gradient(ellipse 50% 50% at 80% 20%,rgba(201,168,76,.04) 0%,transparent 50%),linear-gradient(160deg,#0d0d0d 0%,#080808 70%);}
     .hero-content{position:relative;z-index:1;}
-    .hero-eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ac);margin-bottom:28px;opacity:0;animation:fadeUp .7s ease .3s forwards;}
-    .hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--ac);}
-    .hero-brand{font-family:var(--fd);font-size:clamp(64px,11vw,148px);font-weight:900;line-height:.82;letter-spacing:-.025em;opacity:0;animation:fadeUp .9s ease .5s forwards;}
-    .hero-tagline{font-family:var(--fl);font-size:clamp(16px,2.2vw,28px);font-weight:300;color:var(--muted);margin-top:24px;opacity:0;animation:fadeUp .7s ease .75s forwards;font-style:italic;}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(201,168,76,.8);margin-bottom:28px;opacity:0;animation:fadeUp .7s ease .3s forwards;}
+    .hero-eyebrow::before{content:'';width:28px;height:1px;background:rgba(201,168,76,.6);}
+    .hero-brand{font-family:var(--fd);font-size:clamp(56px,9vw,120px);font-weight:900;line-height:.85;letter-spacing:-.025em;opacity:0;animation:fadeUp .9s ease .5s forwards;}
+    .hero-brand em{display:block;font-style:italic;font-weight:400;color:rgba(245,240,235,.55);}
+    .hero-tagline{font-family:var(--fl);font-size:clamp(16px,2.2vw,26px);font-weight:300;color:var(--muted);margin-top:24px;opacity:0;animation:fadeUp .7s ease .75s forwards;font-style:italic;}
     .hero-foot{display:flex;align-items:center;gap:48px;margin-top:52px;padding-top:28px;border-top:1px solid rgba(245,240,235,.08);opacity:0;animation:fadeUp .6s ease 1s forwards;}
     .hf-item{display:flex;flex-direction:column;gap:5px;}
-    .hf-label{font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--ac);}
+    .hf-label{font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:rgba(201,168,76,.7);}
     .hf-val{font-family:var(--fl);font-size:16px;font-weight:300;color:var(--muted);}
     @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
 
+    /* BRIEF STRIP */
     .brief-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);}
-    .brief-item{background:#0e0c16;padding:28px 24px;}
-    .bi-label{font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--ac);margin-bottom:10px;}
+    .brief-item{background:#0d0d0d;padding:28px 24px;}
+    .bi-label{font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:rgba(201,168,76,.75);margin-bottom:10px;}
     .bi-val{font-family:var(--fl);font-size:16px;font-weight:300;color:var(--cream);line-height:1.5;}
 
+    /* WORK */
     #work{padding:100px 48px;}
     .sec-label{display:flex;align-items:center;gap:14px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:60px;}
     .sec-label::after{content:'';width:48px;height:1px;background:var(--gold);opacity:.4;}
+
     .piece{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:100px;}
     .piece:last-child{margin-bottom:0;}
-    .piece.flip{direction:rtl;}.piece.flip>*{direction:ltr;}
-    .piece-media{overflow:hidden;background:#0e0c16;}
-    .piece-media.cover{aspect-ratio:17/22;}
-    .piece-media.landscape{aspect-ratio:3/2;}
-    .piece-media.widescreen{aspect-ratio:16/9;}
-    .piece-media img,.piece-media video{width:100%;height:100%;object-fit:contain;display:block;}
-    .piece-media video{background:#000;}
-    .piece-num{font-size:72px;font-family:var(--fd);font-weight:900;color:rgba(155,141,176,.07);line-height:1;letter-spacing:-.04em;margin-bottom:4px;}
-    .piece-tag{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--ac);margin-bottom:16px;}
+    .piece.flip{direction:rtl;}
+    .piece.flip>*{direction:ltr;}
+    .piece-media{overflow:hidden;background:#0c0c0c;aspect-ratio:1/1;position:relative;}
+    .piece-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.25,.46,.45,.94);}
+    .piece-media:hover img{transform:scale(1.03);}
+    .piece-spec{position:absolute;top:14px;right:14px;background:rgba(8,8,8,.85);backdrop-filter:blur(6px);border:1px solid var(--border);padding:5px 12px;font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);z-index:2;}
+    .piece-num{font-size:72px;font-family:var(--fd);font-weight:900;color:rgba(201,168,76,.06);line-height:1;letter-spacing:-.04em;margin-bottom:4px;}
+    .piece-tag{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;opacity:.85;}
     .piece-title{font-family:var(--fd);font-size:clamp(26px,3vw,44px);font-weight:700;line-height:1.05;margin-bottom:20px;}
     .piece-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;}
-    .piece-pill{padding:5px 13px;border:1px solid rgba(155,141,176,.2);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
+    .piece-pill{padding:5px 13px;border:1px solid rgba(201,168,76,.2);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
     .piece-desc{font-family:var(--fl);font-size:17px;font-weight:300;color:var(--muted);line-height:1.85;}
 
-    #identity{padding:80px 48px;background:var(--off-black);border-top:1px solid var(--border);}
+    /* APPROACH */
+    #approach{padding:80px 48px;background:var(--off-black);border-top:1px solid var(--border);}
     .id-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:52px;}
     .id-card{padding:36px;border:1px solid var(--border);position:relative;overflow:hidden;}
-    .id-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--ac);transform:scaleX(0);transform-origin:left;transition:transform .4s;}
+    .id-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s;}
     .id-card:hover::before{transform:scaleX(1);}
-    .id-label{font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--ac);margin-bottom:14px;}
+    .id-label{font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:rgba(201,168,76,.8);margin-bottom:14px;}
     .id-body{font-family:var(--fl);font-size:16px;font-weight:300;color:var(--muted);line-height:1.8;}
 
+    /* CTA */
     #cta{padding:120px 48px;text-align:center;background:var(--black);border-top:1px solid var(--border);}
     .cta-label{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;}
     .cta-title{font-family:var(--fd);font-size:clamp(36px,6vw,80px);font-weight:900;line-height:.95;letter-spacing:-.025em;margin-bottom:20px;}
@@ -109,30 +121,27 @@
 
     @media(max-width:900px){
       nav{padding:20px 24px;}
-      #hero{padding:0 24px 52px;min-height:75vh;}
+      #hero{padding:0 24px 52px;min-height:80vh;}
       #work{padding:64px 24px;}
-      #identity{padding:56px 24px;}
-      #cta{padding:72px 24px;}
+      #approach{padding:56px 24px;}
+      #cta{padding:80px 24px;}
       footer{padding:24px;flex-direction:column;gap:16px;text-align:center;}
       .footer-copy{display:none;}
       .brief-strip{grid-template-columns:1fr 1fr;}
-      .piece,.piece.flip{grid-template-columns:1fr;direction:ltr;gap:32px;margin-bottom:64px;}
-      .piece-num{font-size:56px;}
-      .sec-label{margin-bottom:40px;}
-      .id-grid{grid-template-columns:1fr 1fr;gap:16px;}
-      .id-card{padding:24px;}
-      .hero-foot{flex-wrap:wrap;gap:24px;margin-top:36px;}
+      .piece,.piece.flip{grid-template-columns:1fr;direction:ltr;gap:36px;}
+      .piece-num{font-size:52px;}
+      .id-grid{grid-template-columns:1fr;}
+      .hero-foot{flex-wrap:wrap;gap:28px;}
     }
     @media(max-width:520px){
       .brief-strip{grid-template-columns:1fr;}
-      .id-grid{grid-template-columns:1fr;}
-      .nav-logo{display:none;}
-      .btn-primary,.btn-secondary{padding:18px 24px;font-size:10px;}
+      nav{padding:16px 20px;}
     }
   </style>
 </head>
 <body>
   <div id="cursor"></div>
+
   <nav id="main-nav">
     <a href="index.html" class="nav-back">&larr; All Work</a>
     <a href="index.html" class="nav-logo">MD.</a>
@@ -140,8 +149,8 @@
       <button class="nav-cases-btn">Case Studies <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.2"/></svg></button>
       <div class="nav-dropdown">
         <a href="rouge-case-study.html">ROUGE</a>
-        <a href="veil-case-study.html" class="current">VEIL</a>
-        <a href="ad-creative-case-study.html">Ad Creative</a>
+        <a href="veil-case-study.html">VEIL</a>
+        <a href="ad-creative-case-study.html" class="current">Ad Creative</a>
       </div>
     </div>
   </nav>
@@ -149,71 +158,102 @@
   <section id="hero">
     <div class="hero-grad"></div>
     <div class="hero-content">
-      <p class="hero-eyebrow">Case Study &middot; Spec Brand</p>
-      <h1 class="hero-brand">VEIL</h1>
-      <p class="hero-tagline">Premium dark fashion. Quiet luxury with an edge.</p>
+      <p class="hero-eyebrow">Paid Social &middot; Static Ad Creative</p>
+      <h1 class="hero-brand">Ad Creative.<br><em>Spec Work.</em></h1>
+      <p class="hero-tagline">Three skincare brands. Three distinct directions. One format: the static feed ad.</p>
       <div class="hero-foot">
-        <div class="hf-item"><p class="hf-label">Category</p><p class="hf-val">Fashion &amp; Apparel</p></div>
-        <div class="hf-item"><p class="hf-label">Deliverables</p><p class="hf-val">Editorial &middot; Product Static &middot; Motion</p></div>
-        <div class="hf-item"><p class="hf-label">Tools</p><p class="hf-val">Photoshop &middot; After Effects</p></div>
-        <div class="hf-item"><p class="hf-label">Pieces</p><p class="hf-val">3 total</p></div>
+        <div class="hf-item"><p class="hf-label">Format</p><p class="hf-val">1080 &times; 1080 Static</p></div>
+        <div class="hf-item"><p class="hf-label">Platform</p><p class="hf-val">Meta Paid Social</p></div>
+        <div class="hf-item"><p class="hf-label">Tools</p><p class="hf-val">Photoshop</p></div>
+        <div class="hf-item"><p class="hf-label">Ads</p><p class="hf-val">3 total</p></div>
       </div>
     </div>
   </section>
 
   <div class="brief-strip reveal">
-    <div class="brief-item"><p class="bi-label">Aesthetic</p><p class="bi-val">Dark Minimalism</p></div>
-    <div class="brief-item"><p class="bi-label">Palette</p><p class="bi-val">Near Black &middot; Ivory &middot; Deep Violet</p></div>
-    <div class="brief-item"><p class="bi-label">Typography</p><p class="bi-val">Thin Grotesque &middot; Lowercase &middot; Wide Leading</p></div>
-    <div class="brief-item"><p class="bi-label">Reference</p><p class="bi-val">The Row &middot; Celine &middot; Toteme</p></div>
+    <div class="brief-item"><p class="bi-label">Category</p><p class="bi-val">Skincare DTC</p></div>
+    <div class="brief-item"><p class="bi-label">Direction</p><p class="bi-val">Clinical &middot; Botanical &middot; Graphic</p></div>
+    <div class="brief-item"><p class="bi-label">Aspect Ratio</p><p class="bi-val">1:1 Square Feed</p></div>
+    <div class="brief-item"><p class="bi-label">Type</p><p class="bi-val">Concept Execution</p></div>
   </div>
 
   <section id="work">
-    <div class="sec-label reveal">Creative Work</div>
+    <div class="sec-label reveal">The Ads</div>
+
+    <!-- 01 LEVÉ -->
     <div class="piece reveal">
-      <div class="piece-media cover">
-        <img src="images/Veil/Veil_Magazine_Cover.png" alt="VEIL Magazine Cover" />
+      <div class="piece-media">
+        <img src="images/Ad_Creative/Ad_3.png" alt="LEVE Clinical Luxury Static Ad" />
+        <span class="piece-spec">Spec</span>
       </div>
       <div class="piece-info">
         <p class="piece-num">01</p>
-        <p class="piece-tag">Veil &middot; Editorial Composite</p>
-        <h2 class="piece-title">Magazine Cover.<br>Editorial</h2>
-        <div class="piece-pills"><span class="piece-pill">Editorial Composite</span><span class="piece-pill">Static Ad</span><span class="piece-pill">Meta Feed 1080&times;1350</span></div>
-        <p class="piece-desc">Full magazine cover concept built as a paid social creative. Typographic masthead, high-contrast model shot, and product placement in the lower frame. The premise: what if a luxury fashion editorial ran as a Meta ad without changing a single element? Dark palette, deep violet background, no concessions to "ad format" conventions.</p>
+        <p class="piece-tag">LEV&Eacute; &middot; Clinical Luxury</p>
+        <h2 class="piece-title">Clinical proof points.<br>Editorial treatment.</h2>
+        <div class="piece-pills">
+          <span class="piece-pill">Product Static</span>
+          <span class="piece-pill">Clinical Annotation</span>
+          <span class="piece-pill">Meta Feed 1080&times;1080</span>
+        </div>
+        <p class="piece-desc">Open-jar product shot on a warm gradient ground with callout annotations pointing to key clinical claims. The floating lid creates visual tension and an implied premium feel. Typography is editorial: serif, restrained, no visual noise. This format translates clinical credibility into a luxury aesthetic without sacrificing either.</p>
       </div>
     </div>
+
+    <!-- 02 FOLIA -->
     <div class="piece flip reveal">
-      <div class="piece-media landscape">
-        <img src="images/Veil/Veil_Spring_Launch.png" alt="VEIL Spring Launch" />
+      <div class="piece-media">
+        <img src="images/Ad_Creative/Ad_2.png" alt="FOLIA Botanical Skincare Static Ad" />
+        <span class="piece-spec">Spec</span>
       </div>
       <div class="piece-info">
         <p class="piece-num">02</p>
-        <p class="piece-tag">Veil &middot; Product Static</p>
-        <h2 class="piece-title">Spring Launch.<br>Campaign Ad</h2>
-        <div class="piece-pills"><span class="piece-pill">Product Static</span><span class="piece-pill">Campaign Ad</span><span class="piece-pill">Landscape Format</span></div>
-        <p class="piece-desc">Spring collection launch static. Extreme negative space does the heavy lifting. The product earns attention through absence, not noise. Restrained copy, elevated placement, no background clutter. Built for a premium fashion feed where the cost of looking cheap is higher than the cost of saying less.</p>
+        <p class="piece-tag">FOLIA &middot; Botanical Editorial</p>
+        <h2 class="piece-title">Natural ingredients.<br>Intentional composition.</h2>
+        <div class="piece-pills">
+          <span class="piece-pill">Editorial Flatlay</span>
+          <span class="piece-pill">Product Static</span>
+          <span class="piece-pill">Meta Feed 1080&times;1080</span>
+        </div>
+        <p class="piece-desc">Amber pump bottle centred on a teal ground with scattered botanical elements placed to feel studied, not styled. The asymmetric herb placement creates movement without chaos. Copy lands bottom-right: "Botanical extracts. Clinical results." The period after each line slows the reader down. Built for a brand that believes nature and science are not opposites.</p>
       </div>
     </div>
+
+    <!-- 03 PAVO -->
     <div class="piece reveal">
-      <div class="piece-media widescreen">
-        <video src="images/Veil/Veil_Typographic_Animation.mp4" autoplay muted loop playsinline></video>
+      <div class="piece-media">
+        <img src="images/Ad_Creative/Ad_1.png" alt="PAVO Bold Graphic Static Ad" />
+        <span class="piece-spec">Spec</span>
       </div>
       <div class="piece-info">
         <p class="piece-num">03</p>
-        <p class="piece-tag">Veil &middot; Motion</p>
-        <h2 class="piece-title">Typographic Animation.<br>Brand Film</h2>
-        <div class="piece-pills"><span class="piece-pill">After Effects</span><span class="piece-pill">Motion Graphics</span><span class="piece-pill">16&times;9 Brand Film</span></div>
-        <p class="piece-desc">Kinetic typographic sequence revealing the VEIL name through layered fade and position animations. The pacing is deliberate. Every beat held a half-second longer than feels comfortable, which is exactly what makes it feel expensive. No visual noise, no transitions for their own sake. Just the word, the weight, and the timing.</p>
+        <p class="piece-tag">PAVO &middot; Bold Graphic</p>
+        <h2 class="piece-title">Oversized type.<br>Product forward.</h2>
+        <div class="piece-pills">
+          <span class="piece-pill">Bold Graphic</span>
+          <span class="piece-pill">Brand Static</span>
+          <span class="piece-pill">Meta Feed 1080&times;1080</span>
+        </div>
+        <p class="piece-desc">The tube is placed on a diagonal and the brand name bleeds behind it at scale, creating a layered composition where product and type share the same visual weight. "YOUR SKIN AMPLIFIED" runs across two lines at display size: copy that mirrors the product's promise directly. Pink ground, teal type, white product. A confident, scroll-stopping direction for a playful skincare brand that doesn't want to look like everyone else.</p>
       </div>
     </div>
+
   </section>
 
-  <section id="identity">
-    <div class="sec-label reveal">Brand Identity</div>
+  <section id="approach">
+    <div class="sec-label reveal">Creative Approach</div>
     <div class="id-grid reveal">
-      <div class="id-card"><p class="id-label">Creative Direction</p><p class="id-body">The Row, Celine, Toteme energy. Quiet luxury: no logos, no noise, no explanation. Fashion for people who already know. The brand communicates through restraint, not declaration.</p></div>
-      <div class="id-card"><p class="id-label">Typography &amp; Tone</p><p class="id-body">Thin grotesque, generous tracking, lowercase throughout. White on deep ground. Copy is sparse: three words maximum where possible. Typography that breathes, not typography that fills space.</p></div>
-      <div class="id-card"><p class="id-label">Colour &amp; Atmosphere</p><p class="id-body">Near black #0d0b12 &middot; Dusty ivory &middot; Muted violet accent #9b8db0. Colour as atmosphere, not decoration. The palette should feel like a darkened fitting room in a Paris concept store.</p></div>
+      <div class="id-card">
+        <p class="id-label">The Brief</p>
+        <p class="id-body">Demonstrate range across three static ad formats for skincare DTC brands on Meta. Each execution uses the same 1:1 canvas and arrives at a completely different visual solution. Clinical-luxe, botanical-editorial, bold graphic.</p>
+      </div>
+      <div class="id-card">
+        <p class="id-label">What Makes It Work</p>
+        <p class="id-body">Each ad is built to solve a specific creative problem. LEVE proves clinical claims without looking pharmaceutical. FOLIA makes natural ingredients feel intentional, not rustic. PAVO prioritises stopping power over refinement. Three strategies. Three outputs.</p>
+      </div>
+      <div class="id-card">
+        <p class="id-label">Tools &amp; Process</p>
+        <p class="id-body">Adobe Photoshop for compositing, colour grading, and final export. All three are original concept executions demonstrating what elevated static ad creative looks like for skincare brands at the DTC level.</p>
+      </div>
     </div>
   </section>
 
@@ -222,8 +262,14 @@
     <h2 class="cta-title reveal rd1">Ready to make<br>your brand <em>unforgettable?</em></h2>
     <p class="cta-sub reveal rd2">I take on a limited number of retainer clients each month. If you&rsquo;re serious about your creative, let&rsquo;s talk.</p>
     <div class="cta-btns reveal rd3">
-      <a href="https://mail.google.com/mail/?view=cm&to=maroundesigns@gmail.com" target="_blank" rel="noopener" class="btn-primary"><span>Start a Conversation</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.2"/></svg></a>
-      <a href="https://calendly.com/maroundesigns/new-meeting" target="_blank" rel="noopener" class="btn-secondary"><span>Book a Discovery Call</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.2"/></svg></a>
+      <a href="https://mail.google.com/mail/?view=cm&to=maroundesigns@gmail.com" target="_blank" rel="noopener" class="btn-primary">
+        <span>Start a Conversation</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.2"/></svg>
+      </a>
+      <a href="https://calendly.com/maroundesigns/new-meeting" target="_blank" rel="noopener" class="btn-secondary">
+        <span>Book a Discovery Call</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.2"/></svg>
+      </a>
     </div>
   </section>
 
