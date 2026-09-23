@@ -186,7 +186,49 @@
     .identity-package-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
     .identity-package-features li { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 10px; letter-spacing: .04em; }
     .identity-package-features li::before { content: ''; width: 16px; height: 1px; background: var(--gold); flex-shrink: 0; }
+    .identity-package-features li.feature-addon { color: var(--gold); }
     .identity-package-price-block { text-align: right; }
+
+    /* TURNAROUND NOTE */
+    .services-note { display: flex; align-items: center; gap: 10px; margin-top: 20px; font-size: 11px; letter-spacing: .06em; color: var(--muted); }
+    .services-note::before { content: ''; width: 16px; height: 1px; background: var(--gold); opacity: .5; flex-shrink: 0; }
+
+    /* ADD-ON MENU DROPDOWN */
+    .addons { margin-top: 40px; background: var(--off-black); border: 1px solid var(--border); position: relative; }
+    .addons summary { list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 32px 56px; cursor: pointer; transition: background .3s; }
+    .addons summary::-webkit-details-marker { display: none; }
+    .addons summary:hover { background: #161616; }
+    .addons summary:focus-visible { outline: 1px solid var(--gold); outline-offset: -1px; }
+    @media(hover:hover) { .addons summary { cursor: none; } }
+    .addons-label { display: block; font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .addons-title { display: block; font-family: var(--font-display); font-size: 26px; font-weight: 700; line-height: 1.2; }
+    .addons-icon { position: relative; width: 20px; height: 20px; flex-shrink: 0; }
+    .addons-icon::before, .addons-icon::after { content: ''; position: absolute; top: 50%; left: 0; width: 20px; height: 1px; background: var(--gold); transition: transform .3s ease; }
+    .addons-icon::after { transform: rotate(90deg); }
+    .addons[open] .addons-icon::after { transform: rotate(0deg); }
+    .addons-body { padding: 0 56px 48px; border-top: 1px solid var(--border); }
+    .addons[open] .addons-body { animation: fadeUp .45s ease; }
+    .addons-intro { font-family: var(--font-light); font-size: 17px; font-weight: 300; color: var(--muted); line-height: 1.7; max-width: 640px; margin: 36px 0 44px; }
+    .addons-group-label { font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .addons-list { list-style: none; border-top: 1px solid var(--border); margin-bottom: 44px; }
+    .addon { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--border); }
+    .addon-name { font-family: var(--font-display); font-size: 20px; font-weight: 700; line-height: 1.3; margin-bottom: 4px; }
+    .addon-desc { font-family: var(--font-light); font-size: 16px; font-weight: 300; color: var(--muted); line-height: 1.6; }
+    .addon-price { font-family: var(--font-display); font-size: 28px; font-weight: 700; color: var(--gold); white-space: nowrap; text-align: right; }
+    .addon-from { font-family: var(--font-mono); font-size: 10px; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-right: 8px; }
+    .addons-note { display: flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: .06em; color: var(--muted); }
+    .addons-note::before { content: ''; width: 16px; height: 1px; background: var(--gold); flex-shrink: 0; }
+    @media (max-width: 900px) {
+      .addons summary { padding: 28px 24px; }
+      .addons-title { font-size: 22px; }
+      .addons-body { padding: 0 24px 36px; }
+      .addon { gap: 16px; }
+      .addon-price { font-size: 22px; }
+    }
+    @media (max-width: 520px) {
+      .addon { grid-template-columns: 1fr; gap: 8px; }
+      .addon-price { text-align: left; }
+    }
     .identity-package-price { font-family: var(--font-display); font-size: 52px; font-weight: 700; color: var(--gold); line-height: 1; }
     .identity-package-period { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-top: 8px; margin-bottom: 28px; }
     @media (max-width: 900px) { .identity-package { grid-template-columns: 1fr; gap: 32px; padding: 40px 28px; } .identity-package-price-block { text-align: left; } }
@@ -426,10 +468,11 @@
       <div class="service-card reveal">
         <p class="service-num">01</p>
         <h3 class="service-title">Starter</h3>
-        <p class="service-desc">The entry point for brands ready to level up their ad creative. A focused monthly package of static ads built for paid social, delivered consistently every month.</p>
+        <p class="service-desc">The entry point for brands ready to level up their ad creative. Static ads plus a quick-cut motion ad, built for paid social and delivered consistently every month.</p>
         <div class="service-price"><span class="service-price-amount">$1,500</span><span class="service-price-period">/ month</span></div>
         <ul class="service-features">
           <li>4 static ad creatives</li>
+          <li>1 quick-cut motion ad</li>
           <li>2 format sizes per creative</li>
           <li>1 revision round per deliverable</li>
           <li>Meta &amp; TikTok ready</li>
@@ -441,13 +484,14 @@
         <div style="position:absolute;top:0;left:0;right:0;background:var(--gold);padding:8px 0;text-align:center;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--black);font-weight:600;">Most Popular</div>
         <p class="service-num" style="margin-top:28px;">02</p>
         <h3 class="service-title">Growth</h3>
-        <p class="service-desc">The full package. Static ads and motion graphics every month. Everything your brand needs to stay fresh, stop the scroll, and convert consistently.</p>
+        <p class="service-desc">The full package. Static ads and quick-cut motion every month. Everything your brand needs to stay fresh, stop the scroll, and convert consistently.</p>
         <div class="service-price"><span class="service-price-amount">$2,500</span><span class="service-price-period">/ month</span></div>
         <ul class="service-features">
-          <li>8 static ad creatives</li>
-          <li>2 motion graphics pieces</li>
+          <li>6 static ad creatives</li>
+          <li>2 quick-cut motion ads</li>
           <li>3 format sizes per creative</li>
-          <li>Unlimited revisions</li>
+          <li>2 revision rounds per deliverable</li>
+          <li>Meta &amp; TikTok ready</li>
           <li>7 day turnaround</li>
         </ul>
         <a href="#contact" class="service-cta">Get Started <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6H10M10 6L7 3M10 6L7 9" stroke="currentColor" stroke-width="1.2"/></svg></a>
@@ -455,19 +499,87 @@
       <div class="service-card reveal reveal-delay-2">
         <p class="service-num">03</p>
         <h3 class="service-title">Premium</h3>
-        <p class="service-desc">For brands serious about dominating their category. Maximum creative output every month: statics, motion, and a cinematic brand film, with priority turnaround.</p>
+        <p class="service-desc">For brands serious about dominating their category. Maximum creative output every month: statics and quick-cut motion across every format, with priority turnaround.</p>
         <div class="service-price"><span class="service-price-amount">$4,500</span><span class="service-price-period">/ month</span></div>
         <ul class="service-features">
-          <li>12 static ad creatives</li>
-          <li>4 motion graphics pieces</li>
-          <li>1 hero motion piece per month</li>
+          <li>8 static ad creatives</li>
+          <li>4 quick-cut motion ads</li>
           <li>All format sizes</li>
-          <li>Priority 5 day turnaround</li>
-          <li>Unlimited revisions</li>
+          <li>3 revision rounds per deliverable</li>
+          <li>Meta &amp; TikTok ready</li>
+          <li>Priority 7 day turnaround</li>
         </ul>
         <a href="#contact" class="service-cta">Get Started <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6H10M10 6L7 3M10 6L7 9" stroke="currentColor" stroke-width="1.2"/></svg></a>
       </div>
     </div>
+    <p class="services-note reveal">Turnaround is measured to first delivery. Revision rounds are scheduled after your feedback.</p>
+
+    <!-- ADD-ON MENU (collapsed by default) -->
+    <details class="addons reveal">
+      <summary>
+        <span>
+          <span class="addons-label">Add-Ons</span>
+          <span class="addons-title">Need more? Customize your plan.</span>
+        </span>
+        <span class="addons-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="addons-body">
+        <p class="addons-intro">Every plan above is static ads and quick-cut motion. Add exactly what your brand needs on top, month to month.</p>
+
+        <p class="addons-group-label">Flat Rate</p>
+        <ul class="addons-list">
+          <li class="addon">
+            <div>
+              <p class="addon-name">Extra Static Creative</p>
+              <p class="addon-desc">One more static ad creative, delivered in your plan&rsquo;s format sizes.</p>
+            </div>
+            <p class="addon-price">$200</p>
+          </li>
+          <li class="addon">
+            <div>
+              <p class="addon-name">Extra Quick-Cut Motion Ad</p>
+              <p class="addon-desc">One more fast, feed-native motion ad in the same style as your plan.</p>
+            </div>
+            <p class="addon-price">$300</p>
+          </li>
+          <li class="addon">
+            <div>
+              <p class="addon-name">Extra Format Size</p>
+              <p class="addon-desc">An additional aspect ratio or placement for an existing creative.</p>
+            </div>
+            <p class="addon-price">$100</p>
+          </li>
+          <li class="addon">
+            <div>
+              <p class="addon-name">Extra Revision Round</p>
+              <p class="addon-desc">One more round of changes on any deliverable, beyond what your plan includes.</p>
+            </div>
+            <p class="addon-price">$150</p>
+          </li>
+        </ul>
+
+        <p class="addons-group-label">Scoped Per Project &middot; Price and timeline set on a quick call</p>
+        <ul class="addons-list">
+          <li class="addon">
+            <div>
+              <p class="addon-name">Full Motion Graphics Piece</p>
+              <p class="addon-desc">A custom animated piece built in After Effects: kinetic type, product animation, logo reveals.</p>
+            </div>
+            <p class="addon-price"><span class="addon-from">From</span>$800</p>
+          </li>
+          <li class="addon">
+            <div>
+              <p class="addon-name">Hero / Cinematic Piece</p>
+              <p class="addon-desc">A standalone cinematic brand film, built to anchor a full campaign.</p>
+            </div>
+            <p class="addon-price"><span class="addon-from">From</span>$1,500</p>
+          </li>
+        </ul>
+
+        <p class="addons-note">Up to 3 add-ons per month, so every deliverable gets full attention.</p>
+      </div>
+    </details>
+
     <div class="identity-package reveal">
       <div>
         <p class="identity-package-label">One-Time Project</p>
@@ -478,8 +590,8 @@
         <li>Logo + variations</li>
         <li>Color &amp; typography system</li>
         <li>Brand guidelines PDF</li>
-        <li>Logo animation (After Effects)</li>
         <li>3 launch ad creatives</li>
+        <li class="feature-addon">Add logo animation: +$450</li>
       </ul>
       <div class="identity-package-price-block">
         <div class="identity-package-price">$3,500</div>
