@@ -40,9 +40,6 @@
     ::selection { background: var(--gold); color: var(--black); }
     #cursor { position: fixed; width: 8px; height: 8px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); display: none; }
     @media(hover:hover) { #cursor { display: block; } }
-    
-    
-    body.ch 
     ::-webkit-scrollbar { width: 3px; }
     ::-webkit-scrollbar-track { background: var(--black); }
     ::-webkit-scrollbar-thumb { background: var(--gold); }
@@ -80,6 +77,7 @@
     .section-title { font-family: var(--font-display); font-size: clamp(40px,5vw,72px); font-weight: 700; line-height: 1.05; letter-spacing: -.02em; }
     #work { background: var(--black); }
     .work-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 64px; }
+    .work-tagline { font-size: 12px; color: var(--muted); text-align: right; line-height: 1.7; white-space: nowrap; }
 
     /* BRAND INDEX */
     .brand-index { border-top: 1px solid var(--border); }
@@ -375,7 +373,6 @@
       </a>
     </div>
   </section>
-  </div>
 
   <section id="work">
     <div class="work-header">
@@ -383,7 +380,7 @@
         <div class="section-label reveal">Selected Work</div>
         <h2 class="section-title reveal reveal-delay-1">The Portfolio</h2>
       </div>
-      <p class="reveal reveal-delay-2" style="font-size:12px;color:var(--muted);max-width:280px;text-align:right;line-height:1.7;">Three projects. Three distinct aesthetics.<br>One standard of quality.</p>
+      <p class="work-tagline reveal reveal-delay-2">Three projects.<br>Three distinct aesthetics.<br>One standard of quality.</p>
     </div>
 
     <div class="brand-index reveal">
